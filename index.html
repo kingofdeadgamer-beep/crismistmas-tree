@@ -3,29 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>❄️ Winter Magic — Ultra HD Christmas Edition</title>
+  <title>❄️ Winter Magic — Ultra HD Vivid Color Edition</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* =========================================================================
-       WINTER MAGIC — ULTRA HD CHRISTMAS EDITION
-       Sleek Dark Frosted-Glass Thai UI over Pitch-Black ASCII Canvas (#020308)
+       WINTER MAGIC — ULTRA HD VIVID COLOR EDITION
+       Deep Obsidian Canvas (#010308) + High-Contrast Frosted-Glass Thai HUD
        ========================================================================= */
     :root {
-      --bg-void: #020308;
-      --glass-bg: rgba(7, 13, 28, 0.72);
-      --glass-bg-strong: rgba(8, 16, 36, 0.84);
-      --glass-border: rgba(156, 206, 255, 0.20);
-      --glass-border-hover: rgba(190, 228, 255, 0.45);
-      --text-primary: #f2f8ff;
-      --text-secondary: rgba(210, 230, 255, 0.78);
-      --text-muted: rgba(175, 202, 236, 0.62);
-      --accent-ice: #67e8f9;
-      --accent-gold: #fcd34d;
-      --accent-gold-deep: #f59e0b;
-      --accent-emerald: #34d399;
-      --accent-crimson: #fb7185;
+      --bg-void: #010308;
+      --glass-bg: rgba(5, 10, 22, 0.76);
+      --glass-bg-strong: rgba(6, 13, 28, 0.88);
+      --glass-border: rgba(130, 198, 255, 0.22);
+      --glass-border-hover: rgba(180, 226, 255, 0.48);
+      --text-primary: #f5faff;
+      --text-secondary: rgba(214, 234, 255, 0.82);
+      --text-muted: rgba(170, 200, 236, 0.65);
+      --accent-ice: #00e5ff;
+      --accent-gold: #ffd600;
+      --accent-emerald: #00e676;
+      --accent-magenta: #ff4081;
       --font-ui: 'Noto Sans Thai', 'Prompt', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
 
@@ -56,13 +55,13 @@
       background: var(--bg-void);
     }
 
-    /* Subtle cinematic vignette without obstructing clicks */
+    /* Crisp dark-edge frame without adding milky haze */
     #stage::after {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      box-shadow: inset 0 0 95px rgba(0, 2, 10, 0.70);
+      box-shadow: inset 0 0 85px rgba(0, 1, 6, 0.76);
       z-index: 2;
     }
 
@@ -72,6 +71,7 @@
       height: 100%;
       cursor: crosshair;
       touch-action: manipulation;
+      image-rendering: crisp-edges;
     }
 
     /* -------------------------------------------------------------------------
@@ -84,7 +84,7 @@
       z-index: 10;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       padding: 6px 13px;
       border-radius: 999px;
       background: var(--glass-bg);
@@ -95,7 +95,7 @@
       font-weight: 600;
       letter-spacing: 0.02em;
       color: var(--text-primary);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
       transition: opacity 0.4s ease, transform 0.4s ease;
       pointer-events: none;
     }
@@ -104,23 +104,29 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--accent-ice);
-      box-shadow: 0 0 10px var(--accent-ice);
-      animation: pulseDot 2.2s ease-in-out infinite;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulseDot 2.0s ease-in-out infinite;
     }
 
-    .top-badge .res-pill {
+    .top-badge .pill {
       font-size: 10.5px;
-      font-weight: 500;
+      font-weight: 600;
       padding: 2px 7px;
       border-radius: 999px;
-      background: rgba(103, 232, 249, 0.14);
-      border: 1px solid rgba(103, 232, 249, 0.30);
+      background: rgba(0, 229, 255, 0.14);
+      border: 1px solid rgba(0, 229, 255, 0.34);
       color: var(--accent-ice);
     }
 
+    .top-badge .pill.vivid {
+      background: rgba(255, 64, 129, 0.16);
+      border-color: rgba(255, 64, 129, 0.42);
+      color: #ff80ab;
+    }
+
     @keyframes pulseDot {
-      0%, 100% { opacity: 0.6; transform: scale(0.9); }
+      0%, 100% { opacity: 0.65; transform: scale(0.9); }
       50% { opacity: 1; transform: scale(1.25); }
     }
 
@@ -135,18 +141,18 @@
       gap: 10px;
       padding: 8px 18px;
       border-radius: 999px;
-      background: rgba(9, 20, 44, 0.78);
-      border: 1px solid rgba(252, 211, 77, 0.30);
+      background: rgba(6, 14, 32, 0.84);
+      border: 1px solid rgba(255, 214, 0, 0.38);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       font-size: 13px;
       font-weight: 500;
-      color: #fffbeb;
+      color: #fffde7;
       white-space: nowrap;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.55s ease, transform 0.55s ease;
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .stage-toast.visible {
@@ -155,10 +161,10 @@
     }
 
     .stage-progress-track {
-      width: 64px;
+      width: 68px;
       height: 4px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.16);
       overflow: hidden;
     }
 
@@ -166,12 +172,12 @@
       width: 0%;
       height: 100%;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent-ice), var(--accent-gold));
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold), var(--accent-magenta));
       transition: width 0.2s linear;
     }
 
     /* -------------------------------------------------------------------------
-       START SCREEN OVERLAY CARD (FROSTED GLASS)
+       START SCREEN OVERLAY CARD (FROSTED DARK GLASS)
        ------------------------------------------------------------------------- */
     .start-overlay {
       position: fixed;
@@ -181,8 +187,8 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: radial-gradient(circle at 50% 45%, rgba(6, 16, 38, 0.32), rgba(2, 3, 8, 0.68));
-      transition: opacity 0.8s ease, visibility 0.8s ease;
+      background: radial-gradient(circle at 50% 45%, rgba(4, 12, 30, 0.36), rgba(1, 3, 8, 0.78));
+      transition: opacity 0.75s ease, visibility 0.75s ease;
     }
 
     .start-overlay.hidden {
@@ -193,20 +199,20 @@
 
     .start-card {
       width: 100%;
-      max-width: 460px;
+      max-width: 472px;
       padding: 32px 28px 26px;
       border-radius: 26px;
-      background: rgba(8, 16, 34, 0.78);
-      border: 1px solid rgba(165, 215, 255, 0.24);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(6, 12, 26, 0.84);
+      border: 1px solid rgba(130, 200, 255, 0.26);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
       box-shadow:
-        0 24px 64px rgba(0, 0, 0, 0.68),
-        0 0 42px rgba(56, 189, 248, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        0 26px 68px rgba(0, 0, 0, 0.78),
+        0 0 46px rgba(0, 229, 255, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
       text-align: center;
       transform: translateY(0) scale(1);
-      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
     }
 
     .start-overlay.hidden .start-card {
@@ -218,14 +224,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 62px;
-      height: 62px;
+      width: 64px;
+      height: 64px;
       margin-bottom: 14px;
       border-radius: 20px;
-      background: linear-gradient(135deg, rgba(52, 211, 153, 0.18), rgba(252, 211, 77, 0.18));
-      border: 1px solid rgba(252, 211, 77, 0.34);
-      font-size: 30px;
-      box-shadow: 0 0 26px rgba(252, 211, 77, 0.22);
+      background: linear-gradient(135deg, rgba(0, 230, 118, 0.22), rgba(255, 214, 0, 0.22), rgba(255, 64, 129, 0.20));
+      border: 1px solid rgba(255, 214, 0, 0.42);
+      font-size: 32px;
+      box-shadow: 0 0 28px rgba(0, 230, 118, 0.24);
       animation: floatEmblem 3.2s ease-in-out infinite;
     }
 
@@ -235,10 +241,10 @@
     }
 
     .start-title {
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 700;
       letter-spacing: 0.01em;
-      background: linear-gradient(135deg, #ffffff 10%, #bae6fd 52%, #fde68a 95%);
+      background: linear-gradient(135deg, #ffffff 8%, #00e5ff 42%, #00e676 68%, #ffd600 96%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -247,7 +253,7 @@
 
     .start-subtitle {
       font-size: 13.5px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--text-secondary);
       margin-bottom: 22px;
     }
@@ -255,8 +261,8 @@
     .start-btn-primary {
       width: 100%;
       appearance: none;
-      border: 1px solid rgba(254, 240, 138, 0.55);
-      background: linear-gradient(135deg, #0ea5e9 0%, #10b981 52%, #f59e0b 100%);
+      border: 1px solid rgba(255, 234, 0, 0.60);
+      background: linear-gradient(135deg, #00b0ff 0%, #00c853 48%, #ffab00 100%);
       background-size: 160% 160%;
       color: #ffffff;
       font-family: var(--font-ui);
@@ -269,10 +275,10 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
       box-shadow:
-        0 10px 30px rgba(16, 185, 129, 0.35),
-        0 0 24px rgba(252, 211, 77, 0.22);
+        0 10px 30px rgba(0, 200, 83, 0.36),
+        0 0 28px rgba(255, 214, 0, 0.24);
       transition: transform 0.18s ease, box-shadow 0.25s ease, background-position 0.4s ease;
     }
 
@@ -280,8 +286,8 @@
       background-position: 100% 50%;
       transform: translateY(-2px);
       box-shadow:
-        0 14px 36px rgba(14, 165, 233, 0.42),
-        0 0 32px rgba(252, 211, 77, 0.36);
+        0 14px 36px rgba(0, 176, 255, 0.45),
+        0 0 34px rgba(255, 214, 0, 0.40);
     }
 
     .start-btn-primary:active {
@@ -302,14 +308,14 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: rgba(165, 215, 255, 0.16);
+      background: rgba(165, 215, 255, 0.18);
     }
 
     .start-btn-upload {
       width: 100%;
       appearance: none;
-      border: 1px dashed rgba(148, 206, 255, 0.38);
-      background: rgba(255, 255, 255, 0.045);
+      border: 1px dashed rgba(0, 229, 255, 0.42);
+      background: rgba(0, 229, 255, 0.055);
       color: var(--text-primary);
       font-family: var(--font-ui);
       font-size: 13.5px;
@@ -325,8 +331,8 @@
     }
 
     .start-btn-upload:hover {
-      background: rgba(103, 232, 249, 0.12);
-      border-color: rgba(103, 232, 249, 0.65);
+      background: rgba(0, 229, 255, 0.14);
+      border-color: rgba(0, 229, 255, 0.78);
     }
 
     .start-btn-upload:active {
@@ -337,8 +343,8 @@
       margin-top: 12px;
       padding: 8px 12px;
       border-radius: 12px;
-      background: rgba(15, 30, 62, 0.56);
-      border: 1px solid rgba(148, 206, 255, 0.14);
+      background: rgba(12, 24, 52, 0.62);
+      border: 1px solid rgba(148, 206, 255, 0.16);
       font-size: 12px;
       color: var(--text-secondary);
       display: flex;
@@ -351,9 +357,9 @@
     }
 
     .start-track-status.custom {
-      border-color: rgba(52, 211, 153, 0.42);
-      background: rgba(16, 185, 129, 0.12);
-      color: #a7f3d0;
+      border-color: rgba(0, 230, 118, 0.50);
+      background: rgba(0, 200, 83, 0.14);
+      color: #b9f6ca;
     }
 
     .start-hint-footer {
@@ -372,7 +378,7 @@
       z-index: 50;
       border-radius: 24px;
       border: 2px dashed var(--accent-ice);
-      background: rgba(5, 16, 38, 0.84);
+      background: rgba(3, 12, 30, 0.88);
       backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
@@ -397,7 +403,7 @@
     .drop-overlay .label {
       font-size: 18px;
       font-weight: 600;
-      color: #e0f2fe;
+      color: #e0f7fa;
     }
 
     /* -------------------------------------------------------------------------
@@ -405,7 +411,7 @@
        ------------------------------------------------------------------------- */
     .control-bar {
       position: fixed;
-      bottom: 14px;
+      bottom: 12px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 15;
@@ -413,16 +419,16 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      max-width: calc(100vw - 20px);
-      padding: 7px 10px;
+      gap: 5px;
+      max-width: calc(100vw - 16px);
+      padding: 7px 9px;
       border-radius: 18px;
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.62);
-      opacity: 0.84;
+      box-shadow: 0 14px 44px rgba(0, 0, 0, 0.72);
+      opacity: 0.86;
       transition: opacity 0.35s ease, transform 0.35s ease, background 0.35s ease;
     }
 
@@ -436,22 +442,22 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      padding: 2px 5px;
+      padding: 3px 7px;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(160, 210, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(150, 205, 255, 0.12);
     }
 
     .ctrl-btn {
       appearance: none;
-      border: 1px solid rgba(160, 210, 255, 0.14);
-      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(150, 205, 255, 0.16);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--text-primary);
       font-family: var(--font-ui);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 500;
       line-height: 1.2;
-      padding: 7px 11px;
+      padding: 7px 10px;
       border-radius: 11px;
       cursor: pointer;
       display: inline-flex;
@@ -462,9 +468,9 @@
     }
 
     .ctrl-btn:hover {
-      background: rgba(125, 211, 252, 0.16);
+      background: rgba(0, 229, 255, 0.16);
       border-color: var(--glass-border-hover);
-      box-shadow: 0 0 12px rgba(103, 232, 249, 0.18);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.22);
     }
 
     .ctrl-btn:active {
@@ -472,38 +478,83 @@
     }
 
     .ctrl-btn.active {
-      background: rgba(103, 232, 249, 0.20);
-      border-color: rgba(103, 232, 249, 0.52);
+      background: rgba(0, 229, 255, 0.20);
+      border-color: rgba(0, 229, 255, 0.56);
       color: #ffffff;
     }
 
-    .ctrl-btn.gold-accent:hover {
-      background: rgba(252, 211, 77, 0.18);
-      border-color: rgba(252, 211, 77, 0.55);
-      box-shadow: 0 0 14px rgba(252, 211, 77, 0.22);
+    .ctrl-btn.vivid-btn {
+      background: rgba(255, 64, 129, 0.16);
+      border-color: rgba(255, 64, 129, 0.45);
+      color: #ffe0ec;
     }
 
-    .track-chip {
-      max-width: 145px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+    .ctrl-btn.vivid-btn:hover {
+      background: rgba(255, 64, 129, 0.28);
+      border-color: rgba(255, 128, 171, 0.75);
+      box-shadow: 0 0 14px rgba(255, 64, 129, 0.30);
+    }
+
+    .ctrl-btn.gold-accent:hover {
+      background: rgba(255, 214, 0, 0.20);
+      border-color: rgba(255, 214, 0, 0.62);
+      box-shadow: 0 0 14px rgba(255, 214, 0, 0.28);
+    }
+
+    .ctrl-btn.muted {
+      background: rgba(255, 23, 68, 0.22);
+      border-color: rgba(255, 82, 82, 0.56);
+      color: #ffcdd2;
+    }
+
+    .slider-label {
       font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .slider-val {
+      min-width: 34px;
+      text-align: right;
+      font-size: 11px;
+      font-weight: 600;
       color: var(--accent-gold);
-      padding: 0 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slider-val.boosted {
+      color: #ff6e40;
     }
 
     .vol-slider {
-      width: 64px;
+      width: 62px;
       height: 4px;
       accent-color: var(--accent-ice);
       cursor: pointer;
     }
 
+    .vol-slider.sfx {
+      accent-color: var(--accent-gold);
+    }
+
+    .track-chip {
+      max-width: 112px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 11px;
+      color: var(--accent-emerald);
+      padding: 0 3px;
+    }
+
     .res-select {
       appearance: none;
-      border: 1px solid rgba(160, 210, 255, 0.18);
-      background: rgba(14, 28, 56, 0.78);
+      border: 1px solid rgba(150, 205, 255, 0.20);
+      background: rgba(10, 22, 46, 0.85);
       color: var(--text-primary);
       font-family: var(--font-ui);
       font-size: 12px;
@@ -518,10 +569,10 @@
     .res-select:hover,
     .res-select:focus {
       border-color: var(--accent-ice);
-      background: rgba(20, 40, 78, 0.92);
+      background: rgba(16, 34, 68, 0.95);
     }
 
-    /* Hidden HUD or Idle State */
+    /* Hidden HUD or Pre-Start State */
     body.pre-start .control-bar {
       opacity: 0;
       pointer-events: none;
@@ -548,8 +599,8 @@
       right: 14px;
       z-index: 18;
       appearance: none;
-      border: 1px solid rgba(160, 210, 255, 0.24);
-      background: rgba(8, 16, 34, 0.58);
+      border: 1px solid rgba(160, 210, 255, 0.28);
+      background: rgba(6, 14, 30, 0.68);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       color: var(--text-secondary);
@@ -565,7 +616,7 @@
     }
 
     body.hud-hidden .restore-hud-btn {
-      opacity: 0.72;
+      opacity: 0.78;
       pointer-events: auto;
       transform: scale(1);
     }
@@ -573,56 +624,56 @@
     .restore-hud-btn:hover {
       opacity: 1 !important;
       color: #ffffff;
-      background: rgba(16, 34, 68, 0.90);
+      background: rgba(14, 30, 62, 0.92);
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 820px) {
       .top-badge {
         top: 10px;
         left: 10px;
         padding: 5px 10px;
-        font-size: 11.5px;
+        font-size: 11px;
       }
 
       .stage-toast {
-        top: 48px;
-        font-size: 12px;
-        padding: 6px 13px;
+        top: 46px;
+        font-size: 11.5px;
+        padding: 6px 12px;
       }
 
       .start-card {
-        padding: 24px 20px 20px;
+        padding: 24px 18px 20px;
       }
 
       .start-title {
-        font-size: 21px;
+        font-size: 20px;
       }
 
       .control-bar {
-        bottom: 10px;
-        padding: 6px 7px;
+        bottom: 8px;
+        padding: 5px 6px;
         gap: 4px;
       }
 
       .ctrl-btn {
-        font-size: 11.5px;
+        font-size: 11px;
         padding: 6px 8px;
-      }
-
-      .track-chip {
-        max-width: 96px;
       }
 
       .vol-slider {
         width: 48px;
+      }
+
+      .track-chip {
+        max-width: 76px;
       }
     }
   </style>
 </head>
 <body class="pre-start">
   <div id="stage">
-    <!-- Full-Viewport High-DPI Colored ASCII + Bloom Canvas -->
-    <canvas id="asciiCanvas" aria-label="Winter Magic Ultra HD Colored ASCII Christmas Tree"></canvas>
+    <!-- Full-Viewport High-DPI Vivid Colored ASCII + Tight Bloom Canvas -->
+    <canvas id="asciiCanvas" aria-label="Winter Magic Ultra HD Vivid Color ASCII Christmas Tree"></canvas>
 
     <!-- Hidden File Input & Custom Audio Element -->
     <input type="file" id="audioFileInput" accept="audio/*,.mp3,.wav,.ogg,.m4a" hidden>
@@ -632,7 +683,8 @@
     <div class="top-badge" id="topBadge">
       <span class="dot"></span>
       <span>❄️ Winter Magic</span>
-      <span class="res-pill" id="badgeResText">Ultra HD</span>
+      <span class="pill vivid" id="badgeColorText">สีสดคมชัด</span>
+      <span class="pill" id="badgeResText">Ultra HD</span>
     </div>
 
     <!-- Non-Intrusive Choreographed Build-Stage Toast -->
@@ -647,10 +699,10 @@
     <div class="start-overlay" id="startOverlay">
       <div class="start-card">
         <div class="start-emblem">🎄</div>
-        <h1 class="start-title">✨ Winter Magic Ultra HD</h1>
+        <h1 class="start-title">Winter Magic — Vivid Color Edition</h1>
         <p class="start-subtitle">
-          ต้นคริสต์มาสแสงสี ASCII ความละเอียดสูงแบบเรียลไทม์<br>
-          พร้อมการก่อตัวทีละชั้น พลุ 5 รูปแบบ และบทเพลงคริสต์มาส
+          ต้นคริสต์มาสแสงสี ASCII ความละเอียดสูงระดับ Ultra HD<br>
+          สีสดคมชัดพิเศษแบบ Chroma-HDR พร้อมพลุเสียงแน่น 5 รูปแบบ และบทเพลงคริสต์มาส
         </p>
 
         <button type="button" class="start-btn-primary" id="btnStartShow">
@@ -684,6 +736,17 @@
 
     <!-- Bottom-Center Collapsible Frosted-Glass Thai Control Bar -->
     <nav class="control-bar" id="controlBar" aria-label="แผงควบคุม Winter Magic">
+      <button type="button" class="ctrl-btn vivid-btn" id="btnColorMode" title="สลับโหมดความชัดและความสดของสี">
+        <span>🎨</span>
+        <span id="colorModeLabel">สี: สดคมชัด</span>
+      </button>
+
+      <select class="res-select" id="resSelect" aria-label="ความละเอียด ASCII" title="เลือกความละเอียด ASCII">
+        <option value="ultrahd" selected>✨ Ultra HD</option>
+        <option value="4k">✨ 4K Dense</option>
+        <option value="classic">✨ Retro ASCII</option>
+      </select>
+
       <button type="button" class="ctrl-btn" id="btnReplay" title="เริ่มฉากก่อตัวต้นคริสต์มาสใหม่ (R)">
         <span>🔄</span>
         <span>เล่นซ้ำ</span>
@@ -691,30 +754,7 @@
 
       <button type="button" class="ctrl-btn gold-accent" id="btnSalvo" title="จุดพลุชุดใหญ่ประสานเสียง (Space)">
         <span>🎆</span>
-        <span>จุดพลุชุดใหญ่</span>
-      </button>
-
-      <!-- Music Playback + Track Name + Volume + Upload -->
-      <div class="ctrl-group">
-        <button type="button" class="ctrl-btn active" id="btnPlayPause" title="เล่น / หยุดเพลงชั่วคราว">
-          <span id="playPauseIcon">⏸️</span>
-          <span>เพลง</span>
-        </button>
-        <span class="track-chip" id="hudTrackName" title="เพลงที่กำลังเล่น">Let It Snow!</span>
-        <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="72" title="ปรับระดับเสียงเพลง">
-        <button type="button" class="ctrl-btn" id="btnHudUpload" title="แนบไฟล์เพลงของคุณ (.mp3 / .wav)">
-          <span>📂</span>
-          <span>เพิ่มเพลง</span>
-        </button>
-        <button type="button" class="ctrl-btn" id="btnUseBuiltIn" title="กลับไปใช้เพลงเมดเลย์คริสต์มาสในตัว" style="display:none;">
-          <span>🎼</span>
-          <span>เพลงในตัว</span>
-        </button>
-      </div>
-
-      <button type="button" class="ctrl-btn active" id="btnSfx" title="เปิด / ปิดเสียงพลุ">
-        <span id="sfxIcon">💥</span>
-        <span id="sfxLabel">เสียงพลุ: เปิด</span>
+        <span>จุดพลุ</span>
       </button>
 
       <button type="button" class="ctrl-btn" id="btnSnow" title="ปรับความหนาแน่นของหิมะ (เบา / กลาง / หนัก)">
@@ -722,15 +762,47 @@
         <span id="snowLabel">หิมะ: กลาง</span>
       </button>
 
-      <select class="res-select" id="resSelect" aria-label="ความละเอียด ASCII" title="เลือกความละเอียด ASCII">
-        <option value="ultrahd" selected>🖥️ ละเอียดมาก (Ultra HD)</option>
-        <option value="4k">🖥️ คมชัดพิเศษ (4K Dense)</option>
-        <option value="classic">🖥️ คลาสสิก (Retro ASCII)</option>
-      </select>
+      <!-- Music Playback & File Upload Group -->
+      <div class="ctrl-group">
+        <button type="button" class="ctrl-btn active" id="btnPlayPause" title="เล่น / หยุดเพลงชั่วคราว">
+          <span id="playPauseIcon">⏸️</span>
+        </button>
+        <span class="track-chip" id="hudTrackName" title="เพลงที่กำลังเล่น">Let It Snow!</span>
+        <button type="button" class="ctrl-btn" id="btnHudUpload" title="แนบไฟล์เพลงของคุณ (.mp3 / .wav)">
+          <span>🎵</span>
+          <span>เลือกไฟล์เพลง</span>
+        </button>
+        <button type="button" class="ctrl-btn" id="btnUseBuiltIn" title="กลับไปใช้เพลงเมดเลย์คริสต์มาสในตัว" style="display:none;">
+          <span>🎼</span>
+          <span>เพลงในตัว</span>
+        </button>
+      </div>
 
-      <button type="button" class="ctrl-btn" id="btnHideHud" title="ซ่อนเมนูเพื่อรับชมเต็มจอ (กด H)">
-        <span>👁️</span>
-        <span>ซ่อนเมนู</span>
+      <!-- Separate Firework Mastering Volume (0–150% Boost) & Music Volume (0–100%) -->
+      <div class="ctrl-group">
+        <label class="slider-label" for="sfxSlider" title="ปรับระดับเสียงพลุ (เร่งพลังได้ถึง 150%)">
+          <span>💥 เสียงพลุ</span>
+          <input type="range" class="vol-slider sfx" id="sfxSlider" min="0" max="150" value="100">
+          <span class="slider-val" id="sfxVal">100%</span>
+        </label>
+      </div>
+
+      <div class="ctrl-group">
+        <label class="slider-label" for="musicSlider" title="ปรับระดับเสียงเพลงประกอบ">
+          <span>🎵 เสียงเพลง</span>
+          <input type="range" class="vol-slider" id="musicSlider" min="0" max="100" value="45">
+          <span class="slider-val" id="musicVal">45%</span>
+        </label>
+      </div>
+
+      <button type="button" class="ctrl-btn" id="btnMuteAll" title="ปิด / เปิดเสียงทั้งหมด (M)">
+        <span id="muteIcon">🔊</span>
+        <span id="muteLabel">ปิดเสียง (M)</span>
+      </button>
+
+      <button type="button" class="ctrl-btn" id="btnHideHud" title="ซ่อนเมนูเพื่อรับชมเต็มจอ (H)">
+        <span>👁</span>
+        <span>ซ่อนเมนู (H)</span>
       </button>
     </nav>
 
@@ -762,7 +834,7 @@
         return 1 + c3 * x * x * x + c1 * x * x;
       };
 
-      // Mulberry32 deterministic PRNG for stable sculpted forests & tree decorations across resizes
+      // Mulberry32 deterministic PRNG for stable forests & decorations across resizes
       function createRng(seed) {
         let a = seed >>> 0;
         return function rand() {
@@ -774,14 +846,15 @@
         };
       }
 
-      // MIDI note number to frequency (Hz)
       const midiToHz = (m) => 440 * Math.pow(2, (m - 69) / 12);
 
       /* =======================================================================
-         2. CLASSIC CHRISTMAS MEDLEY SYNTH + CUSTOM AUDIO + ANALYSER ENGINE
-            Plays "Let It Snow!", "White Christmas", & "Jingle Bells" with
-            warm Rhodes piano chords, upright bass, celesta lead, string pad,
-            and sleigh bells — OR seamlessly plays any uploaded audio file!
+         2. VINTAGE HOLIDAY MUSIC + HIGH-POWER FIREWORK MASTERING AUDIO ENGINE
+            - Music Bus: Built-in 3-song Christmas medley OR custom MP3/WAV
+              routed through AnalyserNode (default 45% so fireworks punch clearly)
+            - Firework Mastering Bus: Stereo Panning -> Low-Shelf Bass Boost
+              (+7dB @ 95Hz) -> Warm Soft Clipper -> DynamicsCompressor Limiter
+              -> High-Power Makeup Gain (0-150% Boost, default 100%)
          ======================================================================= */
       class HolidayAudioEngine {
         constructor(audioEl, onTrackChange) {
@@ -789,94 +862,89 @@
           this.onTrackChange = onTrackChange;
 
           this.ctx = null;
+          this.masterGain = null;
           this.musicGain = null;
-          this.sfxGain = null;
           this.analyser = null;
           this.delayBus = null;
           this.mediaSource = null;
           this.freqData = null;
+
+          // Dedicated Firework Mastering Chain nodes
+          this.sfxInput = null;
+          this.sfxLowShelf = null;
+          this.sfxClipper = null;
+          this.sfxLimiter = null;
+          this.sfxMakeupGain = null;
 
           this.mode = 'builtin'; // 'builtin' | 'custom'
           this.customTrackName = '';
           this.customObjectUrl = null;
 
           this.isPlaying = false;
-          this.sfxEnabled = true;
-          this.volume = 0.72;
+          this.isMuted = false;
+          this.musicVolume = 0.45; // Default 45% so loud fireworks shine above music
+          this.sfxVolume = 1.00;   // Default 100% (range 0.00 - 1.50 Boost)
 
-          // Real-time music reactivity values (0..1)
+          // Real-time audio reactivity energy (0..1)
           this.bassEnergy = 0;
           this.trebleEnergy = 0;
 
-          // Sequencer state
+          // Sequencer & noise buffers
           this.songIdx = 0;
           this.stepIdx = 0;
           this.stepTimer = 0;
           this.beatAccum = 0;
-          this.noiseBuf = null;
+          this.whiteNoiseBuf = null;
+          this.pinkNoiseBuf = null;
+          this.lastCrossetteSfxTime = 0;
 
           this.buildMedleySongs();
         }
 
-        /* ---------------------------------------------------------------------
-           3-Song Classic Holiday Medley Arrangements (Accurate Melodies & Chords)
-           Each event: { m: melodyMidi (0=rest), b: beats, ch?: chordMidiArray, bass?: bassMidi }
-           --------------------------------------------------------------------- */
         buildMedleySongs() {
-          // 1. "Let It Snow! Let It Snow! Let It Snow!" (Key of F Major, swinging vintage feel)
+          // 1. "Let It Snow! Let It Snow! Let It Snow!" (F Major)
           const letItSnow = {
             title: 'Let It Snow! (ในตัว)',
             bpm: 124,
             sleigh: true,
             events: [
-              // Pickup: "Oh the"
               { m: 60, b: 0.5 }, { m: 60, b: 0.5 },
-              // "wea-ther out-side is fright-ful" (Fmaj7 -> C7)
               { m: 72, b: 0.75, ch: [53, 57, 60, 64], bass: 41 }, { m: 72, b: 0.25 },
               { m: 70, b: 1.0 }, { m: 69, b: 1.0 }, { m: 67, b: 1.0 },
               { m: 65, b: 1.5, ch: [55, 58, 60, 64], bass: 48 }, { m: 60, b: 1.5 },
-              // "But the"
               { m: 60, b: 0.5 }, { m: 60, b: 0.5 },
-              // "fi-re is so de-light-ful" (Gm7 -> C9)
               { m: 70, b: 0.75, ch: [55, 58, 62, 65], bass: 43 }, { m: 70, b: 0.25 },
               { m: 69, b: 1.0 }, { m: 67, b: 1.0 }, { m: 65, b: 1.0 },
               { m: 64, b: 2.5, ch: [52, 58, 62, 67], bass: 48 }, { m: 0, b: 0.5 },
-              // "And since we've no place to go" (C7 -> Gm7 -> C7)
               { m: 62, b: 0.5 }, { m: 64, b: 0.5 },
               { m: 65, b: 0.75, ch: [55, 58, 62, 65], bass: 43 }, { m: 65, b: 0.25 },
               { m: 64, b: 1.0 }, { m: 62, b: 1.0 }, { m: 60, b: 1.0, ch: [52, 58, 60, 64], bass: 48 },
               { m: 69, b: 1.5, ch: [53, 57, 60, 65], bass: 41 }, { m: 67, b: 1.5 },
-              // "Let it snow, let it snow, let it snow!" (Gm7 -> C7 -> F6)
               { m: 67, b: 0.5, ch: [55, 58, 62, 65], bass: 43 }, { m: 65, b: 0.5 }, { m: 64, b: 1.0 },
               { m: 64, b: 0.5, ch: [52, 58, 60, 67], bass: 48 }, { m: 62, b: 0.5 }, { m: 60, b: 1.0 },
               { m: 60, b: 0.5 }, { m: 62, b: 0.5 }, { m: 65, b: 3.0, ch: [53, 57, 62, 65], bass: 41 },
-              // Gentle turnaround sparkle
               { m: 69, b: 0.5, ch: [55, 58, 62, 65], bass: 43 }, { m: 67, b: 0.5 },
               { m: 65, b: 0.5, ch: [52, 58, 60, 64], bass: 48 }, { m: 64, b: 0.5 }, { m: 0, b: 1.0 }
             ]
           };
 
-          // 2. "White Christmas" (Key of C Major, dreamy nostalgic ballad)
+          // 2. "White Christmas" (C Major)
           const whiteChristmas = {
             title: 'White Christmas (ในตัว)',
             bpm: 94,
             sleigh: false,
             events: [
-              // "I'm dream-ing of a white Christ-mas" (Cmaj7 -> Dm7 -> G7)
               { m: 64, b: 2.0, ch: [48, 52, 55, 59], bass: 36 },
               { m: 65, b: 0.5 }, { m: 64, b: 0.5 }, { m: 63, b: 0.5 }, { m: 64, b: 0.5 },
               { m: 65, b: 2.0, ch: [50, 53, 57, 60], bass: 38 },
               { m: 66, b: 0.5 }, { m: 67, b: 1.5, ch: [50, 53, 55, 59], bass: 43 },
-              // "Just like the ones I used to know" (Fmaj7 -> G7 -> Cmaj7)
               { m: 69, b: 1.0, ch: [53, 57, 60, 64], bass: 41 },
               { m: 71, b: 1.0 }, { m: 72, b: 1.0, ch: [50, 55, 59, 62], bass: 43 }, { m: 74, b: 1.0 },
               { m: 72, b: 1.0, ch: [48, 52, 55, 60], bass: 36 }, { m: 71, b: 1.0 }, { m: 69, b: 1.0 }, { m: 67, b: 1.0 },
-              // "Where the tree-tops glis-ten" (Fmaj7 -> Fm6)
               { m: 60, b: 0.5 }, { m: 62, b: 0.5 },
               { m: 64, b: 1.5, ch: [53, 57, 60, 64], bass: 41 }, { m: 64, b: 0.5 },
               { m: 64, b: 1.0 }, { m: 69, b: 1.0, ch: [53, 56, 60, 62], bass: 41 },
               { m: 67, b: 2.0, ch: [48, 52, 55, 60], bass: 36 }, { m: 0, b: 1.0 },
-              // "And chil-dren lis-ten to hear sleigh bells in the snow" (Dm7 -> G7 -> Cmaj9)
               { m: 60, b: 0.5 }, { m: 62, b: 0.5 },
               { m: 64, b: 1.5, ch: [50, 53, 57, 60], bass: 38 }, { m: 64, b: 0.5 },
               { m: 64, b: 1.0 }, { m: 69, b: 1.0, ch: [50, 53, 55, 59], bass: 43 },
@@ -885,23 +953,20 @@
             ]
           };
 
-          // 3. "Jingle Bells" (Key of G Major, joyful holiday swing)
+          // 3. "Jingle Bells" (G Major)
           const jingleBells = {
             title: 'Jingle Bells (ในตัว)',
             bpm: 140,
             sleigh: true,
             events: [
-              // "Jin-gle bells, jin-gle bells, jin-gle all the way" (Gmaj7)
               { m: 71, b: 1.0, ch: [55, 59, 62, 66], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
               { m: 71, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
               { m: 71, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 74, b: 1.0 }, { m: 67, b: 1.5 }, { m: 69, b: 0.5 },
               { m: 71, b: 3.5, ch: [55, 59, 62, 66], bass: 43 }, { m: 0, b: 0.5 },
-              // "Oh what fun it is to ride in a one-horse o-pen sleigh" (Cmaj7 -> G -> A7 -> D7)
               { m: 72, b: 1.0, ch: [55, 60, 64, 67], bass: 48 }, { m: 72, b: 1.0 }, { m: 72, b: 1.5 }, { m: 72, b: 0.5 },
               { m: 72, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 1.0 }, { m: 71, b: 0.5 }, { m: 71, b: 0.5 },
               { m: 71, b: 1.0, ch: [55, 57, 61, 64], bass: 45 }, { m: 69, b: 1.0 }, { m: 69, b: 1.0 }, { m: 71, b: 1.0 },
               { m: 69, b: 2.0, ch: [54, 57, 60, 62], bass: 38 }, { m: 74, b: 2.0 },
-              // Second half resolution -> G6
               { m: 71, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
               { m: 71, b: 1.0 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
               { m: 71, b: 1.0, ch: [55, 60, 64, 67], bass: 48 }, { m: 74, b: 1.0 }, { m: 67, b: 1.5 }, { m: 69, b: 0.5 },
@@ -913,6 +978,18 @@
           };
 
           this.songs = [letItSnow, whiteChristmas, jingleBells];
+        }
+
+        // Warm analog-style tanh soft clipping curve for punchy fireworks without harsh digital clipping
+        createSoftClipCurve(drive = 2.4) {
+          const n = 2048;
+          const curve = new Float32Array(n);
+          const norm = Math.tanh(drive);
+          for (let i = 0; i < n; i++) {
+            const x = (i * 2) / n - 1;
+            curve[i] = Math.tanh(x * drive) / norm;
+          }
+          return curve;
         }
 
         initContext() {
@@ -927,23 +1004,25 @@
             if (!AudioCtx) return false;
             this.ctx = new AudioCtx();
 
-            // Analyser for real-time music reactivity (both built-in synth & custom audio file!)
+            // Master Mute Bus
+            this.masterGain = this.ctx.createGain();
+            this.masterGain.gain.value = this.isMuted ? 0.0001 : 1.0;
+            this.masterGain.connect(this.ctx.destination);
+
+            // Music Bus + Real-Time AnalyserNode
             this.analyser = this.ctx.createAnalyser();
             this.analyser.fftSize = 256;
-            this.analyser.smoothingTimeConstant = 0.80;
+            this.analyser.smoothingTimeConstant = 0.78;
             this.freqData = new Uint8Array(this.analyser.frequencyBinCount);
 
             this.musicGain = this.ctx.createGain();
-            this.musicGain.gain.value = this.volume;
+            this.musicGain.gain.value = this.musicVolume;
 
-            this.sfxGain = this.ctx.createGain();
-            this.sfxGain.gain.value = this.sfxEnabled ? 0.65 : 0.0001;
-
-            // Warm stereo-like shimmer echo bus for built-in vintage orchestra
+            // Warm vintage shimmer delay for built-in Christmas medley
             this.delayBus = this.ctx.createDelay(1.0);
             this.delayBus.delayTime.value = 0.28;
             const fb = this.ctx.createGain();
-            fb.gain.value = 0.30;
+            fb.gain.value = 0.28;
             const lpf = this.ctx.createBiquadFilter();
             lpf.type = 'lowpass';
             lpf.frequency.value = 2400;
@@ -954,30 +1033,93 @@
             lpf.connect(this.musicGain);
 
             this.musicGain.connect(this.analyser);
-            this.analyser.connect(this.ctx.destination);
-            this.sfxGain.connect(this.ctx.destination);
+            this.analyser.connect(this.masterGain);
 
-            // Connect custom HTML5 <audio> element once to the same musicGain -> analyser pipeline
+            // Connect custom HTML5 <audio> element once into musicGain -> analyser
             if (!this.mediaSource && this.audioEl) {
               try {
                 this.mediaSource = this.ctx.createMediaElementSource(this.audioEl);
                 this.mediaSource.connect(this.musicGain);
               } catch (e) {
-                // Fallback if already bound
+                // Ignore if already attached
               }
             }
 
-            // Precompute reusable white noise buffer for sleigh bells & firework bursts
-            const len = Math.floor(this.ctx.sampleRate * 1.0);
-            this.noiseBuf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
-            const data = this.noiseBuf.getChannelData(0);
+            // =================================================================
+            // DEDICATED HIGH-POWER FIREWORK MASTERING BUS
+            // sfxInput -> LowShelf (+7dB @ 95Hz) -> SoftClipper -> Limiter -> MakeupGain
+            // =================================================================
+            this.sfxInput = this.ctx.createGain();
+            this.sfxInput.gain.value = 1.0;
+
+            this.sfxLowShelf = this.ctx.createBiquadFilter();
+            this.sfxLowShelf.type = 'lowshelf';
+            this.sfxLowShelf.frequency.value = 95;
+            this.sfxLowShelf.gain.value = 7.0; // +7dB deep winter bass punch
+
+            this.sfxClipper = this.ctx.createWaveShaper();
+            this.sfxClipper.curve = this.createSoftClipCurve(2.35);
+            this.sfxClipper.oversample = '2x';
+
+            this.sfxLimiter = this.ctx.createDynamicsCompressor();
+            this.sfxLimiter.threshold.value = -13;
+            this.sfxLimiter.knee.value = 10;
+            this.sfxLimiter.ratio.value = 6.5;
+            this.sfxLimiter.attack.value = 0.002;
+            this.sfxLimiter.release.value = 0.14;
+
+            this.sfxMakeupGain = this.ctx.createGain();
+            this.sfxMakeupGain.gain.value = this.computeSfxGain(this.sfxVolume);
+
+            this.sfxInput.connect(this.sfxLowShelf);
+            this.sfxLowShelf.connect(this.sfxClipper);
+            this.sfxClipper.connect(this.sfxLimiter);
+            this.sfxLimiter.connect(this.sfxMakeupGain);
+            this.sfxMakeupGain.connect(this.masterGain);
+
+            // Precompute White Noise + Rich Pink Noise buffers (Paul Kellet's filter)
+            const len = Math.floor(this.ctx.sampleRate * 1.4);
+            this.whiteNoiseBuf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+            this.pinkNoiseBuf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+            const wData = this.whiteNoiseBuf.getChannelData(0);
+            const pData = this.pinkNoiseBuf.getChannelData(0);
+
+            let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
             for (let i = 0; i < len; i++) {
-              data[i] = Math.random() * 2 - 1;
+              const white = Math.random() * 2 - 1;
+              wData[i] = white;
+              b0 = 0.99886 * b0 + white * 0.0555179;
+              b1 = 0.99332 * b1 + white * 0.0750759;
+              b2 = 0.96900 * b2 + white * 0.1538520;
+              b3 = 0.86650 * b3 + white * 0.3104856;
+              b4 = 0.55000 * b4 + white * 0.5329522;
+              b5 = -0.7616 * b5 - white * 0.0168980;
+              const pink = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.14;
+              b6 = white * 0.115926;
+              pData[i] = clamp(pink, -1, 1);
             }
+
             return true;
           } catch (e) {
             return false;
           }
+        }
+
+        computeSfxGain(vol0to150) {
+          if (vol0to150 <= 0.001) return 0.0001;
+          // Loud commanding mastering makeup gain (~1.65 at 100%, up to ~2.65 at 150% Boost)
+          return Math.pow(vol0to150, 1.15) * 1.65;
+        }
+
+        createPanner(nx) {
+          const panVal = clamp((nx - 0.5) * 1.75, -0.88, 0.88);
+          if (typeof this.ctx.createStereoPanner === 'function') {
+            const pan = this.ctx.createStereoPanner();
+            pan.pan.value = panVal;
+            pan.connect(this.sfxInput);
+            return pan;
+          }
+          return this.sfxInput;
         }
 
         getCurrentTrackLabel() {
@@ -1043,28 +1185,35 @@
           return this.isPlaying;
         }
 
-        setVolume(v01) {
-          this.volume = clamp(v01, 0, 1);
+        setMusicVolume(v01) {
+          this.musicVolume = clamp(v01, 0, 1);
           if (this.musicGain && this.ctx) {
-            this.musicGain.gain.setTargetAtTime(this.volume, this.ctx.currentTime, 0.04);
+            this.musicGain.gain.setTargetAtTime(this.musicVolume, this.ctx.currentTime, 0.04);
           }
         }
 
-        toggleSfx() {
-          this.sfxEnabled = !this.sfxEnabled;
-          if (this.sfxGain && this.ctx) {
-            this.sfxGain.gain.setTargetAtTime(this.sfxEnabled ? 0.65 : 0.0001, this.ctx.currentTime, 0.04);
+        setSfxVolume(v0to15) {
+          this.sfxVolume = clamp(v0to15, 0, 1.5);
+          if (this.sfxMakeupGain && this.ctx) {
+            this.sfxMakeupGain.gain.setTargetAtTime(this.computeSfxGain(this.sfxVolume), this.ctx.currentTime, 0.04);
           }
-          return this.sfxEnabled;
+        }
+
+        toggleMuteAll() {
+          this.initContext();
+          this.isMuted = !this.isMuted;
+          if (this.masterGain && this.ctx) {
+            this.masterGain.gain.setTargetAtTime(this.isMuted ? 0.0001 : 1.0, this.ctx.currentTime, 0.03);
+          }
+          return this.isMuted;
         }
 
         /* ---------------------------------------------------------------------
-           Vintage Holiday Instrument Voices (Celesta, Rhodes, Bass, Strings, Bells)
+           Vintage Holiday Instrument Voices (Celesta, Rhodes, Bass, Bells)
            --------------------------------------------------------------------- */
         playCelestaLead(freq, durSec) {
           if (!this.ctx || !this.musicGain) return;
           const now = this.ctx.currentTime;
-
           const o1 = this.ctx.createOscillator();
           const o2 = this.ctx.createOscillator();
           const g1 = this.ctx.createGain();
@@ -1101,7 +1250,6 @@
           const now = this.ctx.currentTime;
           const hold = Math.min(2.6, Math.max(0.75, durSec));
 
-          // Shared gentle warm filter
           const filter = this.ctx.createBiquadFilter();
           filter.type = 'lowpass';
           filter.frequency.setValueAtTime(1450, now);
@@ -1116,8 +1264,6 @@
 
             osc.type = 'sine';
             osc.frequency.setValueAtTime(f, now);
-
-            // Soft orchestral string warmth blended subtly behind Rhodes
             pad.type = 'triangle';
             pad.frequency.setValueAtTime(f * (idx % 2 === 0 ? 1.003 : 0.997), now);
 
@@ -1163,10 +1309,10 @@
         }
 
         playSleighBell(accent = 1.0) {
-          if (!this.ctx || !this.noiseBuf || !this.musicGain) return;
+          if (!this.ctx || !this.whiteNoiseBuf || !this.musicGain) return;
           const now = this.ctx.currentTime;
           const src = this.ctx.createBufferSource();
-          src.buffer = this.noiseBuf;
+          src.buffer = this.whiteNoiseBuf;
 
           const bp = this.ctx.createBiquadFilter();
           bp.type = 'bandpass';
@@ -1175,7 +1321,7 @@
 
           const g = this.ctx.createGain();
           g.gain.setValueAtTime(0.0001, now);
-          g.gain.linearRampToValueAtTime(0.026 * accent, now + 0.006);
+          g.gain.linearRampToValueAtTime(0.024 * accent, now + 0.006);
           g.gain.exponentialRampToValueAtTime(0.0002, now + 0.11);
 
           src.connect(bp);
@@ -1186,105 +1332,194 @@
         }
 
         /* ---------------------------------------------------------------------
-           Synthesized Firework Sound Effects (Whoosh Launch, Warm Boom, Crackle)
+           HIGH-POWER MULTI-LAYER STEREO FIREWORK SYNTHESIS
            --------------------------------------------------------------------- */
-        playFireworkLaunch() {
-          if (!this.sfxEnabled || !this.ctx || !this.noiseBuf || !this.sfxGain) return;
+        playFireworkLaunch(nx = 0.5) {
+          if (this.sfxVolume <= 0.001 || this.isMuted || !this.ctx || !this.whiteNoiseBuf || !this.sfxInput) return;
           const now = this.ctx.currentTime;
-          const src = this.ctx.createBufferSource();
-          src.buffer = this.noiseBuf;
+          const dest = this.createPanner(nx);
 
+          // 1. Energetic Rocket Launch Whoosh
+          const src = this.ctx.createBufferSource();
+          src.buffer = this.pinkNoiseBuf;
           const bp = this.ctx.createBiquadFilter();
           bp.type = 'bandpass';
-          bp.frequency.setValueAtTime(600, now);
-          bp.frequency.exponentialRampToValueAtTime(2200, now + 0.35);
-          bp.Q.value = 3.2;
+          bp.frequency.setValueAtTime(420, now);
+          bp.frequency.exponentialRampToValueAtTime(2400, now + 0.42);
+          bp.Q.value = 2.4;
 
           const g = this.ctx.createGain();
           g.gain.setValueAtTime(0.0001, now);
-          g.gain.linearRampToValueAtTime(0.032, now + 0.08);
-          g.gain.exponentialRampToValueAtTime(0.0003, now + 0.38);
+          g.gain.linearRampToValueAtTime(0.22, now + 0.06);
+          g.gain.exponentialRampToValueAtTime(0.0008, now + 0.46);
 
           src.connect(bp);
           bp.connect(g);
-          g.connect(this.sfxGain);
+          g.connect(dest);
           src.start(now);
-          src.stop(now + 0.42);
+          src.stop(now + 0.50);
+
+          // 2. Subtle Ascending Skyrocket Whistle
+          const whistle = this.ctx.createOscillator();
+          const wg = this.ctx.createGain();
+          whistle.type = 'sine';
+          const baseF = 560 + Math.random() * 240;
+          whistle.frequency.setValueAtTime(baseF, now);
+          whistle.frequency.exponentialRampToValueAtTime(baseF * 2.55, now + 0.38);
+
+          wg.gain.setValueAtTime(0.0001, now);
+          wg.gain.linearRampToValueAtTime(0.055, now + 0.09);
+          wg.gain.exponentialRampToValueAtTime(0.0004, now + 0.42);
+
+          whistle.connect(wg);
+          wg.connect(dest);
+          whistle.start(now);
+          whistle.stop(now + 0.45);
         }
 
-        playFireworkBoom(intensity = 1.0, crackle = false) {
-          if (!this.sfxEnabled || !this.ctx || !this.noiseBuf || !this.sfxGain) return;
+        playFireworkBoom(nx = 0.5, intensity = 1.0, type = 'chrysanthemum') {
+          if (this.sfxVolume <= 0.001 || this.isMuted || !this.ctx || !this.pinkNoiseBuf || !this.sfxInput) return;
           const now = this.ctx.currentTime;
+          const dest = this.createPanner(nx);
+          const scale = clamp(intensity, 0.7, 1.35);
 
-          // 1. Warm distant sub-thump
-          const thump = this.ctx.createOscillator();
-          const thumpG = this.ctx.createGain();
-          thump.type = 'sine';
-          thump.frequency.setValueAtTime(115 + Math.random() * 25, now);
-          thump.frequency.exponentialRampToValueAtTime(34, now + 0.28);
+          // 1. Heavy Sub-Bass Detonation Boom (152Hz -> 28Hz)
+          const sub = this.ctx.createOscillator();
+          const subG = this.ctx.createGain();
+          sub.type = 'sine';
+          sub.frequency.setValueAtTime(152 + Math.random() * 18, now);
+          sub.frequency.exponentialRampToValueAtTime(28, now + 0.42);
 
-          thumpG.gain.setValueAtTime(0.001, now);
-          thumpG.gain.linearRampToValueAtTime(0.18 * intensity, now + 0.012);
-          thumpG.gain.exponentialRampToValueAtTime(0.0004, now + 0.36);
+          subG.gain.setValueAtTime(0.001, now);
+          subG.gain.linearRampToValueAtTime(0.88 * scale, now + 0.008);
+          subG.gain.exponentialRampToValueAtTime(0.0008, now + 0.56);
 
-          thump.connect(thumpG);
-          thumpG.connect(this.sfxGain);
-          thump.start(now);
-          thump.stop(now + 0.40);
+          sub.connect(subG);
+          subG.connect(dest);
+          sub.start(now);
+          sub.stop(now + 0.60);
 
-          // 2. Soft airy detonation burst
-          const src = this.ctx.createBufferSource();
-          src.buffer = this.noiseBuf;
-          const lp = this.ctx.createBiquadFilter();
-          lp.type = 'lowpass';
-          lp.frequency.setValueAtTime(950 + Math.random() * 450, now);
-          lp.frequency.exponentialRampToValueAtTime(180, now + 0.45);
+          // 2. Sharp Mid-High Explosion Crack Transient
+          const crackSrc = this.ctx.createBufferSource();
+          crackSrc.buffer = this.whiteNoiseBuf;
+          const crackBp = this.ctx.createBiquadFilter();
+          crackBp.type = 'bandpass';
+          crackBp.frequency.setValueAtTime(2100 + Math.random() * 650, now);
+          crackBp.frequency.exponentialRampToValueAtTime(520, now + 0.09);
+          crackBp.Q.value = 1.2;
 
-          const ng = this.ctx.createGain();
-          ng.gain.setValueAtTime(0.001, now);
-          ng.gain.linearRampToValueAtTime(0.14 * intensity, now + 0.015);
-          ng.gain.exponentialRampToValueAtTime(0.0004, now + 0.48);
+          const crackG = this.ctx.createGain();
+          crackG.gain.setValueAtTime(0.001, now);
+          crackG.gain.linearRampToValueAtTime(0.68 * scale, now + 0.003);
+          crackG.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
 
-          src.connect(lp);
-          lp.connect(ng);
-          ng.connect(this.sfxGain);
-          src.start(now);
-          src.stop(now + 0.52);
+          crackSrc.connect(crackBp);
+          crackBp.connect(crackG);
+          crackG.connect(dest);
+          crackSrc.start(now);
+          crackSrc.stop(now + 0.13);
 
-          // 3. Delicate crystalline sparkle crackle
-          if (crackle) {
-            const count = 4 + Math.floor(Math.random() * 4);
-            for (let i = 0; i < count; i++) {
-              const t0 = now + 0.12 + Math.random() * 0.42;
-              const cSrc = this.ctx.createBufferSource();
-              cSrc.buffer = this.noiseBuf;
-              const hp = this.ctx.createBiquadFilter();
-              hp.type = 'bandpass';
-              hp.frequency.setValueAtTime(3800 + Math.random() * 2800, t0);
-              hp.Q.value = 3.0;
-              const cg = this.ctx.createGain();
-              cg.gain.setValueAtTime(0.0001, t0);
-              cg.gain.linearRampToValueAtTime(0.045 * intensity, t0 + 0.005);
-              cg.gain.exponentialRampToValueAtTime(0.0002, t0 + 0.055);
-              cSrc.connect(hp);
-              hp.connect(cg);
-              cg.connect(this.sfxGain);
-              cSrc.start(t0);
-              cSrc.stop(t0 + 0.065);
-            }
+          // 3. Full-Body Pink Noise Blast + 2-Tap Winter Sky Echo
+          const scheduleBlast = (delaySec, gainMult, startFreq, durSec, panShift) => {
+            const t0 = now + delaySec;
+            const nSrc = this.ctx.createBufferSource();
+            nSrc.buffer = this.pinkNoiseBuf;
+            const lp = this.ctx.createBiquadFilter();
+            lp.type = 'lowpass';
+            lp.frequency.setValueAtTime(startFreq, t0);
+            lp.frequency.exponentialRampToValueAtTime(160, t0 + durSec);
+
+            const ng = this.ctx.createGain();
+            ng.gain.setValueAtTime(0.001, t0);
+            ng.gain.linearRampToValueAtTime(0.76 * scale * gainMult, t0 + 0.012);
+            ng.gain.exponentialRampToValueAtTime(0.0008, t0 + durSec);
+
+            const echoDest = panShift === 0 ? dest : this.createPanner(clamp(nx + panShift, 0.08, 0.92));
+            nSrc.connect(lp);
+            lp.connect(ng);
+            ng.connect(echoDest);
+            nSrc.start(t0);
+            nSrc.stop(t0 + durSec + 0.05);
+          };
+
+          scheduleBlast(0.00, 1.00, 1750 + Math.random() * 450, 0.68, 0);
+          scheduleBlast(0.16, 0.36, 860, 0.56, nx < 0.5 ? 0.24 : -0.24);
+          scheduleBlast(0.35, 0.19, 540, 0.52, nx < 0.5 ? -0.18 : 0.18);
+
+          // 4. Crisp Sparkling Crackles for Willow, Strobe Palm & Dense Shells
+          const isSparkleHeavy = type === 'willow' || type === 'strobePalm' || type === 'doubleRing';
+          const crackleCount = isSparkleHeavy ? (11 + Math.floor(Math.random() * 6)) : (4 + Math.floor(Math.random() * 3));
+          for (let i = 0; i < crackleCount; i++) {
+            const t0 = now + 0.14 + Math.random() * (isSparkleHeavy ? 0.85 : 0.45);
+            const cSrc = this.ctx.createBufferSource();
+            cSrc.buffer = this.whiteNoiseBuf;
+            const hp = this.ctx.createBiquadFilter();
+            hp.type = 'bandpass';
+            hp.frequency.setValueAtTime(3400 + Math.random() * 3800, t0);
+            hp.Q.value = 2.6;
+
+            const cg = this.ctx.createGain();
+            const cPeak = (isSparkleHeavy ? 0.28 : 0.16) * scale * (0.65 + Math.random() * 0.55);
+            cg.gain.setValueAtTime(0.0001, t0);
+            cg.gain.linearRampToValueAtTime(cPeak, t0 + 0.003);
+            cg.gain.exponentialRampToValueAtTime(0.0004, t0 + 0.052);
+
+            const cDest = this.createPanner(clamp(nx + (Math.random() - 0.5) * 0.26, 0.05, 0.95));
+            cSrc.connect(hp);
+            hp.connect(cg);
+            cg.connect(cDest);
+            cSrc.start(t0);
+            cSrc.stop(t0 + 0.062);
           }
         }
 
-        /* ---------------------------------------------------------------------
-           Per-Frame Sequencer Update & Real-Time Audio Energy Extraction
-           --------------------------------------------------------------------- */
+        playCrossetteSubBurst(nx = 0.5) {
+          if (this.sfxVolume <= 0.001 || this.isMuted || !this.ctx || !this.whiteNoiseBuf || !this.sfxInput) return;
+          const now = this.ctx.currentTime;
+          // Rate-limit slightly so 26 splitting shells create a punchy rippling salvo
+          if (now - this.lastCrossetteSfxTime < 0.045) return;
+          this.lastCrossetteSfxTime = now;
+
+          const dest = this.createPanner(nx);
+
+          // Crisp mid-air secondary pop
+          const pop = this.ctx.createOscillator();
+          const pg = this.ctx.createGain();
+          pop.type = 'triangle';
+          pop.frequency.setValueAtTime(210 + Math.random() * 75, now);
+          pop.frequency.exponentialRampToValueAtTime(52, now + 0.13);
+          pg.gain.setValueAtTime(0.001, now);
+          pg.gain.linearRampToValueAtTime(0.32, now + 0.004);
+          pg.gain.exponentialRampToValueAtTime(0.0008, now + 0.16);
+          pop.connect(pg);
+          pg.connect(dest);
+          pop.start(now);
+          pop.stop(now + 0.18);
+
+          // Snappy secondary crackle burst
+          const nSrc = this.ctx.createBufferSource();
+          nSrc.buffer = this.whiteNoiseBuf;
+          const bp = this.ctx.createBiquadFilter();
+          bp.type = 'bandpass';
+          bp.frequency.setValueAtTime(2400 + Math.random() * 1600, now);
+          bp.Q.value = 1.6;
+          const ng = this.ctx.createGain();
+          ng.gain.setValueAtTime(0.001, now);
+          ng.gain.linearRampToValueAtTime(0.34, now + 0.003);
+          ng.gain.exponentialRampToValueAtTime(0.0008, now + 0.095);
+          nSrc.connect(bp);
+          bp.connect(ng);
+          ng.connect(dest);
+          nSrc.start(now);
+          nSrc.stop(now + 0.11);
+        }
+
         update(dt) {
-          // 1. Update Built-In Medley Sequencer if active
+          // 1. Built-In Vintage Medley Sequencer
           if (this.isPlaying && this.mode === 'builtin' && this.ctx) {
             const song = this.songs[this.songIdx];
             const secPerBeat = 60 / song.bpm;
 
-            // Gentle sleigh-bell pulse on upbeat quarter-notes
             if (song.sleigh) {
               this.beatAccum += dt;
               if (this.beatAccum >= secPerBeat) {
@@ -1308,7 +1543,7 @@
               if (this.stepIdx >= song.events.length) {
                 this.stepIdx = 0;
                 this.songIdx = (this.songIdx + 1) % this.songs.length;
-                this.stepTimer += 0.65; // smooth breather between medley songs
+                this.stepTimer += 0.65;
                 if (this.onTrackChange) {
                   this.onTrackChange(this.getCurrentTrackLabel(), false);
                 }
@@ -1316,18 +1551,20 @@
             }
           }
 
-          // 2. Extract Real-Time Audio Energy from AnalyserNode for Music-Reactive Lights
-          if (this.analyser && this.freqData && this.isPlaying) {
+          // 2. Real-Time Audio Energy from AnalyserNode for Music-Reactive LEDs
+          if (this.analyser && this.freqData && this.isPlaying && !this.isMuted) {
             this.analyser.getByteFrequencyData(this.freqData);
             let bassSum = 0;
             for (let i = 1; i <= 8; i++) bassSum += this.freqData[i];
             let trebSum = 0;
             for (let i = 14; i <= 54; i++) trebSum += this.freqData[i];
 
-            const targetBass = clamp((bassSum / (8 * 255)) * 1.45, 0, 1);
-            const targetTreb = clamp((trebSum / (41 * 255)) * 1.85, 0, 1);
-            this.bassEnergy = lerp(this.bassEnergy, targetBass, clamp(dt * 12, 0, 1));
-            this.trebleEnergy = lerp(this.trebleEnergy, targetTreb, clamp(dt * 14, 0, 1));
+            // Compensate slightly for 45% music level so lights stay super expressive
+            const gainComp = 1.0 / Math.max(0.28, this.musicVolume);
+            const targetBass = clamp((bassSum / (8 * 255)) * 1.35 * Math.min(2.2, gainComp), 0, 1);
+            const targetTreb = clamp((trebSum / (41 * 255)) * 1.75 * Math.min(2.2, gainComp), 0, 1);
+            this.bassEnergy = lerp(this.bassEnergy, targetBass, clamp(dt * 14, 0, 1));
+            this.trebleEnergy = lerp(this.trebleEnergy, targetTreb, clamp(dt * 16, 0, 1));
           } else {
             this.bassEnergy = lerp(this.bassEnergy, 0, clamp(dt * 5, 0, 1));
             this.trebleEnergy = lerp(this.trebleEnergy, 0, clamp(dt * 5, 0, 1));
@@ -1336,48 +1573,88 @@
       }
 
       /* =======================================================================
-         3. ULTRA-HIGH-RESOLUTION SOFTWARE-RASTERIZED ASCII + DUAL-PASS BLOOM ENGINE
-            Renders up to 290x145 (42,000+ cells) at 60 FPS with zero GC jitter!
+         3. ULTRA-HD VIVID COLOR ASCII ENGINE (CHROMA-PRESERVING HDR + TIGHT BLOOM)
          ======================================================================= */
-      const RAMP_CHARS = ' .,:;-~=+*#%@';
-      const SPECIAL_CHARS = ['^', '/', '\\', '|', 'o', 'O', '✦', '·', 'x', 'X'];
+      const RAMP_CHARS = ' .:-=+*#%@';
+      const SPECIAL_CHARS = ['^', '/', '\\', '|', 'o', 'O', '~', '•', '✦', 'x'];
       const ALL_GLYPHS = RAMP_CHARS.split('').concat(SPECIAL_CHARS);
       const RAMP_LEN = RAMP_CHARS.length;
 
-      // Fast lookup indices for specialized glyphs
       const GLYPH_IDX = {};
       ALL_GLYPHS.forEach((ch, idx) => { GLYPH_IDX[ch] = idx; });
 
-      // Vibrant holiday firework palettes (start hue -> mid hue -> tail fade hue + ambient sky glow)
-      const FIREWORK_PALETTES = [
-        // Gold -> Amber -> Crimson
-        { c0: [1.00, 0.96, 0.72], c1: [1.00, 0.74, 0.18], c2: [1.00, 0.28, 0.12], glow: [1.00, 0.62, 0.14] },
-        // Ice White -> Electric Cyan -> Royal Blue
-        { c0: [0.96, 1.00, 1.00], c1: [0.24, 0.90, 1.00], c2: [0.22, 0.42, 1.00], glow: [0.20, 0.72, 1.00] },
-        // Pearl Rose -> Hot Magenta -> Deep Violet
-        { c0: [1.00, 0.92, 0.96], c1: [1.00, 0.32, 0.68], c2: [0.68, 0.22, 1.00], glow: [1.00, 0.30, 0.64] },
-        // Bright Champagne -> Festive Emerald -> Teal
-        { c0: [0.96, 1.00, 0.86], c1: [0.28, 0.98, 0.56], c2: [0.12, 0.72, 0.88], glow: [0.22, 0.88, 0.52] },
-        // Ruby Red -> Warm Coral -> Gold Sparkle
-        { c0: [1.00, 0.88, 0.84], c1: [1.00, 0.22, 0.26], c2: [1.00, 0.68, 0.22], glow: [1.00, 0.24, 0.24] },
-        // Silver Starlight -> Periwinkle -> Ice Blue
-        { c0: [1.00, 1.00, 1.00], c1: [0.78, 0.88, 1.00], c2: [0.44, 0.64, 1.00], glow: [0.66, 0.82, 1.00] }
+      // Color Vibrancy Presets: Vivid HDR (default) | Neon Max | Classic
+      const COLOR_MODES = [
+        {
+          id: 'vivid',
+          btnText: 'สี: สดคมชัด',
+          badgeText: 'สีสดคมชัด',
+          vibrance: 0.46,
+          sCurve: 0.34,
+          shoulder: 0.46,
+          coreDesat: 0.08,
+          lift: 278,
+          bloomHalfAlpha: 0.29,
+          bloomQuarterAlpha: 0.19,
+          bloomSat: 1.55
+        },
+        {
+          id: 'neon',
+          btnText: 'สี: นีออนจัดเต็ม',
+          badgeText: 'นีออนจัดเต็ม',
+          vibrance: 0.80,
+          sCurve: 0.50,
+          shoulder: 0.36,
+          coreDesat: 0.04,
+          lift: 292,
+          bloomHalfAlpha: 0.36,
+          bloomQuarterAlpha: 0.25,
+          bloomSat: 1.80
+        },
+        {
+          id: 'classic',
+          btnText: 'สี: คลาสสิก',
+          badgeText: 'คลาสสิก',
+          vibrance: 0.12,
+          sCurve: 0.10,
+          shoulder: 0.56,
+          coreDesat: 0.22,
+          lift: 262,
+          bloomHalfAlpha: 0.26,
+          bloomQuarterAlpha: 0.22,
+          bloomSat: 1.15
+        }
       ];
 
-      // Background midnight void color (#020308) packed as little-endian ABGR Uint32
-      const BG_U32 = (255 << 24) | (8 << 16) | (3 << 8) | 2;
+      // Hyper-Vivid Pyrotechnic Jewel Palettes (zero muddy pastels!)
+      const FIREWORK_PALETTES = [
+        // 0: Molten Gold -> Vivid Amber -> Fiery Crimson
+        { c0: [1.00, 0.90, 0.16], c1: [1.00, 0.62, 0.00], c2: [1.00, 0.14, 0.06], glow: [1.00, 0.64, 0.00] },
+        // 1: Electric Cyan -> Pure Turquoise -> Cobalt Sapphire
+        { c0: [0.16, 1.00, 1.00], c1: [0.00, 0.82, 1.00], c2: [0.06, 0.32, 1.00], glow: [0.00, 0.78, 1.00] },
+        // 2: Neon Magenta -> Hot Rose -> Vivid Amethyst
+        { c0: [1.00, 0.28, 0.74], c1: [1.00, 0.06, 0.54], c2: [0.78, 0.04, 1.00], glow: [1.00, 0.12, 0.60] },
+        // 3: Luminous Lime -> Vivid Emerald -> Electric Teal
+        { c0: [0.45, 1.00, 0.26], c1: [0.00, 0.94, 0.42], c2: [0.00, 0.80, 0.88], glow: [0.00, 0.92, 0.46] },
+        // 4: Ruby Scarlet -> Blazing Tangerine -> Molten Gold
+        { c0: [1.00, 0.16, 0.22], c1: [1.00, 0.34, 0.02], c2: [1.00, 0.80, 0.00], glow: [1.00, 0.18, 0.14] },
+        // 5: Vibrant Amethyst -> Hot Pink -> Electric Gold
+        { c0: [0.84, 0.18, 1.00], c1: [1.00, 0.18, 0.64], c2: [1.00, 0.78, 0.04], glow: [0.82, 0.14, 1.00] }
+      ];
 
-      class WinterMagicUltraEngine {
+      // Deep Obsidian Void (#010308) packed as little-endian ABGR Uint32
+      const BG_U32 = (255 << 24) | (8 << 16) | (3 << 8) | 1;
+
+      class WinterMagicVividEngine {
         constructor(canvas, audioEngine, onStageUpdate) {
           this.canvas = canvas;
           this.ctx = canvas.getContext('2d', { alpha: false });
           this.audio = audioEngine;
           this.onStageUpdate = onStageUpdate;
 
-          // Resolution Mode: 'ultrahd' | '4k' | 'classic'
-          this.resMode = 'ultrahd';
-          // Snow Density: 0 (เบา), 1 (กลาง), 2 (หนัก)
-          this.snowLevel = 1;
+          this.resMode = 'ultrahd'; // 'ultrahd' | '4k' | 'classic'
+          this.colorModeIdx = 0;    // 0: สดคมชัด (Vivid HDR), 1: นีออนจัดเต็ม, 2: คลาสสิก
+          this.snowLevel = 1;       // 0: เบา, 1: กลาง, 2: หนัก
 
           // Viewport & Grid Geometry
           this.vw = 1280;
@@ -1390,7 +1667,7 @@
           this.bufH = 1150;
           this.aspect = 1.77;
 
-          // Offscreen ASCII Software Rasterizer & Multi-Scale Bloom Canvases
+          // Offscreen Direct-Pixel ASCII Buffer + Chroma-Boosted Tight Bloom Pyramid
           this.asciiBufferCanvas = document.createElement('canvas');
           this.asciiBufferCtx = this.asciiBufferCanvas.getContext('2d', { alpha: false });
           this.asciiImgData = null;
@@ -1406,18 +1683,17 @@
           this.bloomQuarterCanvas = document.createElement('canvas');
           this.bloomQuarterCtx = this.bloomQuarterCanvas.getContext('2d', { alpha: false });
 
-          // Pre-rasterized Glyph Masks (compact non-zero pixel offsets + alpha per glyph)
           this.glyphAtlas = [];
 
-          // Float32Array RGB Framebuffer + Special Glyph Override Buffer
+          // Float32Array HDR RGB Framebuffer + Special Glyph Override Buffer
           this.rgb = new Float32Array(0);
-          this.glyphOverride = new Uint8Array(0); // 0 = luminance ramp, else (glyphIdx + 1)
+          this.glyphOverride = new Uint8Array(0);
 
           // Precomputed Static Scene Buffers
           this.skyRgb = new Float32Array(0);
           this.forestRgb = new Float32Array(0);
           this.forestMask = new Float32Array(0);
-          this.forestDepth = new Float32Array(0); // 0..1 depth for firework rim lighting
+          this.forestDepth = new Float32Array(0);
           this.groundRgb = new Float32Array(0);
           this.groundMask = new Float32Array(0);
           this.groundGlyph = new Uint8Array(0);
@@ -1425,12 +1701,12 @@
           // Ultra-Detailed Christmas Tree Precomputed Buffers
           this.treeRgb = new Float32Array(0);
           this.treeMask = new Float32Array(0);
-          this.treeHeightNorm = new Float32Array(0); // 0 at base -> 1 at apex
-          this.treeRadialNorm = new Float32Array(0); // 0 at spine -> 1 at outer bough tips
+          this.treeHeightNorm = new Float32Array(0);
+          this.treeRadialNorm = new Float32Array(0);
           this.treeIsTrunk = new Uint8Array(0);
           this.treeGlyph = new Uint8Array(0);
 
-          // Scene Entities
+          // Entities
           this.stars = [];
           this.gifts = [];
           this.giftsByDepth = [];
@@ -1440,10 +1716,10 @@
           this.snowflakes = [];
           this.fireworks = [];
           this.magicSparks = [];
-          this.specularSparks = []; // Crisp pinpoint overlay sparks for Pass 2
+          this.specularSparks = [];
 
           // Choreography State
-          this.phase = 'idle'; // 'idle' (before Start) | 'running'
+          this.phase = 'idle'; // 'idle' | 'running'
           this.ambientTime = 0;
           this.showTime = 0;
           this.nextAutoFirework = 11.6;
@@ -1463,7 +1739,7 @@
         }
 
         /* ---------------------------------------------------------------------
-           Build Compact Anti-Aliased Glyph Bitmap Atlas for Instant 60 FPS Blit
+           Build Razor-Sharp Anti-Aliased Monospace Glyph Bitmap Atlas
            --------------------------------------------------------------------- */
         buildGlyphAtlas() {
           const w = this.pxW;
@@ -1473,7 +1749,7 @@
           c.height = h;
           const gctx = c.getContext('2d', { willReadFrequently: true });
 
-          const fontSize = Math.max(6, Math.min(h * 1.04, w * 1.66));
+          const fontSize = Math.max(6, Math.min(h * 1.06, w * 1.70));
           const fontSpec = `700 ${fontSize.toFixed(2)}px 'Consolas', 'Cascadia Code', 'JetBrains Mono', 'Courier New', monospace`;
 
           this.glyphAtlas = ALL_GLYPHS.map((ch) => {
@@ -1488,8 +1764,7 @@
             gctx.textAlign = 'center';
             gctx.textBaseline = 'middle';
 
-            // Slight vertical polish for crisp glyph alignment
-            const yOff = (ch === '·' || ch === '.') ? h * 0.54 : h * 0.52;
+            const yOff = (ch === '•' || ch === '.') ? h * 0.54 : h * 0.51;
             gctx.fillText(ch, w * 0.5, yOff);
 
             const data = gctx.getImageData(0, 0, w, h).data;
@@ -1499,10 +1774,10 @@
 
             for (let py = 0; py < h; py++) {
               for (let px = 0; px < w; px++) {
-                const v = data[(py * w + px) * 4]; // red channel luminance
-                if (v > 22) {
-                  // Slight gamma crisp boost so ultra-dense ASCII stays razor legible
-                  const a = Math.min(1, Math.pow(v / 255, 0.78) * 1.15);
+                const v = data[(py * w + px) * 4];
+                if (v > 24) {
+                  // Crisp OLED-like glyph alpha curve so every ASCII stroke pops cleanly
+                  const a = Math.min(1, Math.pow(v / 255, 0.64) * 1.24);
                   dxList.push(px);
                   dyList.push(py);
                   aList.push(a);
@@ -1519,13 +1794,20 @@
           });
         }
 
-        /* ---------------------------------------------------------------------
-           Responsive Resize & Mode Switcher (Ultra HD / 4K Dense / Classic)
-           --------------------------------------------------------------------- */
         setResolutionMode(mode) {
           if (this.resMode === mode) return;
           this.resMode = mode;
           this.resize();
+        }
+
+        cycleColorMode() {
+          this.colorModeIdx = (this.colorModeIdx + 1) % COLOR_MODES.length;
+          return COLOR_MODES[this.colorModeIdx];
+        }
+
+        cycleSnowLevel() {
+          this.snowLevel = (this.snowLevel + 1) % 3;
+          return this.snowLevel;
         }
 
         resize() {
@@ -1534,24 +1816,20 @@
           const dpr = Math.min(window.devicePixelRatio || 1, 2);
           this.aspect = this.vw / this.vh;
 
-          // Target column counts per mode, adapting smoothly to mobile/tablet screens
           let targetCols;
           if (this.resMode === '4k') {
             targetCols = this.vw >= 1200 ? 290 : (this.vw >= 800 ? 236 : 164);
           } else if (this.resMode === 'classic') {
             targetCols = this.vw >= 1100 ? 140 : (this.vw >= 700 ? 116 : 86);
           } else {
-            // Default: Ultra HD (~230 x 115)
             targetCols = this.vw >= 1200 ? 230 : (this.vw >= 800 ? 190 : 132);
           }
 
-          // Compute integer physical glyph pixel dimensions (keeping internal buffer <= 2048px wide for rock-solid 60 FPS)
           const physW = Math.min(2048, Math.round(this.vw * dpr));
           const physH = Math.min(1280, Math.round(this.vh * dpr));
 
           this.cols = targetCols;
           this.pxW = Math.max(4, Math.round(physW / this.cols));
-          // Maintain classic crisp monospace character aspect ratio (~1 : 1.55)
           const desiredCellH = this.pxW * 1.52;
           this.rows = clamp(Math.round(physH / desiredCellH), 56, 152);
           this.pxH = Math.max(6, Math.round(physH / this.rows));
@@ -1559,7 +1837,6 @@
           this.bufW = this.cols * this.pxW;
           this.bufH = this.rows * this.pxH;
 
-          // Main display canvas matches exact physical pixel grid for razor-sharp ASCII
           this.canvas.width = this.bufW;
           this.canvas.height = this.bufH;
 
@@ -1568,16 +1845,16 @@
           this.asciiImgData = this.asciiBufferCtx.createImageData(this.bufW, this.bufH);
           this.asciiPixels32 = new Uint32Array(this.asciiImgData.data.buffer);
 
-          // Multi-scale offscreen bloom pyramid (exact grid -> half -> quarter)
+          // Tighter bloom pyramid for richer, less foggy optical glow
           this.bloomSrcCanvas.width = this.cols;
           this.bloomSrcCanvas.height = this.rows;
           this.bloomImgData = this.bloomSrcCtx.createImageData(this.cols, this.rows);
           this.bloomPixels32 = new Uint32Array(this.bloomImgData.data.buffer);
 
-          this.bloomHalfCanvas.width = Math.max(32, Math.floor(this.cols * 0.45));
-          this.bloomHalfCanvas.height = Math.max(20, Math.floor(this.rows * 0.45));
-          this.bloomQuarterCanvas.width = Math.max(18, Math.floor(this.cols * 0.20));
-          this.bloomQuarterCanvas.height = Math.max(12, Math.floor(this.rows * 0.20));
+          this.bloomHalfCanvas.width = Math.max(36, Math.floor(this.cols * 0.52));
+          this.bloomHalfCanvas.height = Math.max(22, Math.floor(this.rows * 0.52));
+          this.bloomQuarterCanvas.width = Math.max(22, Math.floor(this.cols * 0.24));
+          this.bloomQuarterCanvas.height = Math.max(14, Math.floor(this.rows * 0.24));
 
           this.buildGlyphAtlas();
 
@@ -1585,7 +1862,6 @@
           this.rgb = new Float32Array(totalCells * 3);
           this.glyphOverride = new Uint8Array(totalCells);
 
-          // Proportions adapt cleanly across ultra-wide desktop & vertical mobile
           const treeHalfW = Math.min(0.305 / this.aspect, 0.315);
           this.treeMetrics = {
             cx: 0.50,
@@ -1600,7 +1876,8 @@
         }
 
         /* ---------------------------------------------------------------------
-           Precompute Midnight Sky, 3-Layer Pine Ridges, Snowbank, Ultra-HD Tree & 7 Gifts
+           Precompute Deep Obsidian Sky, Emerald-Indigo Forest, Snowbank,
+           Vivid 10-Tier Emerald Christmas Tree & 7 Rich Satin Gift Boxes
            --------------------------------------------------------------------- */
         buildStaticLayers() {
           const cols = this.cols;
@@ -1622,13 +1899,13 @@
           this.treeIsTrunk = new Uint8Array(N);
           this.treeGlyph = new Uint8Array(N);
 
-          // 1. DEEP MIDNIGHT SKY GRADIENT (#020308 -> #081a38 near winter horizon)
+          // 1. PURE DEEP OBSIDIAN -> MIDNIGHT NAVY SKY (#010308 -> #050b18) FOR MAX CONTRAST
           for (let y = 0; y < rows; y++) {
             const ny = y / (rows - 1);
-            const hFactor = Math.pow(clamp(ny / 0.80, 0, 1), 1.75);
-            const r = lerp(0.008, 0.032, hFactor);
-            const g = lerp(0.014, 0.098, hFactor);
-            const b = lerp(0.034, 0.225, hFactor);
+            const hFactor = Math.pow(clamp(ny / 0.82, 0, 1), 2.0);
+            const r = lerp(0.004, 0.019, hFactor);
+            const g = lerp(0.011, 0.044, hFactor);
+            const b = lerp(0.030, 0.105, hFactor);
             for (let x = 0; x < cols; x++) {
               const i3 = (y * cols + x) * 3;
               this.skyRgb[i3] = r;
@@ -1637,14 +1914,13 @@
             }
           }
 
-          // 2. THREE OVERLAPPING PINE MOUNTAIN / FOREST RIDGES
+          // 2. THREE LAYERED SILHOUETTE PINE FOREST RIDGES (Emerald-Indigo Depth + Crisp Moon Rim)
           const buildForestLayer = (seed, count, baseY, minH, maxH, baseW, depthVal, cDark, cMid, cFrost) => {
             const rng = createRng(seed);
             const trees = [];
             for (let i = 0; i < count; i++) {
               const tx = (i + 0.1 + rng() * 0.8) / count;
-              // Gently frame the center Christmas tree crown so the star topper shines unobstructed
-              const centerDip = Math.exp(-Math.pow((tx - 0.5) / 0.20, 2)) * 0.042;
+              const centerDip = Math.exp(-Math.pow((tx - 0.5) / 0.20, 2)) * 0.044;
               const h = lerp(minH, maxH, rng()) - centerDip;
               const w = baseW * lerp(0.75, 1.38, rng()) / Math.max(0.78, this.aspect * 0.62);
               const tiers = 5 + Math.floor(rng() * 4);
@@ -1669,12 +1945,12 @@
 
                   if (dx <= halfW) {
                     const edge = 1 - dx / Math.max(0.0001, halfW);
-                    const alpha = smoothstep(0, 0.22, edge);
+                    const alpha = smoothstep(0, 0.20, edge);
                     if (alpha > bestA) {
                       bestA = alpha;
                       const ridge = 1 - tierWave;
-                      bestShade = clamp(0.24 + 0.56 * edge + 0.25 * (1 - t), 0, 1);
-                      bestFrost = clamp((ridge > 0.64 ? (ridge - 0.64) * 2.4 : 0) * (1 - t * 0.42) * (0.35 + 0.65 * edge), 0, 1);
+                      bestShade = clamp(0.22 + 0.56 * edge + 0.24 * (1 - t), 0, 1);
+                      bestFrost = clamp((ridge > 0.66 ? (ridge - 0.66) * 2.5 : 0) * (1 - t * 0.44) * (0.35 + 0.65 * edge), 0, 1);
                     }
                   }
                 }
@@ -1686,9 +1962,9 @@
                   let g = lerp(cDark[1], cMid[1], bestShade);
                   let b = lerp(cDark[2], cMid[2], bestShade);
                   if (bestFrost > 0.01) {
-                    r = lerp(r, cFrost[0], bestFrost * 0.72);
-                    g = lerp(g, cFrost[1], bestFrost * 0.72);
-                    b = lerp(b, cFrost[2], bestFrost * 0.72);
+                    r = lerp(r, cFrost[0], bestFrost * 0.68);
+                    g = lerp(g, cFrost[1], bestFrost * 0.68);
+                    b = lerp(b, cFrost[2], bestFrost * 0.68);
                   }
                   const prev = this.forestMask[idx];
                   this.forestRgb[i3] = lerp(this.forestRgb[i3], r, bestA);
@@ -1701,14 +1977,12 @@
             }
           };
 
-          // Far ridge (deep twilight sapphire)
-          buildForestLayer(101, 44, 0.745, 0.16, 0.28, 0.044, 0.25, [0.032, 0.075, 0.175], [0.082, 0.185, 0.365], [0.28, 0.48, 0.74]);
-          // Mid ridge (frosted winter teal-blue)
-          buildForestLayer(202, 34, 0.775, 0.13, 0.23, 0.048, 0.60, [0.048, 0.135, 0.285], [0.135, 0.325, 0.565], [0.44, 0.70, 0.90]);
-          // Near ridge (rich icy spruce-blue)
-          buildForestLayer(303, 24, 0.800, 0.09, 0.18, 0.052, 1.00, [0.062, 0.185, 0.365], [0.185, 0.435, 0.695], [0.58, 0.84, 0.99]);
+          // Subtle rich emerald-indigo layered forest silhouettes so center tree & fireworks pop sharply
+          buildForestLayer(101, 44, 0.745, 0.16, 0.28, 0.044, 0.25, [0.014, 0.052, 0.145], [0.040, 0.140, 0.300], [0.16, 0.42, 0.72]);
+          buildForestLayer(202, 34, 0.775, 0.13, 0.23, 0.048, 0.60, [0.018, 0.095, 0.215], [0.058, 0.250, 0.440], [0.26, 0.64, 0.88]);
+          buildForestLayer(303, 24, 0.800, 0.09, 0.18, 0.052, 1.00, [0.022, 0.135, 0.250], [0.072, 0.340, 0.500], [0.36, 0.80, 0.96]);
 
-          // 3. UNDULATING MOONLIT SNOWBANK (Bottom ~23%)
+          // 3. SPARKLING MOONLIT SNOWBANK (Crisp sapphire shadows -> brilliant ice-cyan crests)
           const tildeGlyph = GLYPH_IDX['~'] + 1;
           const dashGlyph = GLYPH_IDX['-'] + 1;
           for (let x = 0; x < cols; x++) {
@@ -1729,13 +2003,13 @@
 
               const drift1 = Math.sin(nx * 12.0 + depth * 10.5 + 0.5) * 0.5 + 0.5;
               const drift2 = Math.sin(nx * 27.0 - depth * 16.0 + 2.1) * 0.5 + 0.5;
-              const moonLit = Math.exp(-Math.pow((nx - 0.18) / 0.40, 2)) * 0.22;
-              const crestHighlight = Math.exp(-depth * 8.0) * 0.38;
+              const moonLit = Math.exp(-Math.pow((nx - 0.18) / 0.38, 2)) * 0.24;
+              const crestHighlight = Math.exp(-depth * 8.2) * 0.40;
 
-              const lum = clamp(0.26 + 0.33 * drift1 + 0.14 * drift2 + moonLit + crestHighlight - depth * 0.11, 0.16, 0.98);
-              this.groundRgb[i3]     = lerp(0.14, 0.86, Math.pow(lum, 1.32));
-              this.groundRgb[i3 + 1] = lerp(0.32, 0.94, Math.pow(lum, 1.10));
-              this.groundRgb[i3 + 2] = lerp(0.60, 1.00, Math.pow(lum, 0.88));
+              const lum = clamp(0.20 + 0.34 * drift1 + 0.15 * drift2 + moonLit + crestHighlight - depth * 0.12, 0.12, 0.98);
+              this.groundRgb[i3]     = lerp(0.06, 0.78, Math.pow(lum, 1.48));
+              this.groundRgb[i3 + 1] = lerp(0.22, 0.92, Math.pow(lum, 1.15));
+              this.groundRgb[i3 + 2] = lerp(0.54, 1.00, Math.pow(lum, 0.85));
               this.groundMask[idx] = edgeFade;
 
               if (crestHighlight > 0.16 && drift2 > 0.74) {
@@ -1746,7 +2020,7 @@
             }
           }
 
-          // 4. ULTRA-DETAILED 10-TIER SCULPTED CONICAL CHRISTMAS TREE
+          // 4. HIGH-DETAIL 10-TIER VIVID EMERALD CHRISTMAS TREE (#0a6b35 -> #00c853 -> #1de9b6/#4cff88)
           const { cx, topY, botY, halfW } = this.treeMetrics;
           const treeH = botY - topY;
           const trunkTopY = botY - 0.020;
@@ -1769,98 +2043,107 @@
               const dx = nx - cx;
               const adx = Math.abs(dx);
 
-              // Sturdy wooden bark trunk beneath the lowest pine boughs
+              // Rich warm mahogany-bark trunk
               if (ny >= trunkTopY && ny <= trunkBotY && adx <= trunkHalfW) {
                 const u = dx / trunkHalfW;
-                const bark = 0.86 + 0.14 * Math.sin(u * 18.0 + ny * 45.0);
-                const cyl = (0.50 + 0.50 * Math.sqrt(Math.max(0, 1 - u * u))) * bark;
-                this.treeRgb[i3]     = 0.42 * cyl;
-                this.treeRgb[i3 + 1] = 0.23 * cyl;
-                this.treeRgb[i3 + 2] = 0.11 * cyl;
+                const bark = 0.84 + 0.16 * Math.sin(u * 20.0 + ny * 48.0);
+                const cyl = (0.48 + 0.52 * Math.sqrt(Math.max(0, 1 - u * u))) * bark;
+                this.treeRgb[i3]     = 0.52 * cyl;
+                this.treeRgb[i3 + 1] = 0.24 * cyl;
+                this.treeRgb[i3 + 2] = 0.08 * cyl;
                 this.treeMask[idx] = 1.0;
                 this.treeHeightNorm[idx] = 0.0;
                 this.treeRadialNorm[idx] = Math.abs(u);
                 this.treeIsTrunk[idx] = 1;
-                this.treeGlyph[idx] = Math.abs(u) < 0.7 ? gPipe : 0;
+                this.treeGlyph[idx] = Math.abs(u) < 0.72 ? gPipe : 0;
               }
 
               if (ny < topY || ny > botY) continue;
 
-              const t = clamp((ny - topY) / treeH, 0, 1); // 0 at apex -> 1 at base
-              // 10 richly overlapping scalloped pine bough tiers
+              const t = clamp((ny - topY) / treeH, 0, 1);
               const tierCount = 10.0;
               const tierPos = t * tierCount;
               const tierIdx = Math.floor(tierPos);
-              const tierFrac = tierPos - tierIdx; // 0 at tier top -> 1 at tier lip
+              const tierFrac = tierPos - tierIdx;
 
-              // Graceful outward bough flare + serrated pine needle clusters + subtle droop
               const scallopFlare = 0.56 + 0.46 * Math.pow(tierFrac, 0.68);
               const needleSerration =
                 0.052 * Math.sin(t * 78.0 + dx * 64.0)
                 + 0.032 * Math.cos(tierPos * 11.5 - dx * 42.0);
               const contourW = halfW * (0.032 + 0.968 * Math.pow(t, 0.91)) * scallopFlare * (1 + needleSerration);
 
-              // Organic downward branch-tip droop at each tier edge and bottom skirt
               const uEst = clamp(adx / Math.max(0.0005, contourW), 0, 1);
               const droopY = botY - 0.022 * Math.pow(uEst, 1.55) + 0.008 * Math.sin(uEst * Math.PI * 3.0);
 
               if (adx <= contourW && ny <= droopY) {
                 const u = dx / Math.max(0.0001, contourW); // -1..+1
                 const radial = Math.abs(u);
-                const edgeSoft = smoothstep(1.0, 0.85, radial);
+                const edgeSoft = smoothstep(1.0, 0.87, radial);
 
-                // 3D Cylindrical volume shading + deep crevice shadow under overhanging upper tier
-                const cylinder = Math.sqrt(Math.max(0, 1 - radial * radial * 0.84));
-                const moonDir = clamp(0.72 - 0.24 * u, 0.36, 0.98);
-                const creviceShadow = smoothstep(0.0, 0.36, tierFrac);
-                const boughRidge = smoothstep(0.50, 0.98, tierFrac);
+                // Sculpted 3D volume shading + deep pine crevice contrast
+                const cylinder = Math.sqrt(Math.max(0, 1 - radial * radial * 0.85));
+                const moonDir = clamp(0.74 - 0.25 * u, 0.34, 1.00);
+                const creviceShadow = smoothstep(0.0, 0.38, tierFrac);
+                const boughRidge = smoothstep(0.52, 0.98, tierFrac);
 
-                // Fine high-frequency spruce needle frond detail
-                const frondA = 0.5 + 0.5 * Math.sin(u * 19.0 + tierIdx * 2.4 + t * 34.0);
-                const frondB = 0.5 + 0.5 * Math.cos(u * 31.0 - tierFrac * 9.0);
+                const frondA = 0.5 + 0.5 * Math.sin(u * 21.0 + tierIdx * 2.4 + t * 36.0);
+                const frondB = 0.5 + 0.5 * Math.cos(u * 33.0 - tierFrac * 9.5);
                 const frond = frondA * 0.62 + frondB * 0.38;
 
-                // Warm internal glow near the heart of the tree
-                const innerWarmth = Math.pow(Math.max(0, 1 - radial * 1.1), 2.2) * 0.22;
-
                 const lum = clamp(
-                  0.14
-                  + 0.44 * cylinder * moonDir
-                  + 0.25 * creviceShadow
-                  + 0.17 * frond,
-                  0.09, 1.0
+                  0.10
+                  + 0.46 * cylinder * moonDir
+                  + 0.26 * creviceShadow
+                  + 0.18 * frond,
+                  0.08, 1.0
                 );
 
-                // Deep forest pine -> vivid emerald -> bright mint highlight
-                let r = lerp(0.018, 0.235, Math.pow(lum, 1.85)) + innerWarmth * 0.22;
-                let g = lerp(0.145, 0.960, Math.pow(lum, 0.90)) + innerWarmth * 0.30;
-                let b = lerp(0.078, 0.365, Math.pow(lum, 1.30)) + innerWarmth * 0.08;
+                // Layered Vivid Jewel Palette: Deep Forest Pine (#0a6b35) -> Vivid Emerald (#00c853) -> Jade/Mint Tips (#1de9b6 / #4cff88)
+                let r, g, b;
+                if (lum < 0.55) {
+                  const k = lum / 0.55;
+                  r = lerp(0.015, 0.035, k);
+                  g = lerp(0.160, 0.620, k);
+                  b = lerp(0.085, 0.250, k);
+                } else {
+                  const k = (lum - 0.55) / 0.45;
+                  r = lerp(0.035, 0.180, k);
+                  g = lerp(0.620, 0.980, k);
+                  b = lerp(0.250, 0.520, k);
+                }
 
-                // Crisp frost-tipped snowy pine needles along outer bough skirts & upper ridges
-                const frostOuter = clamp((radial > 0.68 ? (radial - 0.68) / 0.32 : 0) * boughRidge, 0, 1);
-                const frostEdge = clamp((radial > 0.82 ? (radial - 0.82) / 0.18 : 0) * (0.4 + 0.6 * frondA), 0, 1);
-                const frost = clamp(frostOuter * 0.85 + frostEdge * 0.65, 0, 1);
+                // Luminous Jade/Mint needle tips on overhanging bough lips
+                const tipMint = clamp(boughRidge * (0.35 + 0.65 * frond) * (0.4 + 0.6 * radial), 0, 1);
+                if (tipMint > 0.32) {
+                  const mk = (tipMint - 0.32) / 0.68;
+                  r = lerp(r, 0.22, mk * 0.52);
+                  g = lerp(g, 1.00, mk * 0.65);
+                  b = lerp(b, 0.66, mk * 0.60);
+                }
 
-                if (frost > 0.04) {
-                  r = lerp(r, 0.78, frost * 0.66);
-                  g = lerp(g, 0.99, frost * 0.66);
-                  b = lerp(b, 0.95, frost * 0.66);
+                // Crisp Icy-Blue Moonlight Rim Highlight on left & outer silhouette edges
+                const moonRim = clamp((u < -0.64 ? (-u - 0.64) / 0.36 : 0) * (0.45 + 0.55 * boughRidge), 0, 1);
+                const frostRim = clamp((radial > 0.80 ? (radial - 0.80) / 0.20 : 0) * boughRidge, 0, 1);
+                const iceBlend = clamp(moonRim * 0.72 + frostRim * 0.52, 0, 1);
+                if (iceBlend > 0.05) {
+                  r = lerp(r, 0.24, iceBlend * 0.65);
+                  g = lerp(g, 0.94, iceBlend * 0.72);
+                  b = lerp(b, 1.00, iceBlend * 0.85);
                 }
 
                 this.treeRgb[i3] = r;
                 this.treeRgb[i3 + 1] = g;
                 this.treeRgb[i3 + 2] = b;
                 this.treeMask[idx] = edgeSoft;
-                this.treeHeightNorm[idx] = 1 - t; // 0 at base -> 1 at apex
+                this.treeHeightNorm[idx] = 1 - t;
                 this.treeRadialNorm[idx] = radial;
                 this.treeIsTrunk[idx] = 0;
 
-                // Sculpted pine needle ASCII glyphs along outer silhouettes & upper crown
-                if (radial > 0.78 && tierFrac > 0.30) {
+                if (radial > 0.78 && tierFrac > 0.28) {
                   this.treeGlyph[idx] = u < 0 ? gSlash : gBack;
                 } else if (t < 0.08 && radial < 0.45) {
                   this.treeGlyph[idx] = gCaret;
-                } else if (frond > 0.86 && radial > 0.45) {
+                } else if (frond > 0.85 && radial > 0.42) {
                   this.treeGlyph[idx] = gCaret;
                 } else {
                   this.treeGlyph[idx] = 0;
@@ -1869,10 +2152,13 @@
             }
           }
 
-          // 5. 7 DETAILED COLORFUL 3D-SHADED GIFT BOXES WITH RIBBONS & BOWS
           this.buildGifts();
         }
 
+        /* ---------------------------------------------------------------------
+           7 Rich Satin-Wrapped Gift Boxes (Crimson, Sapphire, Emerald,
+           Royal Purple, Tangerine Gold, Magenta, Teal) + Crisp Contrasting Bows
+           --------------------------------------------------------------------- */
         buildGifts() {
           const cols = this.cols;
           const rows = this.rows;
@@ -1882,22 +2168,21 @@
           const gStar = GLYPH_IDX['*'] + 1;
           const gLoop = GLYPH_IDX['o'] + 1;
 
-          // 7 rich festive presents arranged naturally left -> right with varied dimensions & colors
           const giftSpecs = [
-            // 0: Far-left Royal Purple + Gold
-            { ox: -1.16, oy: 0.032, w: 0.30, h: 0.072, z: 1, paper: [0.58, 0.16, 0.82], ribbon: [1.00, 0.84, 0.24] },
-            // 1: Mid-left Tall Deep Crimson + Bright Gold (back)
-            { ox: -0.90, oy: 0.015, w: 0.34, h: 0.112, z: 0, paper: [0.94, 0.14, 0.18], ribbon: [1.00, 0.90, 0.38] },
-            // 2: Inner-left Wide Scarlet + Champagne Gold (front)
-            { ox: -0.58, oy: 0.048, w: 0.38, h: 0.088, z: 2, paper: [0.98, 0.22, 0.14], ribbon: [1.00, 0.92, 0.56] },
-            // 3: Center-left Warm Amber-Gold + Silver-White (front cozy)
-            { ox: -0.24, oy: 0.060, w: 0.27, h: 0.066, z: 3, paper: [0.96, 0.58, 0.12], ribbon: [0.95, 0.98, 1.00] },
-            // 4: Inner-right Cobalt Sapphire Blue + Silver-White (front)
-            { ox:  0.38, oy: 0.052, w: 0.38, h: 0.086, z: 2, paper: [0.16, 0.44, 0.96], ribbon: [0.94, 0.98, 1.00] },
-            // 5: Mid-right Tall Festive Emerald + Crimson Red (back)
-            { ox:  0.76, oy: 0.020, w: 0.35, h: 0.106, z: 0, paper: [0.12, 0.72, 0.36], ribbon: [1.00, 0.22, 0.24] },
-            // 6: Far-right Ruby Rose-Red + Warm Gold
-            { ox:  1.08, oy: 0.038, w: 0.32, h: 0.076, z: 1, paper: [0.94, 0.18, 0.38], ribbon: [1.00, 0.86, 0.26] }
+            // 0: Royal Purple + Blazing Gold
+            { ox: -1.16, oy: 0.032, w: 0.30, h: 0.072, z: 1, paper: [0.68, 0.06, 0.98], ribbon: [1.00, 0.84, 0.00] },
+            // 1: Ruby Crimson + Molten Gold
+            { ox: -0.90, oy: 0.015, w: 0.34, h: 0.112, z: 0, paper: [1.00, 0.06, 0.20], ribbon: [1.00, 0.88, 0.06] },
+            // 2: Hot Magenta + Electric Cyan
+            { ox: -0.58, oy: 0.048, w: 0.38, h: 0.088, z: 2, paper: [1.00, 0.10, 0.56], ribbon: [0.00, 0.94, 1.00] },
+            // 3: Tangerine Gold + Ruby Red
+            { ox: -0.24, oy: 0.060, w: 0.27, h: 0.066, z: 3, paper: [1.00, 0.52, 0.00], ribbon: [1.00, 0.12, 0.24] },
+            // 4: Electric Sapphire + Pure Gold
+            { ox:  0.38, oy: 0.052, w: 0.38, h: 0.086, z: 2, paper: [0.04, 0.46, 1.00], ribbon: [1.00, 0.86, 0.08] },
+            // 5: Jewel Emerald + Scarlet Crimson
+            { ox:  0.76, oy: 0.020, w: 0.35, h: 0.106, z: 0, paper: [0.00, 0.84, 0.36], ribbon: [1.00, 0.10, 0.22] },
+            // 6: Vivid Teal Turquoise + Hot Rose
+            { ox:  1.08, oy: 0.038, w: 0.32, h: 0.076, z: 1, paper: [0.00, 0.84, 0.90], ribbon: [1.00, 0.20, 0.56] }
           ];
 
           this.gifts = giftSpecs.map((spec, orderIdx) => {
@@ -1924,14 +2209,14 @@
                   const isHorizRib = Math.abs(uy - 0.45) < 0.11;
                   const isLid = uy < 0.18;
 
-                  let shade = 0.74 + 0.26 * (1 - Math.abs(ux + 0.20) * 0.72);
-                  if (ux > 0.58) shade *= 0.64; // 3D shaded right edge
-                  if (isLid) shade *= 1.20;     // moonlit box lid
-                  if (Math.abs(uy - 0.18) < 0.045) shade *= 0.72; // crisp lid seam
+                  let shade = 0.72 + 0.30 * (1 - Math.abs(ux + 0.22) * 0.74);
+                  if (ux > 0.58) shade *= 0.58; // sharp 3D shaded side face
+                  if (isLid) shade *= 1.24;     // glossy satin lid highlight
+                  if (Math.abs(uy - 0.18) < 0.045) shade *= 0.62; // deep lid shadow seam
 
                   let r, g, b, gOv = 0;
                   if (isVertRib || isHorizRib) {
-                    const rs = clamp(shade * 1.16, 0.58, 1.28);
+                    const rs = clamp(shade * 1.18, 0.62, 1.32);
                     r = spec.ribbon[0] * rs;
                     g = spec.ribbon[1] * rs;
                     b = spec.ribbon[2] * rs;
@@ -1943,14 +2228,13 @@
                   }
                   pixels.push({ x, y, r, g, b, gOv });
                 } else if (uy < 0.0 && uy > -0.35 && Math.abs(ux) < 0.58) {
-                  // Crisp Double-Loop Ribbon Bow on Top
                   const bowY = (uy + 0.16) / 0.16;
                   const leftLoop = Math.hypot((ux + 0.25) / 0.26, bowY / 0.90);
                   const rightLoop = Math.hypot((ux - 0.25) / 0.26, bowY / 0.90);
                   const knot = Math.hypot(ux / 0.13, (uy + 0.08) / 0.12);
 
                   if (knot < 1.0 || (leftLoop < 1.0 && leftLoop > 0.30) || (rightLoop < 1.0 && rightLoop > 0.30)) {
-                    const br = knot < 1.0 ? 1.24 : 1.05;
+                    const br = knot < 1.0 ? 1.28 : 1.08;
                     pixels.push({
                       x, y,
                       r: spec.ribbon[0] * br,
@@ -1977,9 +2261,6 @@
           this.giftsByDepth = [...this.gifts].sort((a, b) => a.z - b.z);
         }
 
-        /* ---------------------------------------------------------------------
-           Build Multi-Depth Twinkling Midnight Starfield
-           --------------------------------------------------------------------- */
         buildStars() {
           const rng = createRng(909);
           this.stars = [];
@@ -1988,22 +2269,24 @@
             const nx = rng();
             const ny = 0.012 + Math.pow(rng(), 1.15) * 0.64;
             const tint = rng();
-            const bright = 0.38 + rng() * 0.62;
+            const bright = 0.40 + rng() * 0.60;
             const speed = 1.1 + rng() * 3.4;
             const phase = rng() * Math.PI * 2;
             const tier = rng() > 0.87 ? 2 : (rng() > 0.55 ? 1 : 0);
+            // Distinct sapphire, cyan-white, and warm starlight tints
             this.stars.push({
               nx, ny,
-              r: lerp(0.70, 1.00, tint),
-              g: lerp(0.86, 0.98, tint),
-              b: 1.00,
+              r: tint > 0.7 ? 1.00 : lerp(0.55, 0.90, tint),
+              g: lerp(0.84, 0.98, tint),
+              b: tint > 0.7 ? 0.74 : 1.00,
               bright, speed, phase, tier
             });
           }
         }
 
         /* ---------------------------------------------------------------------
-           Build Sweeping 3D Helical Garlands, 44 Glossy Ornaments & 96 Fairy Lights
+           3D Helical Golden Tinsel Garlands, 48 Saturated Jewel Baubles &
+           104 Music-Reactive Multicolor LED Lights
            --------------------------------------------------------------------- */
         buildTreeDecorations() {
           const rng = createRng(20261225);
@@ -2017,46 +2300,46 @@
             return halfW * (0.032 + 0.968 * Math.pow(t, 0.91)) * scallopFlare;
           };
 
-          // 1. Sweeping 3D Helical Golden & Warm-Amber Tinsel Garlands (7 lush curves)
+          // 1. 7 Sweeping 3D Helical Saturated Gold-Amber Tinsel Garlands
           this.garlands = [];
           const strandCount = 7;
           for (let s = 0; s < strandCount; s++) {
             const tStart = 0.11 + s * 0.118;
             const tEnd = Math.min(0.955, tStart + 0.105);
-            const steps = 40 + s * 10;
+            const steps = 42 + s * 10;
             for (let j = 0; j <= steps; j++) {
-              const p = j / steps; // 0..1 left-to-right front sweep
-              // Catenary sag across the 3D cone surface
+              const p = j / steps;
               const sag = Math.sin(p * Math.PI) * 0.024;
               const t = lerp(tStart, tEnd, p) + sag;
               if (t > 0.96) continue;
               const hw = getTreeHalfW(t) * 0.89;
-              const angle = (p - 0.5) * Math.PI; // -PI/2 .. +PI/2 front half of helix
+              const angle = (p - 0.5) * Math.PI;
               const nx = cx + Math.sin(angle) * hw;
               const ny = topY + t * treeH;
-              const depthShade = 0.68 + 0.32 * Math.cos(angle);
+              const depthShade = 0.70 + 0.30 * Math.cos(angle);
               this.garlands.push({
                 nx, ny,
-                hNorm: 1 - t, // 0 at bottom -> 1 at apex
+                hNorm: 1 - t,
                 phase: p * 10.0 + s * 1.3,
                 depthShade
               });
             }
           }
 
-          // 2. 44 Detailed Glossy Ornaments / Baubles with Specular Highlights
+          // 2. 48 Saturated Jewel-Tone Bauble Ornaments
+          // (#ff1744 Ruby, #00b0ff Sapphire, #ffd600 Molten Gold, #d500f9 Amethyst, #00e5ff Turquoise, #ff4081 Hot Rose)
           const baubleColors = [
-            [1.00, 0.15, 0.22], // Crimson Red
-            [1.00, 0.84, 0.16], // Royal Gold
-            [0.16, 0.68, 1.00], // Sapphire Blue
-            [1.00, 0.28, 0.72], // Rose Magenta
-            [0.42, 0.96, 1.00]  // Pearl Cyan
+            [1.00, 0.09, 0.27], // Ruby Crimson #ff1744
+            [0.00, 0.69, 1.00], // Electric Sapphire #00b0ff
+            [1.00, 0.84, 0.00], // Vivid Molten Gold #ffd600
+            [0.84, 0.00, 0.98], // Vibrant Amethyst #d500f9
+            [0.00, 0.90, 1.00], // Pure Turquoise #00e5ff
+            [1.00, 0.25, 0.51]  // Hot Rose #ff4081
           ];
           this.ornaments = [];
-          for (let i = 0; i < 44; i++) {
-            const t = 0.11 + Math.pow((i + 0.5) / 44, 0.72) * 0.83;
-            const hw = getTreeHalfW(t) * 0.78;
-            // Distribute smoothly using golden-ratio spacing to avoid clumps
+          for (let i = 0; i < 48; i++) {
+            const t = 0.10 + Math.pow((i + 0.5) / 48, 0.72) * 0.84;
+            const hw = getTreeHalfW(t) * 0.79;
             const u = (((i * 0.6180339887) % 1) * 2 - 1) * 0.92;
             const nx = cx + u * hw;
             const ny = topY + t * treeH;
@@ -2066,52 +2349,49 @@
               hNorm: 1 - t,
               r: col[0], g: col[1], b: col[2],
               phase: rng() * Math.PI * 2,
-              speed: 1.4 + rng() * 2.2
+              speed: 1.5 + rng() * 2.2
             });
           }
 
-          // 3. 96 Animated Multi-Color Music-Reactive Fairy Lights
-          const fairyColors = [
-            [1.00, 0.88, 0.38], // Warm Fairy Gold
-            [1.00, 0.24, 0.30], // Festive Red
-            [0.24, 0.88, 1.00], // Ice Cyan
-            [0.42, 1.00, 0.56], // Emerald Glow
-            [1.00, 0.44, 0.84], // Pink Sparkle
-            [1.00, 0.98, 0.92]  // Pure Warm White
+          // 3. 104 Pure Saturated Multicolor Music-Reactive LED Lights
+          const ledColors = [
+            [1.00, 0.86, 0.00], // Pure Warm Gold
+            [1.00, 0.08, 0.24], // Ruby Red LED
+            [0.00, 0.92, 1.00], // Electric Cyan LED
+            [1.00, 0.10, 0.64], // Vivid Magenta LED
+            [0.00, 1.00, 0.45], // Emerald LED
+            [0.14, 0.48, 1.00]  // Royal Blue LED
           ];
           this.fairyLights = [];
-          for (let i = 0; i < 96; i++) {
+          for (let i = 0; i < 104; i++) {
             const t = 0.06 + Math.pow(rng(), 0.64) * 0.89;
-            const hw = getTreeHalfW(t) * 0.91;
+            const hw = getTreeHalfW(t) * 0.92;
             const nx = cx + (rng() * 2 - 1) * hw;
             const ny = topY + t * treeH;
-            const col = fairyColors[Math.floor(rng() * fairyColors.length)];
+            const col = ledColors[i % ledColors.length];
             this.fairyLights.push({
               nx, ny,
               hNorm: 1 - t,
               r: col[0], g: col[1], b: col[2],
               phase: rng() * Math.PI * 2,
-              speed: 2.2 + rng() * 4.0,
-              band: i % 2, // 0 reacts more to bass, 1 to treble
-              glyph: rng() > 0.45 ? (GLYPH_IDX['*'] + 1) : (GLYPH_IDX['+'] + 1)
+              speed: 2.3 + rng() * 4.2,
+              band: i % 2,
+              glyph: rng() > 0.42 ? (GLYPH_IDX['*'] + 1) : (GLYPH_IDX['+'] + 1)
             });
           }
         }
 
-        /* ---------------------------------------------------------------------
-           Multi-Layer Parallax Snowfall (Far Micro / Mid Drift / Near Fluffy)
-           --------------------------------------------------------------------- */
         initSnowflakes() {
           this.snowflakes = [];
           const maxCount = 520;
-          const gDot = GLYPH_IDX['·'] + 1;
+          const gDot = GLYPH_IDX['•'] + 1;
           const gPeriod = GLYPH_IDX['.'] + 1;
           const gPlus = GLYPH_IDX['+'] + 1;
           const gStar = GLYPH_IDX['*'] + 1;
           const gSpark = GLYPH_IDX['✦'] + 1;
 
           for (let i = 0; i < maxCount; i++) {
-            const layer = i % 3; // 0: far micro, 1: mid drift, 2: near large fluffy
+            const layer = i % 3;
             this.snowflakes.push({
               x: Math.random(),
               y: Math.random(),
@@ -2129,14 +2409,6 @@
           }
         }
 
-        cycleSnowLevel() {
-          this.snowLevel = (this.snowLevel + 1) % 3;
-          return this.snowLevel;
-        }
-
-        /* ---------------------------------------------------------------------
-           Show Control: Start / Replay Gradual Tree Construction
-           --------------------------------------------------------------------- */
         startShow() {
           this.phase = 'running';
           this.showTime = 0;
@@ -2148,11 +2420,9 @@
         }
 
         /* ---------------------------------------------------------------------
-           ULTRA-DETAILED 5-TYPE MULTI-STAGE FIREWORKS ENGINE
-           Types: 'chrysanthemum', 'doubleRing', 'willow', 'crossette', 'strobePalm'
+           HIGH-DETAIL VIVID 5-TYPE FIREWORKS ENGINE + STEREO AUDIO TRIGGER
            --------------------------------------------------------------------- */
         launchFirework(targetNx = null, targetNy = null, forceSide = null, forceType = null) {
-          // Cap active fireworks so rapid clicking never drops FPS
           if (this.fireworks.length >= 10) {
             this.fireworks.shift();
           }
@@ -2174,7 +2444,7 @@
           const types = ['chrysanthemum', 'doubleRing', 'willow', 'crossette', 'strobePalm'];
           const type = forceType || types[Math.floor(Math.random() * types.length)];
           const palette = (type === 'willow')
-            ? FIREWORK_PALETTES[0] // Classic luxurious champagne-gold willow
+            ? FIREWORK_PALETTES[0]
             : FIREWORK_PALETTES[Math.floor(Math.random() * FIREWORK_PALETTES.length)];
 
           const startX = tx + (Math.random() - 0.5) * 0.08;
@@ -2182,7 +2452,7 @@
           const curveBias = (tx - startX) * -0.45 + (Math.random() - 0.5) * 0.04;
           const flightDuration = 0.54 + Math.random() * 0.24;
 
-          this.audio.playFireworkLaunch();
+          this.audio.playFireworkLaunch(tx);
 
           this.fireworks.push({
             state: 'rising',
@@ -2200,7 +2470,7 @@
             rocketTrail: [],
             burstAge: 0,
             burstDuration: type === 'willow' ? 3.55 : (type === 'crossette' ? 3.05 : 2.65),
-            maxRadius: 0.165 + Math.random() * 0.065,
+            maxRadius: 0.168 + Math.random() * 0.065,
             particles: [],
             subParticles: []
           });
@@ -2210,8 +2480,7 @@
           fw.state = 'burst';
           fw.burstAge = 0;
 
-          const hasCrackle = fw.type === 'strobePalm' || fw.type === 'crossette' || Math.random() > 0.55;
-          this.audio.playFireworkBoom(0.85 + Math.random() * 0.35, hasCrackle);
+          this.audio.playFireworkBoom(fw.tx, 0.92 + Math.random() * 0.32, fw.type);
 
           const pal = fw.palette;
           const goldenAngle = Math.PI * (3 - Math.sqrt(5));
@@ -2233,40 +2502,41 @@
             phase: Math.random() * Math.PI * 2,
             speedTwinkle: 12 + Math.random() * 16,
             trailLen,
-            trail: [] // ring-like coordinate history for long tapering luminous tails
+            trail: []
           });
 
           if (fw.type === 'chrysanthemum') {
-            // 1. GRAND CHRYSANTHEMUM (210 dense symmetrical 3D radial stars + long hue-shifting trails)
-            const count = 210;
+            const count = 215;
             for (let i = 0; i < count; i++) {
               const z = 1 - (i / (count - 1)) * 2;
               const rXY = Math.sqrt(Math.max(0, 1 - z * z));
               const theta = goldenAngle * i + (Math.random() - 0.5) * 0.14;
               const shellLayer = (i % 4 === 0) ? (0.58 + Math.random() * 0.25) : (0.90 + Math.random() * 0.14);
               const spd = fw.maxRadius * 2.15 * shellLayer;
-              const vx = Math.cos(theta) * rXY * spd;
-              const vy = Math.sin(theta) * rXY * spd + z * spd * 0.15;
-              fw.particles.push(makeParticle(vx, vy, pal.c0, pal.c1, pal.c2, 0.80 + Math.random() * 0.24, 0.24, 0.085, false, false, 7));
+              fw.particles.push(makeParticle(
+                Math.cos(theta) * rXY * spd,
+                Math.sin(theta) * rXY * spd + z * spd * 0.15,
+                pal.c0, pal.c1, pal.c2,
+                0.80 + Math.random() * 0.24, 0.24, 0.085, false, false, 7
+              ));
             }
           } else if (fw.type === 'doubleRing') {
-            // 2. DOUBLE-RING PEONY (Inner gold/white crown + Outer vivid accent ring)
             const outerPal = FIREWORK_PALETTES[(FIREWORK_PALETTES.indexOf(pal) + 2) % FIREWORK_PALETTES.length];
-            const innerCount = 68;
-            const outerCount = 148;
+            const innerCount = 70;
+            const outerCount = 152;
             for (let i = 0; i < innerCount; i++) {
               const ang = (i / innerCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.08;
-              const spd = fw.maxRadius * (1.05 + Math.random() * 0.16);
+              const spd = fw.maxRadius * (1.06 + Math.random() * 0.16);
               fw.particles.push(makeParticle(
                 Math.cos(ang) * spd, Math.sin(ang) * spd,
-                [1.0, 1.0, 0.96], [1.0, 0.86, 0.34], [1.0, 0.56, 0.18],
+                [1.00, 0.92, 0.12], [1.00, 0.72, 0.00], [1.00, 0.24, 0.04],
                 0.76 + Math.random() * 0.18, 0.22, 0.070, true, false, 5
               ));
             }
             for (let i = 0; i < outerCount; i++) {
               const ang = (i / outerCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.09;
               const tilt = 0.82 + 0.18 * Math.sin(ang * 2.0);
-              const spd = fw.maxRadius * (2.10 + Math.random() * 0.22) * tilt;
+              const spd = fw.maxRadius * (2.12 + Math.random() * 0.22) * tilt;
               fw.particles.push(makeParticle(
                 Math.cos(ang) * spd, Math.sin(ang) * spd,
                 outerPal.c0, outerPal.c1, outerPal.c2,
@@ -2274,35 +2544,32 @@
               ));
             }
           } else if (fw.type === 'willow') {
-            // 3. GOLDEN WILLOW CASCADE (175 long-lived weeping golden tendrils drooping gracefully)
-            const count = 175;
+            const count = 180;
             for (let i = 0; i < count; i++) {
               const z = 1 - (i / (count - 1)) * 2;
               const rXY = Math.sqrt(Math.max(0, 1 - z * z));
               const theta = goldenAngle * i + (Math.random() - 0.5) * 0.22;
               const spd = fw.maxRadius * (1.25 + Math.random() * 0.85);
-              const vx = Math.cos(theta) * rXY * spd;
-              const vy = Math.sin(theta) * rXY * spd - 0.06; // subtle upward loft before drooping
               fw.particles.push(makeParticle(
-                vx, vy,
-                [1.00, 0.98, 0.84], [1.00, 0.80, 0.34], [0.85, 0.44, 0.12],
+                Math.cos(theta) * rXY * spd,
+                Math.sin(theta) * rXY * spd - 0.06,
+                [1.00, 0.90, 0.14], [1.00, 0.66, 0.00], [0.96, 0.26, 0.02],
                 0.82 + Math.random() * 0.22, 0.34, 0.155, true, false, 9
               ));
             }
           } else if (fw.type === 'crossette') {
-            // 4. CROSSETTE MULTI-BREAK (26 bold primary stars that split mid-flight into secondary starbursts!)
             const count = 26;
             for (let i = 0; i < count; i++) {
               const ang = (i / count) * Math.PI * 2 + (Math.random() - 0.5) * 0.12;
               const spd = fw.maxRadius * (1.75 + Math.random() * 0.45);
               fw.particles.push(makeParticle(
                 Math.cos(ang) * spd, Math.sin(ang) * spd,
-                [1.0, 0.98, 0.90], pal.c1, pal.c2,
+                pal.c0, pal.c1, pal.c2,
                 0.50 + Math.random() * 0.08, 0.38, 0.06, false, true, 6
               ));
             }
           } else {
-            // 5. STROBE GLITTER PALM (14 bold palm arms + 115 high-frequency glittering strobe stars)
+            // Strobe Palm
             const arms = 14;
             for (let a = 0; a < arms; a++) {
               const baseAng = (a / arms) * Math.PI * 2 + (Math.random() - 0.5) * 0.12;
@@ -2310,18 +2577,17 @@
                 const spd = fw.maxRadius * (1.25 + s * 0.28);
                 fw.particles.push(makeParticle(
                   Math.cos(baseAng) * spd, Math.sin(baseAng) * spd,
-                  [1.0, 1.0, 0.95], pal.c1, pal.c2,
+                  pal.c0, pal.c1, pal.c2,
                   0.78 + Math.random() * 0.22, 0.26, 0.11, false, false, 8
                 ));
               }
             }
-            // Surrounding strobe glitter cloud
-            for (let i = 0; i < 115; i++) {
+            for (let i = 0; i < 120; i++) {
               const ang = Math.random() * Math.PI * 2;
               const spd = fw.maxRadius * (0.45 + Math.random() * 1.65);
               fw.particles.push(makeParticle(
                 Math.cos(ang) * spd, Math.sin(ang) * spd,
-                [1.0, 1.0, 1.0], pal.c0, pal.c1,
+                pal.c0, pal.c1, pal.c2,
                 0.80 + Math.random() * 0.24, 0.20, 0.07, true, false, 3
               ));
             }
@@ -2329,7 +2595,6 @@
         }
 
         launchGrandSalvo() {
-          // Synchronized festive 4-shell mixed showcase framing the Christmas tree
           this.launchFirework(0.18, 0.24, -1, 'chrysanthemum');
           setTimeout(() => this.launchFirework(0.82, 0.22, 1, 'doubleRing'), 220);
           setTimeout(() => this.launchFirework(0.28, 0.34, -1, 'willow'), 480);
@@ -2337,7 +2602,7 @@
         }
 
         /* ---------------------------------------------------------------------
-           Additive Framebuffer Splat & Radial Glow Helpers
+           Additive HDR Framebuffer Splat & Radial Glow Helpers
            --------------------------------------------------------------------- */
         addPixel(x, y, r, g, b, glyphOv = 0) {
           if (x < 0 || x >= this.cols || y < 0 || y >= this.rows) return;
@@ -2346,6 +2611,16 @@
           this.rgb[i3] += r;
           this.rgb[i3 + 1] += g;
           this.rgb[i3 + 2] += b;
+          if (glyphOv !== 0) this.glyphOverride[idx] = glyphOv;
+        }
+
+        setPixelVivid(x, y, r, g, b, mixAlpha, glyphOv = 0) {
+          if (x < 0 || x >= this.cols || y < 0 || y >= this.rows) return;
+          const idx = y * this.cols + x;
+          const i3 = idx * 3;
+          this.rgb[i3]     = lerp(this.rgb[i3], r, mixAlpha);
+          this.rgb[i3 + 1] = lerp(this.rgb[i3 + 1], g, mixAlpha);
+          this.rgb[i3 + 2] = lerp(this.rgb[i3 + 2], b, mixAlpha);
           if (glyphOv !== 0) this.glyphOverride[idx] = glyphOv;
         }
 
@@ -2381,7 +2656,7 @@
         }
 
         /* ---------------------------------------------------------------------
-           Per-Frame Physics, Choreography Timeline & Stage Status Toast
+           Per-Frame Physics & Choreography Update
            --------------------------------------------------------------------- */
         update(dt) {
           this.ambientTime += dt;
@@ -2414,7 +2689,7 @@
               }
             }
 
-            // Spawn magical construction sparkles along the active tree-growing frontier (Stage 2: 1.0s - 6.2s)
+            // Magical emerald & gold construction sparks during tree growth (1.0s - 6.3s)
             if (this.showTime >= 1.0 && this.showTime <= 6.3) {
               const buildP = easeInOutSine(clamp((this.showTime - 1.2) / 5.0, 0, 1));
               const { cx, topY, botY, halfW } = this.treeMetrics;
@@ -2432,34 +2707,30 @@
                   vy: -0.025 - Math.random() * 0.065,
                   age: 0,
                   maxAge: 0.45 + Math.random() * 0.45,
-                  r: isGold ? 1.00 : 0.45,
-                  g: isGold ? 0.88 : 1.00,
-                  b: isGold ? 0.35 : 0.82
+                  r: isGold ? 1.00 : 0.12,
+                  g: isGold ? 0.84 : 1.00,
+                  b: isGold ? 0.04 : 0.66
                 });
               }
             }
           }
 
-          // Update floating magic construction sparks
           for (let i = this.magicSparks.length - 1; i >= 0; i--) {
             const sp = this.magicSparks[i];
             sp.age += dt;
             sp.x += sp.vx * dt;
             sp.y += sp.vy * dt;
             sp.vy += 0.03 * dt;
-            if (sp.age >= sp.maxAge) {
-              this.magicSparks.splice(i, 1);
-            }
+            if (sp.age >= sp.maxAge) this.magicSparks.splice(i, 1);
           }
 
-          // Update All Active Multi-Stage Fireworks
+          // Update Active Multi-Stage Fireworks
           for (let i = this.fireworks.length - 1; i >= 0; i--) {
             const fw = this.fireworks[i];
             if (fw.state === 'rising') {
               fw.age += dt;
               const p = clamp(fw.age / fw.flightDuration, 0, 1);
               const easeP = 1 - Math.pow(1 - p, 2.15);
-              // Gentle curved ascending rocket arc
               const arcOffset = Math.sin(p * Math.PI) * fw.curveBias;
               fw.x = lerp(fw.startX, fw.tx, easeP) + arcOffset;
               fw.y = lerp(fw.startY, fw.ty, easeP);
@@ -2468,20 +2739,16 @@
                 fw.rocketTrail[j].life -= dt;
                 if (fw.rocketTrail[j].life <= 0) fw.rocketTrail.splice(j, 1);
               }
-              if (p >= 1) {
-                this.detonateFirework(fw);
-              }
+              if (p >= 1) this.detonateFirework(fw);
             } else {
               fw.burstAge += dt;
               const p = fw.burstAge / fw.burstDuration;
 
-              // Update primary burst particles + record multi-frame tapering trails
               for (let k = 0; k < fw.particles.length; k++) {
                 const pt = fw.particles[k];
                 const lp = p / pt.lifeScale;
                 if (lp >= 1.15) continue;
 
-                // Record trail point
                 pt.trail.push(pt.x, pt.y);
                 if (pt.trail.length > pt.trailLen * 2) {
                   pt.trail.splice(0, 2);
@@ -2493,9 +2760,10 @@
                 pt.x += (pt.vx / this.aspect) * dt;
                 pt.y += pt.vy * dt;
 
-                // Crossette Secondary Multi-Break Detonation!
+                // Crossette Secondary Mid-Air Detonation + Punchy Secondary Pop SFX!
                 if (pt.canSplit && !pt.hasSplit && lp >= 0.78) {
                   pt.hasSplit = true;
+                  this.audio.playCrossetteSubBurst(pt.x);
                   const subCount = 7;
                   for (let s = 0; s < subCount; s++) {
                     const ang = (s / subCount) * Math.PI * 2 + Math.random() * 0.4;
@@ -2506,8 +2774,8 @@
                       vx: pt.vx * 0.25 + Math.cos(ang) * sSpd,
                       vy: pt.vy * 0.25 + Math.sin(ang) * sSpd,
                       age: 0,
-                      maxAge: 0.72 + Math.random() * 0.35,
-                      c0: [1.0, 0.98, 0.92],
+                      maxAge: 0.74 + Math.random() * 0.35,
+                      c0: fw.palette.c0,
                       c1: fw.palette.c1,
                       phase: Math.random() * Math.PI * 2
                     });
@@ -2515,7 +2783,6 @@
                 }
               }
 
-              // Update Crossette secondary mini-starburst particles
               for (let s = fw.subParticles.length - 1; s >= 0; s--) {
                 const sp = fw.subParticles[s];
                 sp.age += dt;
@@ -2533,7 +2800,7 @@
             }
           }
 
-          // Update Multi-Layer Parallax Falling Snow
+          // Update Parallax Snowfall
           const activeSnow = this.snowLevel === 0 ? 130 : (this.snowLevel === 1 ? 260 : 520);
           const windBase = this.snowLevel === 0 ? 0.009 : (this.snowLevel === 1 ? 0.016 : 0.034);
           const speedMult = this.snowLevel === 0 ? 0.85 : (this.snowLevel === 1 ? 1.0 : 1.32);
@@ -2564,13 +2831,13 @@
             text = '✨ กำลังร่ายมนตร์เกล็ดหิมะและละอองดาว...';
           } else if (t < 5.7) {
             stage = 2;
-            text = '🌲 กำลังก่อตัวต้นคริสต์มาสจากฐานขึ้นยอด...';
+            text = '🌲 กำลังก่อตัวต้นคริสต์มาสสีมรกตจากฐานขึ้นยอด...';
           } else if (t < 7.5) {
             stage = 3;
             text = '🎁 กำลังจัดวางกล่องของขวัญทั้ง 7 กล่อง...';
           } else if (t < 10.2) {
             stage = 4;
-            text = '💡 กำลังประดับสายรุ้ง ลูกบอล และไฟกระพริบ...';
+            text = '💡 กำลังประดับสายรุ้ง ลูกบอลอัญมณี และไฟ LED...';
           } else if (t < 11.7) {
             stage = 5;
             text = '⭐ จุดประกายดาวทองบนยอดต้นคริสต์มาส!';
@@ -2590,7 +2857,7 @@
         }
 
         /* ---------------------------------------------------------------------
-           Composite All Layers Into Float32Array RGB Framebuffer + Specular Sparks
+           Composite All Layers Into HDR RGB Framebuffer
            --------------------------------------------------------------------- */
         composeFrame() {
           const cols = this.cols;
@@ -2604,25 +2871,25 @@
 
           this.specularSparks.length = 0;
 
-          // 1. Midnight Sky Base + Clear Glyph Overrides
+          // 1. Pure Deep Obsidian Night Sky Base
           this.rgb.set(this.skyRgb);
           this.glyphOverride.fill(0);
 
-          // 2. Multi-Depth Twinkling Stars
-          const gDot = GLYPH_IDX['·'] + 1;
+          // 2. Crisp Twinkling Starfield
+          const gDot = GLYPH_IDX['•'] + 1;
           const gPlus = GLYPH_IDX['+'] + 1;
           const gStar = GLYPH_IDX['*'] + 1;
           for (let i = 0; i < this.stars.length; i++) {
             const star = this.stars[i];
             const gx = Math.round(star.nx * (cols - 1));
             const gy = Math.round(star.ny * (rows - 1));
-            const tw = 0.40 + 0.60 * (0.5 + 0.5 * Math.sin(at * star.speed + star.phase));
-            const lum = star.bright * tw * (1 + treb * 0.20);
+            const tw = 0.42 + 0.58 * (0.5 + 0.5 * Math.sin(at * star.speed + star.phase));
+            const lum = star.bright * tw * (1 + treb * 0.22);
             const gOv = star.tier === 2 ? (tw > 0.72 ? gStar : gPlus) : (star.tier === 1 ? gPlus : gDot);
             this.addPixel(gx, gy, star.r * lum, star.g * lum, star.b * lum, gOv);
 
             if (star.tier === 2 && tw > 0.80) {
-              const arm = lum * 0.35;
+              const arm = lum * 0.34;
               this.addPixel(gx - 1, gy, star.r * arm, star.g * arm, star.b * arm);
               this.addPixel(gx + 1, gy, star.r * arm, star.g * arm, star.b * arm);
               this.addPixel(gx, gy - 1, star.r * arm, star.g * arm, star.b * arm);
@@ -2630,88 +2897,75 @@
             }
           }
 
-          // 3. Detailed Glowing Full Moon (Upper-Left)
+          // 3. Crisp Luminous Full Moon with Crater Texture
           this.renderMoon();
 
-          // 4. High-Detail Multi-Type Fireworks (Behind Pine Ridges & Tree, Illuminates Environment!)
+          // 4. Vivid 5-Type Fireworks (Collects Colored Environmental Reflections)
           const envLight = { r: 0, g: 0, b: 0, flashes: [] };
           this.renderFireworks(envLight);
 
-          // 5. Three Overlapping Pine Forest Ridges (Reacting to Firework Sky Illumination!)
+          // 5. Layered Emerald-Indigo Forest Silhouettes + Vivid Firework Rim Reflections
           const hasFlashes = envLight.flashes.length > 0;
           for (let idx = 0; idx < N; idx++) {
             const m = this.forestMask[idx];
             if (m <= 0.02) continue;
             const i3 = idx * 3;
             const depth = this.forestDepth[idx];
-            // Distant ridges absorb more colored glow from fireworks behind them
             let fr = this.forestRgb[i3];
             let fg = this.forestRgb[i3 + 1];
             let fb = this.forestRgb[i3 + 2];
 
             if (hasFlashes) {
-              const envFactor = (1.15 - depth * 0.55) * 0.45;
+              const envFactor = (1.20 - depth * 0.55) * 0.52;
               fr += envLight.r * envFactor;
               fg += envLight.g * envFactor;
               fb += envLight.b * envFactor;
             }
 
-            const bleed = 0.16;
+            const bleed = 0.14;
             this.rgb[i3]     = this.rgb[i3] * (1 - m + m * bleed) + fr * m;
             this.rgb[i3 + 1] = this.rgb[i3 + 1] * (1 - m + m * bleed) + fg * m;
             this.rgb[i3 + 2] = this.rgb[i3 + 2] * (1 - m + m * bleed) + fb * m;
             if (m > 0.45) this.glyphOverride[idx] = 0;
           }
 
-          // 6. Undulating Snowbank + Firework Sky Bounce + Tree/Gift Reflections
-          const { cx, botY, halfW } = this.treeMetrics;
+          // 6. Sparkling Snow Ground + Vivid Firework Reflections
+          const { cx, botY } = this.treeMetrics;
           for (let idx = 0; idx < N; idx++) {
             const m = this.groundMask[idx];
             if (m <= 0.02) continue;
             const i3 = idx * 3;
-            this.rgb[i3]     = lerp(this.rgb[i3], this.groundRgb[i3] + envLight.r * 0.24, m);
-            this.rgb[i3 + 1] = lerp(this.rgb[i3 + 1], this.groundRgb[i3 + 1] + envLight.g * 0.24, m);
-            this.rgb[i3 + 2] = lerp(this.rgb[i3 + 2], this.groundRgb[i3 + 2] + envLight.b * 0.24, m);
+            this.rgb[i3]     = lerp(this.rgb[i3], this.groundRgb[i3] + envLight.r * 0.34, m);
+            this.rgb[i3 + 1] = lerp(this.rgb[i3 + 1], this.groundRgb[i3 + 1] + envLight.g * 0.34, m);
+            this.rgb[i3 + 2] = lerp(this.rgb[i3 + 2], this.groundRgb[i3 + 2] + envLight.b * 0.34, m);
             if (m > 0.5) this.glyphOverride[idx] = this.groundGlyph[idx];
           }
 
           if (running) {
-            // Stage 1 (0.0s - 1.6s): Magical Snow & Stardust Vortex at Tree Base
-            if (st < 2.4) {
-              this.renderMagicVortex(st);
-            }
+            if (st < 2.4) this.renderMagicVortex(st);
 
-            // Soft colored reflection pools on snow as tree & gifts materialize
+            // Vivid emerald & gold snow reflection beneath the Christmas tree
             const treeSnowGlow = smoothstep(1.2, 4.5, st);
             const decoSnowGlow = smoothstep(7.2, 10.5, st);
             if (treeSnowGlow > 0.01) {
-              const pulse = 0.90 + 0.10 * Math.sin(at * 2.2) + bass * 0.18;
+              const pulse = 0.90 + 0.10 * Math.sin(at * 2.2) + bass * 0.22;
               this.addRadialGlow(
-                cx, botY + 0.055, 0.15,
-                (0.08 + 0.26 * decoSnowGlow) * treeSnowGlow * pulse,
-                (0.42 + 0.14 * decoSnowGlow) * treeSnowGlow * pulse,
-                (0.16 + 0.08 * decoSnowGlow) * treeSnowGlow * pulse,
+                cx, botY + 0.052, 0.15,
+                (0.04 + 0.32 * decoSnowGlow) * treeSnowGlow * pulse,
+                (0.56 + 0.14 * decoSnowGlow) * treeSnowGlow * pulse,
+                (0.18 + 0.08 * decoSnowGlow) * treeSnowGlow * pulse,
                 2.1
               );
             }
 
-            // Stage 2 (1.0s - 6.2s): Gradual Bottom-to-Top Ultra-HD Tree Construction
             this.renderChristmasTree(st, at, bass);
-
-            // Floating Magic Construction Sparkles
             this.renderMagicSparks();
-
-            // Stage 3 (5.5s - 7.8s): 7 Wrapped Gift Boxes Materialize Left-to-Right + Snow Bounce
             this.renderGifts(st);
-
-            // Stage 4 (7.0s - 10.5s): 3D Helical Garlands, 44 Glossy Ornaments & 96 Music-Reactive Fairy Lights
             this.renderTreeDecorations(st, at, bass, treb);
-
-            // Stage 5 (10.2s - 12.0s): Radiant Golden Star Topper Ignition + Celebratory Sparkle Wave
             this.renderStarTopper(st, at, bass, treb);
           }
 
-          // 7. Multi-Layer Parallax Falling Snow (Foreground over entire scene)
+          // 7. Crisp Multi-Layer Parallax Snowfall
           this.renderSnow(treb);
         }
 
@@ -2722,9 +2976,8 @@
           const my = 0.14;
           const coreR = 0.046;
 
-          // Silver-blue luminous lunar corona
-          this.addRadialGlow(mx, my, 0.19, 0.18, 0.36, 0.68, 2.3);
-          this.addRadialGlow(mx, my, 0.092, 0.44, 0.66, 0.92, 1.85);
+          this.addRadialGlow(mx, my, 0.17, 0.12, 0.34, 0.72, 2.4);
+          this.addRadialGlow(mx, my, 0.086, 0.38, 0.68, 0.96, 1.9);
 
           const rx = coreR / this.aspect;
           const x0 = Math.max(0, Math.floor((mx - rx * 1.15) * cols));
@@ -2739,18 +2992,17 @@
               const d = Math.hypot(dx, dy);
               if (d <= 1.04) {
                 const edge = smoothstep(1.04, 0.78, d);
-                // Realistic lunar maria / crater shading via ASCII density
-                const crater1 = Math.sin(dx * 4.4 + dy * 3.1) * Math.cos(dy * 5.2 - dx * 2.8);
-                const crater2 = Math.sin(dx * 9.5 - dy * 7.2) * 0.5;
-                const mare = 0.84 + 0.16 * (crater1 * 0.7 + crater2 * 0.3);
-                const limb = 0.86 + 0.14 * Math.sqrt(Math.max(0, 1 - d * d));
+                const crater1 = Math.sin(dx * 4.5 + dy * 3.2) * Math.cos(dy * 5.4 - dx * 2.9);
+                const crater2 = Math.sin(dx * 9.8 - dy * 7.4) * 0.5;
+                const mare = 0.80 + 0.20 * (crater1 * 0.7 + crater2 * 0.3);
+                const limb = 0.84 + 0.16 * Math.sqrt(Math.max(0, 1 - d * d));
                 const lum = edge * mare * limb;
 
                 const idx = y * cols + x;
                 const i3 = idx * 3;
-                this.rgb[i3]     = Math.max(this.rgb[i3], 0.94 * lum);
-                this.rgb[i3 + 1] = Math.max(this.rgb[i3 + 1], 0.98 * lum);
-                this.rgb[i3 + 2] = Math.max(this.rgb[i3 + 2], 1.10 * lum);
+                this.rgb[i3]     = Math.max(this.rgb[i3], 0.92 * lum);
+                this.rgb[i3 + 1] = Math.max(this.rgb[i3 + 1], 0.97 * lum);
+                this.rgb[i3 + 2] = Math.max(this.rgb[i3 + 2], 1.08 * lum);
                 if (edge > 0.65) this.glyphOverride[idx] = 0;
               }
             }
@@ -2764,9 +3016,8 @@
           const fade = smoothstep(0.0, 0.35, st) * smoothstep(2.4, 1.25, st);
           if (fade <= 0.01) return;
 
-          // Warm golden-cyan magic summoning pool on the snow
-          this.addRadialGlow(cx, botY + 0.02, 0.14 * (0.6 + 0.4 * fade), 0.35 * fade, 0.85 * fade, 0.95 * fade, 2.0);
-          this.addRadialGlow(cx, botY + 0.01, 0.08, 1.0 * fade, 0.84 * fade, 0.32 * fade, 1.8);
+          this.addRadialGlow(cx, botY + 0.02, 0.14 * (0.6 + 0.4 * fade), 0.05 * fade, 0.92 * fade, 0.98 * fade, 2.0);
+          this.addRadialGlow(cx, botY + 0.01, 0.08, 1.0 * fade, 0.82 * fade, 0.04 * fade, 1.8);
 
           const gSpark = GLYPH_IDX['✦'] + 1;
           const gStar = GLYPH_IDX['*'] + 1;
@@ -2781,17 +3032,17 @@
             const gx = Math.round(nx * (cols - 1));
             const gy = Math.round(ny * (rows - 1));
             const isGold = i % 2 === 0;
-            const lum = Math.sin(p * Math.PI) * fade * 1.35;
+            const lum = Math.sin(p * Math.PI) * fade * 1.45;
 
             this.addPixel(
               gx, gy,
-              (isGold ? 1.0 : 0.38) * lum,
-              (isGold ? 0.86 : 0.96) * lum,
-              (isGold ? 0.32 : 1.00) * lum,
+              (isGold ? 1.00 : 0.04) * lum,
+              (isGold ? 0.82 : 0.95) * lum,
+              (isGold ? 0.04 : 1.00) * lum,
               lum > 0.7 ? gSpark : gStar
             );
             if (lum > 0.85 && i % 4 === 0) {
-              this.specularSparks.push({ nx, ny, r: isGold ? 255 : 140, g: isGold ? 225 : 245, b: isGold ? 120 : 255, size: 3.2, alpha: lum * 0.75 });
+              this.specularSparks.push({ nx, ny, r: isGold ? 255 : 0, g: isGold ? 214 : 235, b: isGold ? 20 : 255, size: 3.0, alpha: lum * 0.72 });
             }
           }
         }
@@ -2801,17 +3052,13 @@
           const cols = this.cols;
           const rows = this.rows;
 
-          // Trunk rises first (1.0s - 1.7s)
           const trunkReveal = smoothstep(1.0, 1.7, st);
-          // Foliage grows smoothly bottom-to-top (1.2s - 6.2s)
           const buildProgress = easeInOutSine(clamp((st - 1.2) / 5.0, 0, 1));
           const isBuilding = st < 6.5;
-
-          // Celebratory golden sparkle wave descending the tree right after Star Topper ignites (10.7s - 12.6s)
           const waveP = (st >= 10.65 && st <= 12.8) ? (1 - (st - 10.65) / 2.15) : -1;
 
           const shimmerPhase = at * 2.3;
-          const musicBreathe = 1.0 + bass * 0.12;
+          const musicBreathe = 1.0 + bass * 0.14;
           const gSpark = GLYPH_IDX['✦'] + 1;
 
           for (let y = 0; y < rows; y++) {
@@ -2827,17 +3074,14 @@
               if (this.treeIsTrunk[idx]) {
                 localReveal = trunkReveal;
               } else {
-                const hNorm = this.treeHeightNorm[idx]; // 0 at bottom -> 1 at apex
-                const radial = this.treeRadialNorm[idx]; // 0 at center spine -> 1 at outer bough tips
-
-                // Organic bottom-to-top AND center-outward branch sweeping!
+                const hNorm = this.treeHeightNorm[idx];
+                const radial = this.treeRadialNorm[idx];
                 const localStart = hNorm * 0.86 + radial * 0.14;
                 localReveal = smoothstep(localStart - 0.055, localStart + 0.045, buildProgress * 1.06);
                 if (localReveal <= 0.01) continue;
 
-                // Bright luminous emerald/gold construction frontier glow while growing
                 if (isBuilding && localReveal < 0.98) {
-                  frontierGlow = Math.sin(localReveal * Math.PI) * 1.65;
+                  frontierGlow = Math.sin(localReveal * Math.PI) * 1.55;
                 }
               }
 
@@ -2846,26 +3090,26 @@
               const i3 = idx * 3;
               const hNorm = this.treeHeightNorm[idx];
 
-              const shimmer = (0.91 + 0.11 * Math.sin(shimmerPhase - hNorm * 7.5 + x * 0.18)) * musicBreathe;
+              const shimmer = (0.90 + 0.12 * Math.sin(shimmerPhase - hNorm * 7.5 + x * 0.18)) * musicBreathe;
 
               let tr = this.treeRgb[i3] * shimmer;
               let tg = this.treeRgb[i3 + 1] * shimmer;
               let tb = this.treeRgb[i3 + 2] * shimmer;
 
               if (frontierGlow > 0.02) {
-                tr += frontierGlow * 0.55;
-                tg += frontierGlow * 0.98;
-                tb += frontierGlow * 0.48;
+                tr += frontierGlow * 0.16;
+                tg += frontierGlow * 1.00;
+                tb += frontierGlow * 0.56;
               }
 
-              // Golden shimmer wave cascading down from the star topper
+              // Saturated golden shimmer wave cascading down from the top star
               if (waveP >= 0) {
                 const dist = Math.abs(hNorm - waveP);
                 if (dist < 0.14) {
-                  const w = (1 - dist / 0.14) * 0.85;
-                  tr += 0.95 * w;
+                  const w = (1 - dist / 0.14) * 0.95;
+                  tr += 1.00 * w;
                   tg += 0.78 * w;
-                  tb += 0.24 * w;
+                  tb += 0.04 * w;
                 }
               }
 
@@ -2893,12 +3137,12 @@
             const fade = Math.sin((sp.age / sp.maxAge) * Math.PI);
             const gx = Math.round(sp.x * (cols - 1));
             const gy = Math.round(sp.y * (rows - 1));
-            this.addPixel(gx, gy, sp.r * fade * 1.3, sp.g * fade * 1.3, sp.b * fade * 1.3, fade > 0.65 ? gSpark : gPlus);
+            this.addPixel(gx, gy, sp.r * fade * 1.35, sp.g * fade * 1.35, sp.b * fade * 1.35, fade > 0.65 ? gSpark : gPlus);
             if (fade > 0.75) {
               this.specularSparks.push({
                 nx: sp.x, ny: sp.y,
                 r: Math.round(sp.r * 255), g: Math.round(sp.g * 255), b: Math.round(sp.b * 255),
-                size: 2.6, alpha: fade * 0.7
+                size: 2.5, alpha: fade * 0.72
               });
             }
           }
@@ -2909,7 +3153,6 @@
           const cols = this.cols;
           const rows = this.rows;
 
-          // Stage 3 (5.5s - 7.8s): 7 Gift Boxes Pop & Shimmer In Left to Right
           for (let g = 0; g < this.giftsByDepth.length; g++) {
             const gift = this.giftsByDepth[g];
             const startTime = 5.5 + gift.orderIdx * 0.27;
@@ -2918,14 +3161,14 @@
 
             const alpha = easeOutCubic(p);
             const popRows = Math.round((1 - easeOutBack(p)) * 4.0);
-            const shimmerFlash = Math.sin(p * Math.PI) * 0.85;
+            const shimmerFlash = Math.sin(p * Math.PI) * 0.65;
 
-            // Colored snow reflection directly beneath each gift box
+            // Vivid colored snow bounce directly beneath each present
             this.addRadialGlow(
-              gift.cx, gift.botY + 0.024, 0.068,
-              gift.paper[0] * 0.30 * alpha,
-              gift.paper[1] * 0.30 * alpha,
-              gift.paper[2] * 0.30 * alpha,
+              gift.cx, gift.botY + 0.024, 0.072,
+              gift.paper[0] * 0.42 * alpha,
+              gift.paper[1] * 0.42 * alpha,
+              gift.paper[2] * 0.42 * alpha,
               2.2
             );
 
@@ -2936,9 +3179,11 @@
               const idx = dy * cols + px.x;
               const i3 = idx * 3;
 
-              const r = px.r + shimmerFlash * 0.65;
-              const gr = px.g + shimmerFlash * 0.58;
-              const b = px.b + shimmerFlash * 0.30;
+              // Hue-preserving flash shimmer when gift box pops in
+              const boost = 1.0 + shimmerFlash * 0.55;
+              const r = px.r * boost;
+              const gr = px.g * boost;
+              const b = px.b * boost;
 
               this.rgb[i3]     = lerp(this.rgb[i3], r, alpha);
               this.rgb[i3 + 1] = lerp(this.rgb[i3 + 1], gr, alpha);
@@ -2956,71 +3201,73 @@
           const gStar = GLYPH_IDX['*'] + 1;
           const gTilde = GLYPH_IDX['~'] + 1;
           const gBigO = GLYPH_IDX['O'] + 1;
-          const gDot = GLYPH_IDX['·'] + 1;
+          const gDot = GLYPH_IDX['•'] + 1;
 
-          // 1. 3D Helical Golden & Amber Tinsel Garlands (7.0s - 9.1s trace upward)
+          // 1. 3D Helical Saturated Gold-Amber Tinsel Garlands
           const garlandWave = clamp((st - 7.0) / 2.1, 0, 1);
           for (let i = 0; i < this.garlands.length; i++) {
             const gp = this.garlands[i];
             const on = smoothstep(gp.hNorm - 0.12, gp.hNorm + 0.04, garlandWave * 1.15 - 0.06);
             if (on <= 0.02) continue;
 
-            const shimmer = 0.52 + 0.48 * Math.sin(at * 4.4 - gp.phase);
+            const shimmer = 0.50 + 0.50 * Math.sin(at * 4.5 - gp.phase);
             const gx = Math.round(gp.nx * (cols - 1));
             const gy = Math.round(gp.ny * (rows - 1));
-            const br = on * gp.depthShade * (0.55 + 0.55 * shimmer + treb * 0.25);
+            const br = on * gp.depthShade * (0.68 + 0.62 * shimmer + treb * 0.30);
 
-            this.addPixel(gx, gy, 1.00 * br, 0.82 * br, 0.34 * br, shimmer > 0.76 ? gStar : gTilde);
+            // Replace/mix strongly over green foliage so golden tinsel stays pure molten gold!
+            this.setPixelVivid(gx, gy, 1.15 * br, 0.84 * br, 0.04 * br, 0.82 * on, shimmer > 0.76 ? gStar : gTilde);
           }
 
-          // 2. 44 Glossy Ornaments / Baubles with Crisp White Specular Shine (7.5s - 9.7s)
+          // 2. 48 Glossy Jewel-Tone Bauble Ornaments (Mix cleanly over green pine so ruby/amethyst/sapphire stay pure!)
           const ornWave = clamp((st - 7.5) / 2.2, 0, 1);
           for (let i = 0; i < this.ornaments.length; i++) {
             const o = this.ornaments[i];
             const on = smoothstep(o.hNorm - 0.10, o.hNorm + 0.04, ornWave * 1.15 - 0.05);
             if (on <= 0.02) continue;
 
-            const pulse = 0.80 + 0.20 * Math.sin(at * o.speed + o.phase) + bass * 0.22;
+            const pulse = 0.86 + 0.18 * Math.sin(at * o.speed + o.phase) + bass * 0.28;
             const gx = Math.round(o.nx * (cols - 1));
             const gy = Math.round(o.ny * (rows - 1));
-            const b = on * pulse * 1.28;
+            const b = pulse * 1.38;
 
-            // Multi-pixel glossy bauble sphere + top-left specular gleam
-            this.addPixel(gx, gy, o.r * b, o.g * b, o.b * b, gBigO);
-            const halo = b * 0.45;
-            this.addPixel(gx - 1, gy, o.r * halo, o.g * halo, o.b * halo);
-            this.addPixel(gx + 1, gy, o.r * halo, o.g * halo, o.b * halo);
-            this.addPixel(gx, gy + 1, o.r * halo * 0.72, o.g * halo * 0.72, o.b * halo * 0.72);
-            // White specular highlight dot
-            this.addPixel(gx, gy - 1, (o.r * 0.5 + 0.55) * on, (o.g * 0.5 + 0.55) * on, (o.b * 0.5 + 0.55) * on, gDot);
+            // Core jewel sphere replaces background green cleanly to preserve pure jewel hue
+            this.setPixelVivid(gx, gy, o.r * b, o.g * b, o.b * b, 0.94 * on, gBigO);
+            const sideB = pulse * 0.96;
+            this.setPixelVivid(gx - 1, gy, o.r * sideB, o.g * sideB, o.b * sideB, 0.76 * on);
+            this.setPixelVivid(gx + 1, gy, o.r * sideB, o.g * sideB, o.b * sideB, 0.76 * on);
+            this.setPixelVivid(gx, gy + 1, o.r * sideB * 0.80, o.g * sideB * 0.80, o.b * sideB * 0.80, 0.70 * on);
+            // Tiny crisp specular glint dot on upper-left of bauble while keeping jewel chroma
+            this.setPixelVivid(gx, gy - 1, (o.r * 0.65 + 0.42), (o.g * 0.65 + 0.42), (o.b * 0.65 + 0.42), 0.72 * on, gDot);
           }
 
-          // 3. 96 Music-Reactive Multi-Color Fairy Lights (8.1s - 10.5s ignite upward)
+          // 3. 104 Pure Saturated Multicolor Music-Reactive LED Lights
           const fairyWave = clamp((st - 8.1) / 2.4, 0, 1);
           for (let i = 0; i < this.fairyLights.length; i++) {
             const fl = this.fairyLights[i];
             const on = smoothstep(fl.hNorm - 0.08, fl.hNorm + 0.04, fairyWave * 1.14 - 0.04);
             if (on <= 0.02) continue;
 
-            const react = fl.band === 0 ? bass * 0.65 : treb * 0.72;
-            const blink = Math.pow(0.5 + 0.5 * Math.sin(at * fl.speed + fl.phase), 1.65);
-            const lum = on * (0.28 + 1.05 * blink + react);
+            const react = fl.band === 0 ? bass * 0.78 : treb * 0.85;
+            const blink = Math.pow(0.5 + 0.5 * Math.sin(at * fl.speed + fl.phase), 1.55);
+            const lum = (0.40 + 1.20 * blink + react);
             const gx = Math.round(fl.nx * (cols - 1));
             const gy = Math.round(fl.ny * (rows - 1));
 
-            this.addPixel(gx, gy, fl.r * lum, fl.g * lum, fl.b * lum, blink > 0.48 ? fl.glyph : 0);
-            if (blink + react * 0.5 > 0.70) {
-              const g = lum * 0.34;
+            // Replace foliage locally with pure LED hue so red/magenta/blue LEDs never muddy into yellow-brown
+            this.setPixelVivid(gx, gy, fl.r * lum, fl.g * lum, fl.b * lum, clamp(0.88 * on, 0, 1), blink > 0.45 ? fl.glyph : 0);
+            if (blink + react * 0.5 > 0.65) {
+              const g = lum * 0.42 * on;
               this.addPixel(gx - 1, gy, fl.r * g, fl.g * g, fl.b * g);
               this.addPixel(gx + 1, gy, fl.r * g, fl.g * g, fl.b * g);
-              if (lum > 1.15 && (i % 3 === 0)) {
+              if (lum > 1.18 && (i % 3 === 0)) {
                 this.specularSparks.push({
                   nx: fl.nx, ny: fl.ny,
                   r: Math.min(255, Math.round(fl.r * 255)),
                   g: Math.min(255, Math.round(fl.g * 255)),
                   b: Math.min(255, Math.round(fl.b * 255)),
-                  size: 2.8 + react * 2.0,
-                  alpha: clamp((lum - 0.9) * 0.75, 0, 0.85)
+                  size: 2.6 + react * 1.8,
+                  alpha: clamp((lum - 0.92) * 0.72, 0, 0.82)
                 });
               }
             }
@@ -3035,43 +3282,43 @@
           const sx = cx;
           const sy = topY - 0.010;
 
-          // Rising ribbon of golden light shooting up the spire (10.15s - 10.75s)
+          // Rising golden ribbon shooting up the spire (10.15s - 10.75s)
           if (st < 10.85) {
             const p = clamp((st - 10.15) / 0.60, 0, 1);
             const beamY = lerp(botY - 0.05, sy, easeOutCubic(p));
             const fade = Math.sin(p * Math.PI);
-            this.addRadialGlow(sx, beamY, 0.06, 1.3 * fade, 1.05 * fade, 0.42 * fade, 1.7);
+            this.addRadialGlow(sx, beamY, 0.055, 1.35 * fade, 0.96 * fade, 0.06 * fade, 1.8);
             const gx = Math.round(sx * (cols - 1));
             const gy = Math.round(beamY * (rows - 1));
             for (let k = 0; k < 7; k++) {
-              const f = (1 - k / 7) * fade * 1.4;
-              this.addPixel(gx, gy + k, 1.2 * f, 0.95 * f, 0.35 * f, GLYPH_IDX['|'] + 1);
+              const f = (1 - k / 7) * fade * 1.45;
+              this.addPixel(gx, gy + k, 1.25 * f, 0.92 * f, 0.04 * f, GLYPH_IDX['|'] + 1);
             }
           }
 
           if (st < 10.65) return;
 
-          // Star Ignition Burst (10.65s - 12.0s) + Continuous Radiant Pulse
+          // Blazing Saturated Gold-Amber Star Topper (#ffea00 -> #ffab00) — stays distinctly golden!
           const ignite = clamp((st - 10.65) / 1.15, 0, 1);
           const appear = easeOutCubic(ignite);
-          const flash = Math.sin(ignite * Math.PI) * 1.45;
-          const pulse = 0.86 + 0.14 * Math.sin(at * 3.6) + bass * 0.32;
+          const flash = Math.sin(ignite * Math.PI) * 1.35;
+          const pulse = 0.88 + 0.14 * Math.sin(at * 3.6) + bass * 0.34;
           const shimmer = 0.5 + 0.5 * Math.sin(at * 6.8);
 
-          // Multi-layered Golden Star Halo
+          // Rich saturated amber-gold halo (low blue channel keeps gold blazing rich!)
           this.addRadialGlow(
             sx, sy,
-            0.145 + flash * 0.085 + bass * 0.025,
-            (1.05 + flash * 0.60) * appear * pulse,
-            (0.76 + flash * 0.48) * appear * pulse,
-            (0.18 + flash * 0.30) * appear * pulse,
-            2.15
+            0.135 + flash * 0.075 + bass * 0.024,
+            (1.15 + flash * 0.55) * appear * pulse,
+            (0.76 + flash * 0.40) * appear * pulse,
+            (0.02 + flash * 0.06) * appear * pulse,
+            2.25
           );
           this.addRadialGlow(
             sx, sy,
-            0.058 + flash * 0.03,
-            1.45 * appear, 1.24 * appear, 0.64 * appear,
-            1.55
+            0.052 + flash * 0.026,
+            1.55 * appear, 1.22 * appear, 0.12 * appear,
+            1.65
           );
 
           const gx = Math.round(sx * (cols - 1));
@@ -3083,52 +3330,51 @@
           const gSlash = GLYPH_IDX['/'] + 1;
           const gBack = GLYPH_IDX['\\'] + 1;
 
-          // Bright incandescent white-gold star core
-          this.addPixel(gx, gy, 1.7 * appear, 1.55 * appear, 1.15 * appear, gSpark);
+          // Blazing pure yellow-gold star core (#ffea00)
+          this.setPixelVivid(gx, gy, 1.85 * appear, 1.62 * appear, 0.16 * appear, 1.0, gSpark);
 
-          // Dynamic 8-point starburst rays scaling cleanly with resolution
           const scale = this.cols / 190;
           const vLen = Math.max(2, Math.round((3.4 + shimmer * 1.4 + flash * 2.0 + bass * 1.2) * scale * appear));
           const hLen = Math.max(3, Math.round((5.2 + shimmer * 2.2 + flash * 2.8 + bass * 1.6) * scale * appear));
           const dLen = Math.max(2, Math.round((2.6 + (1 - shimmer) * 1.2 + flash * 1.3) * scale * appear));
 
           for (let k = 1; k <= vLen; k++) {
-            const f = (1 - k / (vLen + 1)) * appear * pulse * 1.38;
-            this.addPixel(gx, gy - k, 1.35 * f, 1.12 * f, 0.44 * f, k <= 1 ? gStar : gPipe);
-            this.addPixel(gx, gy + k, 1.35 * f, 1.12 * f, 0.44 * f, k <= 1 ? gStar : gPipe);
+            const f = (1 - k / (vLen + 1)) * appear * pulse * 1.48;
+            this.addPixel(gx, gy - k, 1.45 * f, 1.12 * f, 0.04 * f, k <= 1 ? gStar : gPipe);
+            this.addPixel(gx, gy + k, 1.45 * f, 1.12 * f, 0.04 * f, k <= 1 ? gStar : gPipe);
           }
 
           for (let k = 1; k <= hLen; k++) {
-            const f = (1 - k / (hLen + 1)) * appear * pulse * 1.38;
-            this.addPixel(gx - k, gy, 1.35 * f, 1.12 * f, 0.44 * f, k <= 2 ? gStar : gDash);
-            this.addPixel(gx + k, gy, 1.35 * f, 1.12 * f, 0.44 * f, k <= 2 ? gStar : gDash);
+            const f = (1 - k / (hLen + 1)) * appear * pulse * 1.48;
+            this.addPixel(gx - k, gy, 1.45 * f, 1.12 * f, 0.04 * f, k <= 2 ? gStar : gDash);
+            this.addPixel(gx + k, gy, 1.45 * f, 1.12 * f, 0.04 * f, k <= 2 ? gStar : gDash);
           }
 
           for (let k = 1; k <= dLen; k++) {
-            const f = (1 - k / (dLen + 1)) * appear * (0.85 + 0.30 * shimmer);
+            const f = (1 - k / (dLen + 1)) * appear * (0.88 + 0.30 * shimmer);
             const dx = Math.round(k * 1.42);
-            this.addPixel(gx - dx, gy - k, 1.25 * f, 0.98 * f, 0.36 * f, gBack);
-            this.addPixel(gx + dx, gy + k, 1.25 * f, 0.98 * f, 0.36 * f, gBack);
-            this.addPixel(gx + dx, gy - k, 1.25 * f, 0.98 * f, 0.36 * f, gSlash);
-            this.addPixel(gx - dx, gy + k, 1.25 * f, 0.98 * f, 0.36 * f, gSlash);
+            this.addPixel(gx - dx, gy - k, 1.38 * f, 0.92 * f, 0.02 * f, gBack);
+            this.addPixel(gx + dx, gy + k, 1.38 * f, 0.92 * f, 0.02 * f, gBack);
+            this.addPixel(gx + dx, gy - k, 1.38 * f, 0.92 * f, 0.02 * f, gSlash);
+            this.addPixel(gx - dx, gy + k, 1.38 * f, 0.92 * f, 0.02 * f, gSlash);
           }
 
-          // Orbiting Golden Stardust Sparkles around the Star Topper
+          // Orbiting Saturated Gold Sparkles around Top Star
           for (let i = 0; i < 6; i++) {
             const ang = at * 1.45 + (i / 6) * Math.PI * 2;
             const orbitR = 0.044 + 0.012 * Math.sin(at * 2.5 + i);
             const ox = sx + Math.cos(ang) * (orbitR / this.aspect);
             const oy = sy + Math.sin(ang) * orbitR;
-            const tw = (0.45 + 0.55 * Math.sin(at * 6.0 + i * 1.9)) * appear;
-            this.addPixel(Math.round(ox * (cols - 1)), Math.round(oy * (rows - 1)), 1.2 * tw, 0.98 * tw, 0.42 * tw, gSpark);
+            const tw = (0.50 + 0.50 * Math.sin(at * 6.0 + i * 1.9)) * appear;
+            this.addPixel(Math.round(ox * (cols - 1)), Math.round(oy * (rows - 1)), 1.35 * tw, 1.05 * tw, 0.06 * tw, gSpark);
           }
 
-          // Specular Hero Cross-Flare on Pass 2
+          // Golden Specular Hero Star Flare (saturated gold-amber, not white!)
           this.specularSparks.push({
             nx: sx, ny: sy,
-            r: 255, g: 238, b: 165,
-            size: (11 + flash * 10 + bass * 6) * appear,
-            alpha: clamp(0.85 * appear + treb * 0.15, 0, 1),
+            r: 255, g: 214, b: 0,
+            size: (11 + flash * 9 + bass * 6) * appear,
+            alpha: clamp(0.88 * appear + treb * 0.12, 0, 1),
             hero: true
           });
         }
@@ -3139,60 +3385,64 @@
           const gSpark = GLYPH_IDX['✦'] + 1;
           const gStar = GLYPH_IDX['*'] + 1;
           const gPlus = GLYPH_IDX['+'] + 1;
-          const gDot = GLYPH_IDX['·'] + 1;
+          const gDot = GLYPH_IDX['•'] + 1;
           const gAt = GLYPH_IDX['@'] + 1;
 
           for (let i = 0; i < this.fireworks.length; i++) {
             const fw = this.fireworks[i];
 
             if (fw.state === 'rising') {
-              // Flickering curved rocket head & golden spark trail
               const gx = Math.round(fw.x * (cols - 1));
               const gy = Math.round(fw.y * (rows - 1));
-              this.addPixel(gx, gy, 1.4, 1.22, 0.84, gSpark);
-              this.addRadialGlow(fw.x, fw.y, 0.036, fw.palette.c1[0] * 0.42, fw.palette.c1[1] * 0.42, fw.palette.c1[2] * 0.42, 2.0);
+              this.addPixel(gx, gy, 1.45, 1.18, 0.16, gSpark);
+              this.addRadialGlow(fw.x, fw.y, 0.034, fw.palette.c1[0] * 0.52, fw.palette.c1[1] * 0.52, fw.palette.c1[2] * 0.52, 2.1);
 
               for (let j = 0; j < fw.rocketTrail.length; j++) {
                 const tr = fw.rocketTrail[j];
-                const a = clamp(tr.life / 0.32, 0, 1) * 0.85;
+                const a = clamp(tr.life / 0.32, 0, 1) * 0.90;
                 this.addPixel(
                   Math.round(tr.x * (cols - 1)),
                   Math.round(tr.y * (rows - 1)),
-                  1.0 * a, 0.78 * a, 0.34 * a,
+                  1.05 * a, 0.72 * a, 0.08 * a,
                   a > 0.5 ? gPlus : gDot
                 );
               }
             } else {
               const p = clamp(fw.burstAge / fw.burstDuration, 0, 1);
-              const flashEnv = Math.exp(-p * 5.8);
-              const orbEnv = smoothstep(0.0, 0.07, p) * Math.pow(1 - p, 1.50);
+              const flashEnv = Math.exp(-p * 6.2);
+              const orbEnv = smoothstep(0.0, 0.07, p) * Math.pow(1 - p, 1.48);
               const expandR = fw.maxRadius * (0.26 + 0.98 * easeOutCubic(Math.min(1, p * 1.4)));
 
-              // Lush Sky Illumination Halo around Burst
-              const gR = fw.palette.glow[0] * orbEnv * 0.76;
-              const gG = fw.palette.glow[1] * orbEnv * 0.76;
-              const gB = fw.palette.glow[2] * orbEnv * 0.76;
-              this.addRadialGlow(fw.tx, fw.ty + p * 0.03, expandR * 1.24, gR, gG, gB, 1.9);
+              // Rich Saturated Sky Halo around Burst (hue-pure, not white-foggy)
+              const gR = fw.palette.glow[0] * orbEnv * 0.84;
+              const gG = fw.palette.glow[1] * orbEnv * 0.84;
+              const gB = fw.palette.glow[2] * orbEnv * 0.84;
+              this.addRadialGlow(fw.tx, fw.ty + p * 0.03, expandR * 1.18, gR, gG, gB, 2.05);
 
               if (flashEnv > 0.04) {
-                this.addRadialGlow(fw.tx, fw.ty, fw.maxRadius * 0.62, 1.35 * flashEnv, 1.26 * flashEnv, 1.12 * flashEnv, 1.7);
+                this.addRadialGlow(
+                  fw.tx, fw.ty, fw.maxRadius * 0.54,
+                  (fw.palette.c0[0] * 0.75 + 0.30) * flashEnv,
+                  (fw.palette.c0[1] * 0.75 + 0.30) * flashEnv,
+                  (fw.palette.c0[2] * 0.75 + 0.30) * flashEnv,
+                  1.8
+                );
               }
 
-              // Accumulate Environmental Lighting for Distant Pine Ridges & Snowbank
-              const envStr = orbEnv * 0.75 + flashEnv * 0.65;
+              // Vivid colored sky illumination cast onto distant forest & snow ground
+              const envStr = orbEnv * 0.85 + flashEnv * 0.72;
               envLight.r += fw.palette.glow[0] * envStr;
               envLight.g += fw.palette.glow[1] * envStr;
               envLight.b += fw.palette.glow[2] * envStr;
               envLight.flashes.push(1);
 
-              // Render Primary Burst Particles + Long Tapering Hue-Shifting Multi-Frame Trails
+              // Primary Burst Particles + Saturated Multi-Frame Trails
               for (let k = 0; k < fw.particles.length; k++) {
                 const pt = fw.particles[k];
                 const lp = p / pt.lifeScale;
                 if (lp >= 1.0) continue;
 
-                const fade = Math.pow(1 - lp, 1.28);
-                // Smooth 3-stop hue shift across particle lifecycle (c0 -> c1 -> c2)
+                const fade = Math.pow(1 - lp, 1.24);
                 let cr, cg, cb;
                 if (lp < 0.38) {
                   const u = lp / 0.38;
@@ -3206,15 +3456,14 @@
                   cb = lerp(pt.c1[2], pt.c2[2], u);
                 }
 
-                // Strobe / Glitter Crackle Modulation
                 let sparkle = 1.0;
                 if (pt.strobe && lp > 0.25) {
-                  sparkle = Math.sin(fw.burstAge * pt.speedTwinkle + pt.phase) > 0.15 ? 1.35 : 0.14;
+                  sparkle = Math.sin(fw.burstAge * pt.speedTwinkle + pt.phase) > 0.15 ? 1.42 : 0.14;
                 } else if (lp > 0.50) {
-                  sparkle = 0.42 + 0.58 * Math.max(0, Math.sin(fw.burstAge * pt.speedTwinkle + pt.phase));
+                  sparkle = 0.44 + 0.56 * Math.max(0, Math.sin(fw.burstAge * pt.speedTwinkle + pt.phase));
                 }
 
-                const headI = fade * sparkle * 1.42;
+                const headI = fade * sparkle * 1.52;
                 if (headI > 0.04) {
                   const gx = Math.round(pt.x * (cols - 1));
                   const gy = Math.round(pt.y * (rows - 1));
@@ -3222,31 +3471,30 @@
 
                   this.addPixel(gx, gy, cr * headI, cg * headI, cb * headI, gHead);
 
-                  // Soft luminous neighbor bloom around bright heads
-                  const halo = headI * 0.36;
+                  // Tight luminous neighbor bloom
+                  const halo = headI * 0.34;
                   this.addPixel(gx - 1, gy, cr * halo, cg * halo, cb * halo);
                   this.addPixel(gx + 1, gy, cr * halo, cg * halo, cb * halo);
-                  this.addPixel(gx, gy - 1, cr * halo * 0.85, cg * halo * 0.85, cb * halo * 0.85);
-                  this.addPixel(gx, gy + 1, cr * halo * 0.85, cg * halo * 0.85, cb * halo * 0.85);
+                  this.addPixel(gx, gy - 1, cr * halo * 0.82, cg * halo * 0.82, cb * halo * 0.82);
+                  this.addPixel(gx, gy + 1, cr * halo * 0.82, cg * halo * 0.82, cb * halo * 0.82);
 
-                  // Pinpoint specular sparkle on brightest glittering particles
-                  if (headI > 1.15 && (k % 7 === 0 || (pt.strobe && sparkle > 1.2 && k % 3 === 0))) {
+                  if (headI > 1.18 && (k % 7 === 0 || (pt.strobe && sparkle > 1.2 && k % 3 === 0))) {
                     this.specularSparks.push({
                       nx: pt.x, ny: pt.y,
                       r: Math.min(255, Math.round(cr * 255)),
                       g: Math.min(255, Math.round(cg * 255)),
                       b: Math.min(255, Math.round(cb * 255)),
-                      size: pt.strobe ? 3.4 : 2.6,
-                      alpha: clamp(fade * 0.82, 0, 0.9)
+                      size: pt.strobe ? 3.2 : 2.5,
+                      alpha: clamp(fade * 0.85, 0, 0.92)
                     });
                   }
                 }
 
-                // Multi-frame tapering luminous trail behind each particle
+                // Multi-frame saturated tapering trail
                 const tPts = pt.trail.length >> 1;
                 for (let tIdx = 0; tIdx < tPts; tIdx++) {
-                  const tf = ((tIdx + 1) / (tPts + 1)); // older -> newer
-                  const ti = fade * tf * tf * 0.72;
+                  const tf = (tIdx + 1) / (tPts + 1);
+                  const ti = fade * tf * tf * 0.80;
                   if (ti < 0.035) continue;
                   const tx = Math.round(pt.trail[tIdx * 2] * (cols - 1));
                   const ty = Math.round(pt.trail[tIdx * 2 + 1] * (rows - 1));
@@ -3254,13 +3502,13 @@
                 }
               }
 
-              // Render Crossette Secondary Mini-Starburst Particles
+              // Crossette Secondary Mini-Starbursts
               for (let s = 0; s < fw.subParticles.length; s++) {
                 const sp = fw.subParticles[s];
                 const slp = clamp(sp.age / sp.maxAge, 0, 1);
-                const fade = Math.pow(1 - slp, 1.3);
-                const tw = 0.35 + 0.65 * Math.max(0, Math.sin(sp.age * 24 + sp.phase));
-                const si = fade * tw * 1.45;
+                const fade = Math.pow(1 - slp, 1.28);
+                const tw = 0.38 + 0.62 * Math.max(0, Math.sin(sp.age * 24 + sp.phase));
+                const si = fade * tw * 1.55;
                 if (si < 0.05) continue;
 
                 const cr = lerp(sp.c0[0], sp.c1[0], slp);
@@ -3276,7 +3524,7 @@
                     r: Math.min(255, Math.round(cr * 255)),
                     g: Math.min(255, Math.round(cg * 255)),
                     b: Math.min(255, Math.round(cb * 255)),
-                    size: 3.0, alpha: fade * 0.85
+                    size: 2.9, alpha: fade * 0.88
                   });
                 }
               }
@@ -3298,19 +3546,18 @@
 
             const idx = gy * cols + gx;
             const i3 = idx * 3;
-            const br = (s.layer === 0 ? 0.54 : s.layer === 1 ? 0.80 : 1.05) * musicLift;
+            const br = (s.layer === 0 ? 0.56 : s.layer === 1 ? 0.82 : 1.08) * musicLift;
 
             this.rgb[i3]     = Math.max(this.rgb[i3], 0.84 * br);
             this.rgb[i3 + 1] = Math.max(this.rgb[i3 + 1], 0.94 * br);
-            this.rgb[i3 + 2] = Math.max(this.rgb[i3 + 2], 1.00 * br);
+            this.rgb[i3 + 2] = Math.max(this.rgb[i3 + 2], 1.02 * br);
             this.glyphOverride[idx] = s.glyph;
           }
         }
 
         /* ---------------------------------------------------------------------
-           DUAL-PASS RENDERING:
-             Pass 1: Ultra-Fast Direct Pixel ASCII Glyph Rasterizer (60 FPS @ 4K Dense!)
-             Pass 2: Multi-Scale GPU Kawase Bloom + Pinpoint Specular Micro-Sparks
+           CHROMA-PRESERVING HDR + ADAPTIVE VIBRANCE + S-CURVE CONTRAST
+           + TIGHT CHROMA-BOOSTED DUAL-PASS BLOOM RENDERER (60 FPS)
            --------------------------------------------------------------------- */
         renderToCanvas() {
           const cols = this.cols;
@@ -3325,11 +3572,18 @@
           const bloom32 = this.bloomPixels32;
           const atlas = this.glyphAtlas;
 
-          // Clear framebuffers cleanly
+          const cm = COLOR_MODES[this.colorModeIdx];
+          const vibrance = cm.vibrance;
+          const sCurve = cm.sCurve;
+          const shoulder = cm.shoulder;
+          const coreDesat = cm.coreDesat;
+          const lift = cm.lift;
+          const bloomSat = cm.bloomSat;
+
           pix32.fill(BG_U32);
           bloom32.fill(0xFF000000);
 
-          // PASS 1: Software-Rasterize Every Lit Colored ASCII Glyph + Populate HDR Bloom Map
+          // PASS 1: Chroma-Preserving HDR -> Adaptive Vibrance -> S-Curve -> Direct Pixel ASCII Rasterization
           for (let y = 0; y < rows; y++) {
             const cellRowOff = y * cols;
             const basePy = y * pxH;
@@ -3344,35 +3598,72 @@
 
               const peak = r > g ? (r > b ? r : b) : (g > b ? g : b);
               const ov = overrides[idx];
-              if (peak < 0.032 && ov === 0) continue;
+              if (peak < 0.028 && ov === 0) continue;
 
-              // Extract HDR Bloom Excess BEFORE tone-mapping so stars, fairy lights & fireworks glow warmly!
-              if (peak > 0.42) {
-                const bloomBoost = clamp((peak - 0.36) * 1.25, 0, 1.25);
-                const br = clamp((r * bloomBoost * 220) | 0, 0, 255);
-                const bg = clamp((g * bloomBoost * 220) | 0, 0, 255);
-                const bb = clamp((b * bloomBoost * 220) | 0, 0, 255);
-                bloom32[idx] = (255 << 24) | (bb << 16) | (bg << 8) | br;
+              // 1. Chroma-Preserving HDR Tone Mapping (Preserves exact RGB hue ratio even at peak > 2.0!)
+              if (peak > 0.0001) {
+                const mappedPeak = (peak * (1.0 + shoulder)) / (1.0 + peak * shoulder);
+                const ratio = mappedPeak / peak;
+                r *= ratio;
+                g *= ratio;
+                b *= ratio;
+
+                // Subtle controlled hot-core highlight ONLY for extreme peaks so gold/ruby never wash out to chalky white
+                if (peak > 1.38 && coreDesat > 0.001) {
+                  const hot = Math.min(coreDesat, (peak - 1.38) * coreDesat * 0.45);
+                  r += (mappedPeak - r) * hot;
+                  g += (mappedPeak - g) * hot;
+                  b += (mappedPeak - b) * hot;
+                }
               }
 
-              // Filmic soft-knee tone mapping preserves rich chroma in bright additive blooms
-              if (peak > 1.0) {
-                const scale = 1.0 / (1.0 + (peak - 1.0) * 0.40);
-                r = clamp(r * scale, 0, 1);
-                g = clamp(g * scale, 0, 1);
-                b = clamp(b * scale, 0, 1);
+              // 2. Adaptive Vibrance Boost (Boosts jewel chroma cleanly while leaving pure whites neutral)
+              const maxC = r > g ? (r > b ? r : b) : (g > b ? g : b);
+              const minC = r < g ? (r < b ? r : b) : (g < b ? g : b);
+              const chroma = maxC - minC;
+              if (chroma > 0.02 && vibrance > 0) {
+                const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                const chromaMask = chroma < 0.14 ? (chroma - 0.02) / 0.12 : 1.0;
+                const satGain = 1.0 + vibrance * (1.0 - chroma * 0.35) * chromaMask;
+                r = clamp(luma + (r - luma) * satGain, 0, 1);
+                g = clamp(luma + (g - luma) * satGain, 0, 1);
+                b = clamp(luma + (b - luma) * satGain, 0, 1);
               } else {
                 r = clamp(r, 0, 1);
                 g = clamp(g, 0, 1);
                 b = clamp(b, 0, 1);
               }
 
+              // 3. Smooth S-Curve Micro-Contrast (Deepens shadows, makes vibrant colors snap!)
+              if (sCurve > 0) {
+                const sr = r * r * (3.0 - 2.0 * r);
+                const sg = g * g * (3.0 - 2.0 * g);
+                const sb = b * b * (3.0 - 2.0 * b);
+                r += (sr - r) * sCurve;
+                g += (sg - g) * sCurve;
+                b += (sb - b) * sCurve;
+              }
+
+              // 4. Tight Chroma-Boosted Bloom Extraction (Pure saturated glow, zero milky haze!)
+              if (peak > 0.48) {
+                const bloomGain = clamp((peak - 0.44) * 1.18, 0, 1.25);
+                const bLuma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                const brC = clamp(bLuma + (r - bLuma) * bloomSat, 0, 1);
+                const bgC = clamp(bLuma + (g - bLuma) * bloomSat, 0, 1);
+                const bbC = clamp(bLuma + (b - bLuma) * bloomSat, 0, 1);
+                const br = clamp((brC * bloomGain * 235) | 0, 0, 255);
+                const bg = clamp((bgC * bloomGain * 235) | 0, 0, 255);
+                const bb = clamp((bbC * bloomGain * 235) | 0, 0, 255);
+                bloom32[idx] = (255 << 24) | (bb << 16) | (bg << 8) | br;
+              }
+
+              // 5. Select Crisp Monospace Glyph
               let glyphIdx;
               if (ov !== 0) {
                 glyphIdx = ov - 1;
               } else {
-                const lum = 0.42 * (0.299 * r + 0.587 * g + 0.114 * b) + 0.58 * Math.max(r, g, b);
-                glyphIdx = clamp(Math.floor(Math.pow(lum, 0.84) * RAMP_LEN), 0, RAMP_LEN - 1);
+                const lum = 0.36 * (0.299 * r + 0.587 * g + 0.114 * b) + 0.64 * Math.max(r, g, b);
+                glyphIdx = clamp(Math.floor(Math.pow(lum, 0.80) * RAMP_LEN), 0, RAMP_LEN - 1);
                 if (glyphIdx === 0) continue;
               }
 
@@ -3380,10 +3671,10 @@
               const gLen = glyph.len;
               if (gLen === 0) continue;
 
-              // Vivid phosphor color lift against pitch black
-              const cr = Math.min(255, r * 274);
-              const cg = Math.min(255, g * 274);
-              const cb = Math.min(255, b * 274);
+              // Vivid phosphor channel scaling
+              const cr = Math.min(255, r * lift);
+              const cg = Math.min(255, g * lift);
+              const cb = Math.min(255, b * lift);
 
               const basePx = x * pxW;
               const gdx = glyph.dx;
@@ -3395,8 +3686,7 @@
                 const pr = (cr * a) | 0;
                 const pg = (cg * a) | 0;
                 const pb = (cb * a) | 0;
-                // Blend cleanly over midnight void (#020308)
-                const fr = pr > 2 ? pr : 2;
+                const fr = pr > 1 ? pr : 1;
                 const fg = pg > 3 ? pg : 3;
                 const fb = pb > 8 ? pb : 8;
                 pix32[(basePy + gdy[k]) * bufW + basePx + gdx[k]] = (255 << 24) | (fb << 16) | (fg << 8) | fr;
@@ -3404,10 +3694,10 @@
             }
           }
 
-          // Commit Crisp Pass-1 ASCII Framebuffer to Main Canvas
+          // Commit Razor-Sharp Pass-1 ASCII Framebuffer
           this.ctx.putImageData(this.asciiImgData, 0, 0);
 
-          // PASS 2: Multi-Scale Soft Luminous Bloom (GPU-Accelerated Bilinear Downsample Pyramid)
+          // PASS 2: Tight Chroma-Boosted Dual-Pass Bloom (Zero Muddy Fog!)
           this.bloomSrcCtx.putImageData(this.bloomImgData, 0, 0);
 
           this.bloomHalfCtx.imageSmoothingEnabled = true;
@@ -3432,15 +3722,13 @@
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = 'high';
 
-          // Tight inner luminous halo
-          ctx.globalAlpha = 0.34;
+          ctx.globalAlpha = cm.bloomHalfAlpha;
           ctx.drawImage(this.bloomHalfCanvas, 0, 0, this.bufW, this.bufH);
 
-          // Wide dreamy atmospheric bloom
-          ctx.globalAlpha = 0.28;
+          ctx.globalAlpha = cm.bloomQuarterAlpha;
           ctx.drawImage(this.bloomQuarterCanvas, 0, 0, this.bufW, this.bufH);
 
-          // PASS 2B: Pinpoint Specular Micro-Sparks & Star Cross-Flares
+          // PASS 2B: Pinpoint Vivid Specular Micro-Sparks & Golden Star Cross-Flare
           const scaleFactor = this.bufW / 1280;
           for (let i = 0; i < this.specularSparks.length; i++) {
             const sp = this.specularSparks[i];
@@ -3450,30 +3738,30 @@
 
             ctx.globalAlpha = sp.alpha;
             if (sp.hero) {
-              // Radiant Golden Star Topper Diamond Flare
-              const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, rad * 2.8);
-              grad.addColorStop(0, `rgba(255,252,235,0.95)`);
-              grad.addColorStop(0.28, `rgba(${sp.r},${sp.g},${sp.b},0.48)`);
-              grad.addColorStop(1, `rgba(${sp.r},${sp.g},${sp.b},0)`);
+              // Blazing Saturated Golden Star Flare (#ffea00 -> #ffab00)
+              const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, rad * 2.6);
+              grad.addColorStop(0, `rgba(255,244,128,0.96)`);
+              grad.addColorStop(0.28, `rgba(255,204,0,0.62)`);
+              grad.addColorStop(0.62, `rgba(255,152,0,0.22)`);
+              grad.addColorStop(1, `rgba(255,140,0,0)`);
               ctx.fillStyle = grad;
               ctx.beginPath();
-              ctx.arc(sx, sy, rad * 2.8, 0, Math.PI * 2);
+              ctx.arc(sx, sy, rad * 2.6, 0, Math.PI * 2);
               ctx.fill();
 
-              // Crisp horizontal & vertical specular lens streaks
-              ctx.strokeStyle = `rgba(255,248,210,${(sp.alpha * 0.72).toFixed(2)})`;
-              ctx.lineWidth = Math.max(1.2, 1.8 * scaleFactor);
+              ctx.strokeStyle = `rgba(255,230,64,${(sp.alpha * 0.85).toFixed(2)})`;
+              ctx.lineWidth = Math.max(1.2, 1.9 * scaleFactor);
               ctx.beginPath();
-              ctx.moveTo(sx - rad * 2.5, sy);
-              ctx.lineTo(sx + rad * 2.5, sy);
+              ctx.moveTo(sx - rad * 2.4, sy);
+              ctx.lineTo(sx + rad * 2.4, sy);
               ctx.moveTo(sx, sy - rad * 1.9);
               ctx.lineTo(sx, sy + rad * 1.9);
               ctx.stroke();
             } else {
-              // Crisp pinpoint diamond sparkle for fairy lights & firework crackles
+              // Crisp Vivid Specular Sparkle
               ctx.fillStyle = `rgb(${sp.r},${sp.g},${sp.b})`;
-              ctx.fillRect(sx - rad * 0.35, sy - rad * 0.35, rad * 0.7, rad * 0.7);
-              ctx.fillStyle = `rgba(255,255,255,${(sp.alpha * 0.85).toFixed(2)})`;
+              ctx.fillRect(sx - rad * 0.42, sy - rad * 0.42, rad * 0.84, rad * 0.84);
+              ctx.fillStyle = `rgba(${Math.min(255, sp.r + 70)},${Math.min(255, sp.g + 70)},${Math.min(255, sp.b + 70)},${(sp.alpha * 0.85).toFixed(2)})`;
               ctx.fillRect(sx - rad * 1.05, sy - 0.55, rad * 2.1, 1.1);
               ctx.fillRect(sx - 0.55, sy - rad * 1.05, 1.1, rad * 2.1);
             }
@@ -3484,7 +3772,7 @@
       }
 
       /* =======================================================================
-         4. APPLICATION BOOTSTRAP, UI HANDLERS, DRAG-DROP AUDIO & 60 FPS LOOP
+         4. APPLICATION BOOTSTRAP, UI CONTROLS, DRAG-DROP AUDIO & 60 FPS LOOP
          ======================================================================= */
       window.onload = function () {
         const canvas = document.getElementById('asciiCanvas');
@@ -3498,29 +3786,36 @@
         const startTrackName = document.getElementById('startTrackName');
         const dropOverlay = document.getElementById('dropOverlay');
 
+        const badgeColorText = document.getElementById('badgeColorText');
         const badgeResText = document.getElementById('badgeResText');
         const stageToast = document.getElementById('stageToast');
         const stageText = document.getElementById('stageText');
         const stageProgressTrack = document.getElementById('stageProgressTrack');
         const stageProgressFill = document.getElementById('stageProgressFill');
 
+        const btnColorMode = document.getElementById('btnColorMode');
+        const colorModeLabel = document.getElementById('colorModeLabel');
+        const resSelect = document.getElementById('resSelect');
         const btnReplay = document.getElementById('btnReplay');
         const btnSalvo = document.getElementById('btnSalvo');
+        const btnSnow = document.getElementById('btnSnow');
+        const snowLabel = document.getElementById('snowLabel');
         const btnPlayPause = document.getElementById('btnPlayPause');
         const playPauseIcon = document.getElementById('playPauseIcon');
         const hudTrackName = document.getElementById('hudTrackName');
-        const volSlider = document.getElementById('volSlider');
         const btnHudUpload = document.getElementById('btnHudUpload');
         const btnUseBuiltIn = document.getElementById('btnUseBuiltIn');
-        const btnSfx = document.getElementById('btnSfx');
-        const sfxLabel = document.getElementById('sfxLabel');
-        const btnSnow = document.getElementById('btnSnow');
-        const snowLabel = document.getElementById('snowLabel');
-        const resSelect = document.getElementById('resSelect');
+
+        const sfxSlider = document.getElementById('sfxSlider');
+        const sfxVal = document.getElementById('sfxVal');
+        const musicSlider = document.getElementById('musicSlider');
+        const musicVal = document.getElementById('musicVal');
+        const btnMuteAll = document.getElementById('btnMuteAll');
+        const muteIcon = document.getElementById('muteIcon');
+        const muteLabel = document.getElementById('muteLabel');
         const btnHideHud = document.getElementById('btnHideHud');
         const btnShowHud = document.getElementById('btnShowHud');
 
-        // Track label updater shared by Start Card & Bottom HUD
         const updateTrackUI = (label, isCustom) => {
           hudTrackName.textContent = label;
           hudTrackName.title = label;
@@ -3536,7 +3831,12 @@
           btnPlayPause.classList.toggle('active', playing);
         };
 
-        // Stage progress pill updater during the 12-second build choreography
+        const syncMuteUI = (muted) => {
+          muteIcon.textContent = muted ? '🔇' : '🔊';
+          muteLabel.textContent = muted ? 'เปิดเสียง (M)' : 'ปิดเสียง (M)';
+          btnMuteAll.classList.toggle('muted', muted);
+        };
+
         const updateStageToast = (text, pct, visible, hideBar) => {
           if (visible) {
             stageText.textContent = text;
@@ -3549,9 +3849,9 @@
         };
 
         const audioEngine = new HolidayAudioEngine(audioEl, updateTrackUI);
-        const engine = new WinterMagicUltraEngine(canvas, audioEngine, updateStageToast);
+        const engine = new WinterMagicVividEngine(canvas, audioEngine, updateStageToast);
 
-        // Start Show Action (Pressing "เริ่มการแสดง")
+        // Start Show Action
         const beginShow = () => {
           document.body.classList.remove('pre-start');
           startOverlay.classList.add('hidden');
@@ -3562,7 +3862,7 @@
 
         btnStartShow.addEventListener('click', beginShow);
 
-        // Music File Upload Triggers (Start Screen + HUD Bar)
+        // File Upload Triggers
         const triggerFileSelect = () => {
           fileInput.value = '';
           fileInput.click();
@@ -3582,7 +3882,7 @@
           audioEngine.switchToBuiltIn();
         });
 
-        // Full-Page Drag & Drop Audio File Support
+        // Full-Page Drag & Drop Audio Support
         let dragCounter = 0;
         window.addEventListener('dragenter', (e) => {
           e.preventDefault();
@@ -3608,7 +3908,7 @@
           }
         });
 
-        // Interactive Sky Click/Tap to Launch High-Detail Custom Fireworks!
+        // Click / Tap Sky to Launch High-Detail Vivid Firework at Exact Spot
         canvas.addEventListener('pointerdown', (e) => {
           if (e.pointerType === 'mouse' && e.button !== 0) return;
           if (engine.phase !== 'running') return;
@@ -3619,7 +3919,25 @@
           engine.launchFirework(nx, ny);
         });
 
-        // Control Bar Buttons
+        // Color Vibrancy Mode Toggle (สดคมชัด / นีออนจัดเต็ม / คลาสสิก)
+        btnColorMode.addEventListener('click', () => {
+          const mode = engine.cycleColorMode();
+          colorModeLabel.textContent = mode.btnText;
+          badgeColorText.textContent = mode.badgeText;
+        });
+
+        // Resolution Selector (Ultra HD / 4K Dense / Retro ASCII)
+        const resBadges = {
+          ultrahd: 'Ultra HD',
+          '4k': '4K Dense',
+          classic: 'Retro ASCII'
+        };
+        resSelect.addEventListener('change', (e) => {
+          const mode = e.target.value;
+          engine.setResolutionMode(mode);
+          badgeResText.textContent = resBadges[mode] || 'Ultra HD';
+        });
+
         btnReplay.addEventListener('click', () => {
           engine.startShow();
           if (!audioEngine.isPlaying) {
@@ -3633,22 +3951,6 @@
           engine.launchGrandSalvo();
         });
 
-        btnPlayPause.addEventListener('click', () => {
-          const playing = audioEngine.togglePlayPause();
-          syncPlayPauseUI(playing);
-        });
-
-        volSlider.addEventListener('input', (e) => {
-          const val = Number(e.target.value) / 100;
-          audioEngine.setVolume(val);
-        });
-
-        btnSfx.addEventListener('click', () => {
-          const on = audioEngine.toggleSfx();
-          sfxLabel.textContent = on ? 'เสียงพลุ: เปิด' : 'เสียงพลุ: ปิด';
-          btnSfx.classList.toggle('active', on);
-        });
-
         const snowNames = ['หิมะ: เบา', 'หิมะ: กลาง', 'หิมะ: หนัก'];
         btnSnow.addEventListener('click', () => {
           const lvl = engine.cycleSnowLevel();
@@ -3656,15 +3958,28 @@
           btnSnow.classList.toggle('active', lvl === 2);
         });
 
-        const resBadges = {
-          ultrahd: 'Ultra HD',
-          '4k': '4K Dense',
-          classic: 'Retro ASCII'
-        };
-        resSelect.addEventListener('change', (e) => {
-          const mode = e.target.value;
-          engine.setResolutionMode(mode);
-          badgeResText.textContent = resBadges[mode] || 'Ultra HD';
+        btnPlayPause.addEventListener('click', () => {
+          const playing = audioEngine.togglePlayPause();
+          syncPlayPauseUI(playing);
+        });
+
+        // Separate Firework Volume (0-150% Boost) & Music Volume (0-100%)
+        sfxSlider.addEventListener('input', (e) => {
+          const pct = Number(e.target.value);
+          sfxVal.textContent = `${pct}%`;
+          sfxVal.classList.toggle('boosted', pct > 100);
+          audioEngine.setSfxVolume(pct / 100);
+        });
+
+        musicSlider.addEventListener('input', (e) => {
+          const pct = Number(e.target.value);
+          musicVal.textContent = `${pct}%`;
+          audioEngine.setMusicVolume(pct / 100);
+        });
+
+        btnMuteAll.addEventListener('click', () => {
+          const muted = audioEngine.toggleMuteAll();
+          syncMuteUI(muted);
         });
 
         const setHudHidden = (hidden) => {
@@ -3673,7 +3988,7 @@
         btnHideHud.addEventListener('click', () => setHudHidden(true));
         btnShowHud.addEventListener('click', () => setHudHidden(false));
 
-        // Keyboard Shortcuts (H = HUD, R = Replay, Space = Grand Salvo)
+        // Keyboard Shortcuts: H = HUD, M = Mute All, R = Replay, Space = Grand Salvo
         window.addEventListener('keydown', (e) => {
           if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) return;
           if (engine.phase !== 'running') {
@@ -3685,6 +4000,9 @@
           }
           if (e.key === 'h' || e.key === 'H') {
             setHudHidden(!document.body.classList.contains('hud-hidden'));
+          } else if (e.key === 'm' || e.key === 'M') {
+            const muted = audioEngine.toggleMuteAll();
+            syncMuteUI(muted);
           } else if (e.key === 'r' || e.key === 'R') {
             engine.startShow();
           } else if (e.code === 'Space') {
@@ -3694,7 +4012,7 @@
           }
         });
 
-        // Debounced Responsive Resize Handler
+        // Debounced Responsive Resize
         let resizeTimer = null;
         window.addEventListener('resize', () => {
           clearTimeout(resizeTimer);
@@ -3703,7 +4021,7 @@
           }, 100);
         });
 
-        // Rock-Solid 60 FPS Main Loop
+        // 60 FPS Main Animation Loop
         let lastTime = performance.now();
         function animate(now) {
           try {
@@ -3713,7 +4031,7 @@
             engine.composeFrame();
             engine.renderToCanvas();
           } catch (err) {
-            console.error('Winter Magic Ultra HD loop error:', err);
+            console.error('Winter Magic Vivid Color loop error:', err);
           }
           requestAnimationFrame(animate);
         }
