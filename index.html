@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>❄️ Winter Magic — Ultra HD Vivid Color Edition</title>
+  <title>❄️ Winter Magic — Ultra HD Vivid Color &amp; YouTube Playlist Edition</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -369,6 +369,428 @@
       line-height: 1.5;
     }
 
+    /* Start-Screen YouTube Quick-Setup Row */
+    .start-yt-box {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .start-yt-row {
+      display: flex;
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    .yt-text-input {
+      flex: 1;
+      min-width: 0;
+      appearance: none;
+      border: 1px solid rgba(255, 82, 82, 0.36);
+      background: rgba(12, 20, 38, 0.82);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 12.5px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      outline: none;
+      user-select: text;
+      -webkit-user-select: text;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .yt-text-input::placeholder {
+      color: rgba(180, 208, 240, 0.52);
+    }
+
+    .yt-text-input:focus {
+      border-color: #ff5252;
+      background: rgba(16, 26, 48, 0.96);
+      box-shadow: 0 0 0 2px rgba(255, 64, 96, 0.22);
+    }
+
+    .yt-load-btn {
+      appearance: none;
+      border: 1px solid rgba(255, 82, 82, 0.58);
+      background: linear-gradient(135deg, #e53935 0%, #ff1744 100%);
+      color: #ffffff;
+      font-family: var(--font-ui);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 9px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 6px 18px rgba(255, 23, 68, 0.30);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    .yt-load-btn:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 8px 22px rgba(255, 23, 68, 0.44);
+    }
+
+    .yt-load-btn:active {
+      transform: scale(0.96);
+    }
+
+    .start-yt-msg {
+      margin-top: 6px;
+      font-size: 11.5px;
+      line-height: 1.45;
+      color: #ff8a80;
+      display: none;
+    }
+
+    .start-yt-msg.visible {
+      display: block;
+    }
+
+    .start-yt-msg.ok {
+      color: #b9f6ca;
+    }
+
+    .start-track-status.youtube {
+      border-color: rgba(255, 82, 82, 0.54);
+      background: rgba(229, 57, 53, 0.16);
+      color: #ffcdd2;
+    }
+
+    /* -------------------------------------------------------------------------
+       FLOATING TOP-RIGHT YOUTUBE MINI-PIP BOX (KEEPS AUDIO ALIVE WHEN HIDDEN)
+       ------------------------------------------------------------------------- */
+    .yt-pip-box {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 16;
+      width: 248px;
+      border-radius: 16px;
+      background: rgba(6, 12, 26, 0.86);
+      border: 1px solid rgba(255, 82, 82, 0.36);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.72), 0 0 22px rgba(255, 23, 68, 0.12);
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px) scale(0.96);
+      transition: opacity 0.35s ease, transform 0.35s ease, width 0.28s ease, border-radius 0.28s ease;
+    }
+
+    .yt-pip-box.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Minimized: keeps 1px live iframe active so browser NEVER suspends audio */
+    .yt-pip-box.minimized {
+      width: auto;
+      max-width: 224px;
+      border-radius: 999px;
+      border-color: rgba(255, 82, 82, 0.30);
+    }
+
+    .yt-pip-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 6px 9px;
+      background: rgba(255, 23, 68, 0.14);
+      border-bottom: 1px solid rgba(255, 138, 128, 0.18);
+      font-size: 11px;
+      font-weight: 600;
+      color: #ffebee;
+    }
+
+    .yt-pip-box.minimized .yt-pip-header {
+      border-bottom: none;
+      padding: 5px 10px;
+    }
+
+    .yt-pip-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .yt-pip-mini-btn {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      background: rgba(255, 255, 255, 0.10);
+      color: #ffffff;
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      font-weight: 500;
+      padding: 2px 7px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .yt-pip-mini-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .yt-pip-stage {
+      position: relative;
+      width: 248px;
+      height: 140px;
+      background: #000000;
+      overflow: hidden;
+      transition: height 0.25s ease, opacity 0.25s ease;
+    }
+
+    /* Never use display:none! Keep 1px x 1px tiny live frame so YouTube audio keeps playing */
+    .yt-pip-box.minimized .yt-pip-stage,
+    .yt-pip-box.hidden-offscreen .yt-pip-stage {
+      position: fixed;
+      right: 2px;
+      top: 2px;
+      width: 1px;
+      height: 1px;
+      opacity: 0.01;
+      pointer-events: none;
+    }
+
+    .yt-pip-stage iframe,
+    #ytPlayerHost {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* When HUD is hidden (H), keep YouTube iframe alive in 1px corner without blocking view */
+    body.hud-hidden .yt-pip-box.active {
+      width: 1px;
+      height: 1px;
+      opacity: 0.01;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    body.hud-hidden .yt-pip-box.active .yt-pip-header {
+      display: none;
+    }
+
+    body.hud-hidden .yt-drawer {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(16px);
+    }
+
+    /* -------------------------------------------------------------------------
+       COLLAPSIBLE GLASSMORPHISM YOUTUBE PLAYLIST DRAWER (ABOVE CONTROL BAR)
+       ------------------------------------------------------------------------- */
+    .yt-drawer {
+      position: fixed;
+      bottom: 74px;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px) scale(0.97);
+      z-index: 20;
+      width: min(560px, calc(100vw - 20px));
+      padding: 13px 15px 12px;
+      border-radius: 20px;
+      background: rgba(6, 12, 26, 0.90);
+      border: 1px solid rgba(255, 82, 82, 0.36);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.78),
+        0 0 28px rgba(255, 23, 68, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .yt-drawer.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .yt-drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .yt-drawer-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .yt-badge-red {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(255, 23, 68, 0.24);
+      border: 1px solid rgba(255, 82, 82, 0.54);
+      color: #ff8a80;
+    }
+
+    .yt-head-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .yt-input-row {
+      display: flex;
+      gap: 6px;
+      align-items: stretch;
+      margin-bottom: 9px;
+    }
+
+    .yt-clear-btn {
+      appearance: none;
+      border: 1px solid rgba(160, 205, 255, 0.22);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-secondary);
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 11px;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .yt-clear-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+    }
+
+    .yt-now-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(160, 210, 255, 0.14);
+    }
+
+    .yt-now-info {
+      flex: 1;
+      min-width: 160px;
+      overflow: hidden;
+    }
+
+    .yt-now-label {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .yt-now-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #fff8e1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .yt-transport {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .yt-tbtn {
+      appearance: none;
+      border: 1px solid rgba(165, 210, 255, 0.20);
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffffff;
+      font-size: 13px;
+      width: 34px;
+      height: 32px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+    }
+
+    .yt-tbtn:hover:not(:disabled) {
+      background: rgba(255, 23, 68, 0.24);
+      border-color: rgba(255, 82, 82, 0.56);
+    }
+
+    .yt-tbtn:active:not(:disabled) {
+      transform: scale(0.93);
+    }
+
+    .yt-tbtn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .yt-tbtn.on {
+      background: rgba(0, 229, 255, 0.24);
+      border-color: rgba(0, 229, 255, 0.62);
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.24);
+    }
+
+    .yt-error-box {
+      margin-top: 8px;
+      padding: 8px 11px;
+      border-radius: 11px;
+      background: rgba(255, 23, 68, 0.16);
+      border: 1px solid rgba(255, 82, 82, 0.44);
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: #ffcdd2;
+      display: none;
+    }
+
+    .yt-error-box.visible {
+      display: block;
+    }
+
+    .yt-error-box.info {
+      background: rgba(0, 229, 255, 0.12);
+      border-color: rgba(0, 229, 255, 0.38);
+      color: #b2ebf2;
+    }
+
+    .ctrl-btn.yt-btn {
+      background: rgba(255, 23, 68, 0.16);
+      border-color: rgba(255, 82, 82, 0.44);
+      color: #ffebee;
+    }
+
+    .ctrl-btn.yt-btn:hover,
+    .ctrl-btn.yt-btn.active {
+      background: rgba(255, 23, 68, 0.30);
+      border-color: rgba(255, 110, 128, 0.78);
+      box-shadow: 0 0 14px rgba(255, 23, 68, 0.34);
+    }
+
     /* -------------------------------------------------------------------------
        DRAG & DROP AUDIO OVERLAY
        ------------------------------------------------------------------------- */
@@ -667,6 +1089,22 @@
       .track-chip {
         max-width: 76px;
       }
+
+      .yt-drawer {
+        bottom: 98px;
+        padding: 11px 11px 10px;
+      }
+
+      .yt-pip-box {
+        top: 10px;
+        right: 10px;
+        width: 184px;
+      }
+
+      .yt-pip-stage {
+        width: 184px;
+        height: 104px;
+      }
     }
   </style>
 </head>
@@ -686,6 +1124,17 @@
       <span class="pill vivid" id="badgeColorText">สีสดคมชัด</span>
       <span class="pill" id="badgeResText">Ultra HD</span>
     </div>
+
+    <!-- Floating Compact YouTube Mini-PiP Box (Top-Right) -->
+    <aside class="yt-pip-box" id="ytPipBox" aria-label="หน้าต่าง YouTube Mini Player">
+      <div class="yt-pip-header">
+        <span class="yt-pip-title" id="ytPipTitle">▶️ YouTube Player</span>
+        <button type="button" class="yt-pip-mini-btn" id="btnPipToggle" title="ซ่อนหรือแสดงจอวิดีโอ (เสียงยังเล่นต่อ)">📺 ซ่อนจอ</button>
+      </div>
+      <div class="yt-pip-stage">
+        <div id="ytPlayerHost"></div>
+      </div>
+    </aside>
 
     <!-- Non-Intrusive Choreographed Build-Stage Toast -->
     <div class="stage-toast" id="stageToast">
@@ -710,7 +1159,26 @@
           <span>เริ่มการแสดง (Start)</span>
         </button>
 
-        <div class="start-divider">เลือกเพลงประกอบ (ไม่บังคับ)</div>
+        <div class="start-divider">เลือกเพลงประกอบจาก YouTube หรือไฟล์ในเครื่อง (ไม่บังคับ)</div>
+
+        <!-- Quick-Setup YouTube Playlist / Video Link Input on Start Screen -->
+        <div class="start-yt-box">
+          <div class="start-yt-row">
+            <input
+              type="text"
+              class="yt-text-input"
+              id="startYtInput"
+              placeholder="วางลิงก์ YouTube Playlist / วิดีโอ / YouTube Music..."
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <button type="button" class="yt-load-btn" id="btnStartYtLoad" title="โหลดลิงก์ YouTube เตรียมไว้เล่นตอนกดเริ่ม">
+              <span>▶️</span>
+              <span>โหลด</span>
+            </button>
+          </div>
+          <div class="start-yt-msg" id="startYtMsg"></div>
+        </div>
 
         <button type="button" class="start-btn-upload" id="btnStartUpload">
           <span>🎵</span>
@@ -723,10 +1191,53 @@
         </div>
 
         <div class="start-hint-footer">
-          หรือลากไฟล์เพลงมาวางบนหน้าจอได้เลย • คลิกบนท้องฟ้าเพื่อจุดพลุได้ตลอดเวลา
+          วางลิงก์เพลย์ลิสต์ YouTube หรือลากไฟล์ .mp3 มาวางได้เลย • คลิกบนท้องฟ้าเพื่อจุดพลุ
         </div>
       </div>
     </div>
+
+    <!-- Collapsible Glassmorphism YouTube Playlist Drawer -->
+    <section class="yt-drawer" id="ytDrawer" aria-label="แผงควบคุม YouTube Playlist">
+      <div class="yt-drawer-head">
+        <div class="yt-drawer-title">
+          <span>▶️ YouTube Playlist &amp; Video</span>
+          <span class="yt-badge-red">IFrame API</span>
+        </div>
+        <div class="yt-head-actions">
+          <button type="button" class="yt-clear-btn" id="btnDrawerPip" title="ซ่อนหรือแสดงจอวิดีโอขนาดเล็ก">📺 ซ่อนจอ</button>
+          <button type="button" class="yt-clear-btn" id="btnCloseYtDrawer" title="ปิดแผง YouTube">✕ ปิด</button>
+        </div>
+      </div>
+
+      <div class="yt-input-row">
+        <input
+          type="text"
+          class="yt-text-input"
+          id="ytUrlInput"
+          placeholder="วางลิงก์ Playlist, watch?v=..., youtu.be/..., shorts, music.youtube.com หรือรหัส PL..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button type="button" class="yt-load-btn" id="btnYtLoad">โหลดเพลง</button>
+        <button type="button" class="yt-clear-btn" id="btnYtClear">ล้าง</button>
+      </div>
+
+      <div class="yt-now-bar">
+        <div class="yt-now-info">
+          <div class="yt-now-label" id="ytPlaylistMeta">สถานะ: ยังไม่ได้โหลดเพลย์ลิสต์ YouTube</div>
+          <div class="yt-now-title" id="ytNowTitle">— วางลิงก์ด้านบนแล้วกด "โหลดเพลง" —</div>
+        </div>
+        <div class="yt-transport">
+          <button type="button" class="yt-tbtn" id="btnYtPrev" title="เพลงก่อนหน้า" disabled>⏮</button>
+          <button type="button" class="yt-tbtn" id="btnYtPlayPause" title="เล่น / หยุดชั่วคราว" disabled>⏯</button>
+          <button type="button" class="yt-tbtn" id="btnYtNext" title="เพลงถัดไป" disabled>⏭</button>
+          <button type="button" class="yt-tbtn" id="btnYtShuffle" title="สุ่มลำดับเพลงในเพลย์ลิสต์" disabled>🔀</button>
+          <button type="button" class="yt-tbtn on" id="btnYtLoop" title="เล่นวนซ้ำทั้งเพลย์ลิสต์" disabled>🔁</button>
+        </div>
+      </div>
+
+      <div class="yt-error-box" id="ytErrorBox"></div>
+    </section>
 
     <!-- Drag & Drop Audio File Overlay -->
     <div class="drop-overlay" id="dropOverlay">
@@ -768,9 +1279,13 @@
           <span id="playPauseIcon">⏸️</span>
         </button>
         <span class="track-chip" id="hudTrackName" title="เพลงที่กำลังเล่น">Let It Snow!</span>
+        <button type="button" class="ctrl-btn yt-btn" id="btnOpenYt" title="เปิดแผงใส่ลิงก์ YouTube Playlist / วิดีโอ">
+          <span>▶️</span>
+          <span>YouTube</span>
+        </button>
         <button type="button" class="ctrl-btn" id="btnHudUpload" title="แนบไฟล์เพลงของคุณ (.mp3 / .wav)">
           <span>🎵</span>
-          <span>เลือกไฟล์เพลง</span>
+          <span>ไฟล์เพลง</span>
         </button>
         <button type="button" class="ctrl-btn" id="btnUseBuiltIn" title="กลับไปใช้เพลงเมดเลย์คริสต์มาสในตัว" style="display:none;">
           <span>🎼</span>
@@ -849,9 +1364,455 @@
       const midiToHz = (m) => 440 * Math.pow(2, (m - 69) / 12);
 
       /* =======================================================================
+         1B. YOUTUBE LINK PARSER & SAFE YOUTUBE IFRAME PLAYER API CONTROLLER
+             - Supports youtube.com/playlist?list=, watch?v=&list=, youtu.be/,
+               youtube.com/shorts/, music.youtube.com/, raw PL.../RD.../OLAK...
+               playlist IDs and raw 11-char video IDs.
+         ======================================================================= */
+      const YT_STORAGE_KEY = 'winterMagic_lastYtUrl_v1';
+
+      function parseYouTubeLink(rawInput) {
+        if (!rawInput || typeof rawInput !== 'string') return null;
+        const trimmed = rawInput.trim();
+        if (!trimmed) return null;
+
+        // 1. Raw Playlist ID (PL..., RD..., OLAK5uy_..., UU..., LL..., FL...)
+        if (/^(PL|RD|OLAK|UU|LL|FL|WL)[A-Za-z0-9_-]{8,}$/i.test(trimmed)) {
+          return { type: 'playlist', listId: trimmed, videoId: null, originalUrl: trimmed };
+        }
+
+        // 2. Raw 11-character Video ID
+        if (/^[A-Za-z0-9_-]{11}$/.test(trimmed)) {
+          return { type: 'video', listId: null, videoId: trimmed, originalUrl: trimmed };
+        }
+
+        // 3. Parse Full URL (prepend https:// if user pasted without protocol)
+        let candidate = trimmed;
+        if (!/^https?:\/\//i.test(candidate)) {
+          candidate = 'https://' + candidate;
+        }
+
+        let url;
+        try {
+          url = new URL(candidate);
+        } catch (e) {
+          return null;
+        }
+
+        const host = url.hostname.toLowerCase().replace(/^www\./, '');
+        const validHosts = ['youtube.com', 'm.youtube.com', 'music.youtube.com', 'youtu.be', 'youtube-nocookie.com'];
+        if (!validHosts.includes(host)) return null;
+
+        const listParam = url.searchParams.get('list');
+        const vParam = url.searchParams.get('v');
+        let listId = (listParam && /^[A-Za-z0-9_-]{8,}$/.test(listParam)) ? listParam : null;
+        let videoId = (vParam && /^[A-Za-z0-9_-]{11}$/.test(vParam)) ? vParam : null;
+
+        const segments = url.pathname.split('/').filter(Boolean);
+        if (!videoId) {
+          if (host === 'youtu.be' && segments[0] && /^[A-Za-z0-9_-]{11}$/.test(segments[0])) {
+            videoId = segments[0];
+          } else if (
+            segments.length >= 2 &&
+            ['shorts', 'embed', 'live', 'v'].includes(segments[0].toLowerCase()) &&
+            /^[A-Za-z0-9_-]{11}$/.test(segments[1])
+          ) {
+            videoId = segments[1];
+          }
+        }
+
+        if (listId && videoId) {
+          return { type: 'video_in_playlist', listId, videoId, originalUrl: trimmed };
+        }
+        if (listId) {
+          return { type: 'playlist', listId, videoId: null, originalUrl: trimmed };
+        }
+        if (videoId) {
+          return { type: 'video', listId: null, videoId, originalUrl: trimmed };
+        }
+        return null;
+      }
+
+      // Safe Singleton Loader for https://www.youtube.com/iframe_api with Ready Queue
+      const YouTubeApiLoader = {
+        loading: false,
+        ready: false,
+        queue: [],
+        load(cb) {
+          if (window.YT && typeof window.YT.Player === 'function') {
+            this.ready = true;
+            cb();
+            return;
+          }
+          this.queue.push(cb);
+          if (this.loading) return;
+          this.loading = true;
+
+          const prevHandler = window.onYouTubeIframeAPIReady;
+          window.onYouTubeIframeAPIReady = () => {
+            this.ready = true;
+            if (typeof prevHandler === 'function') {
+              try { prevHandler(); } catch (e) {}
+            }
+            while (this.queue.length > 0) {
+              const fn = this.queue.shift();
+              try { fn(); } catch (e) {}
+            }
+          };
+
+          const tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          tag.async = true;
+          tag.onerror = () => {
+            this.loading = false;
+          };
+          const firstScript = document.getElementsByTagName('script')[0];
+          if (firstScript && firstScript.parentNode) {
+            firstScript.parentNode.insertBefore(tag, firstScript);
+          } else {
+            document.head.appendChild(tag);
+          }
+        }
+      };
+
+      class YouTubeMusicController {
+        constructor(callbacks) {
+          this.cb = callbacks || {};
+          this.player = null;
+          this.playerReady = false;
+          this.pendingSpec = null;
+          this.pendingAutoPlay = false;
+
+          this.currentSpec = null;
+          this.isPlaying = false;
+          this.isShuffle = false;
+          this.isLoop = true;
+          this.volume = 45;
+          this.isMuted = false;
+          this.metaPollTimer = null;
+          this.lastTitle = '';
+          this.lastMetaLine = '';
+          this.hasFallbackTried = false;
+        }
+
+        loadMedia(parsedSpec, autoPlay = true) {
+          if (!parsedSpec) return;
+          this.currentSpec = parsedSpec;
+          this.hasFallbackTried = false;
+          this.pendingSpec = parsedSpec;
+          this.pendingAutoPlay = autoPlay;
+
+          try {
+            localStorage.setItem(YT_STORAGE_KEY, parsedSpec.originalUrl);
+          } catch (e) {}
+
+          if (this.cb.onError) this.cb.onError('', false);
+          if (this.cb.onMeta) {
+            const label = parsedSpec.listId ? 'กำลังโหลดเพลย์ลิสต์ YouTube...' : 'กำลังโหลดวิดีโอ YouTube...';
+            this.cb.onMeta(label, 'กำลังเชื่อมต่อ YouTube...', Boolean(parsedSpec.listId));
+          }
+
+          if (this.player && this.playerReady) {
+            this.applyPendingMedia();
+          } else {
+            YouTubeApiLoader.load(() => this.ensurePlayerCreated());
+          }
+        }
+
+        ensurePlayerCreated() {
+          if (this.player) return;
+
+          const playerVars = {
+            autoplay: this.pendingAutoPlay ? 1 : 0,
+            controls: 1,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1,
+            enablejsapi: 1
+          };
+
+          if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+            playerVars.origin = window.location.origin;
+          }
+
+          try {
+            this.player = new window.YT.Player('ytPlayerHost', {
+              width: '248',
+              height: '140',
+              playerVars,
+              events: {
+                onReady: () => {
+                  this.playerReady = true;
+                  this.syncAudioSettings();
+                  this.applyPendingMedia();
+                  this.startMetaPolling();
+                },
+                onStateChange: (ev) => this.handleStateChange(ev),
+                onError: (ev) => this.handlePlayerError(ev)
+              }
+            });
+          } catch (e) {
+            if (this.cb.onError) {
+              this.cb.onError('ไม่สามารถสร้างตัวเล่น YouTube ได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ตแล้วลองใหม่ครับ', true);
+            }
+          }
+        }
+
+        applyPendingMedia() {
+          if (!this.player || !this.playerReady || !this.pendingSpec) return;
+          const spec = this.pendingSpec;
+          const autoPlay = this.pendingAutoPlay;
+          this.pendingSpec = null;
+
+          try {
+            this.syncAudioSettings();
+            if (spec.listId) {
+              const cfg = {
+                listType: 'playlist',
+                list: spec.listId,
+                index: 0
+              };
+              if (autoPlay) {
+                this.player.loadPlaylist(cfg);
+              } else {
+                this.player.cuePlaylist(cfg);
+              }
+              setTimeout(() => {
+                if (!this.player || !this.playerReady) return;
+                try {
+                  this.player.setLoop(this.isLoop);
+                  this.player.setShuffle(this.isShuffle);
+                } catch (e) {}
+              }, 700);
+            } else if (spec.videoId) {
+              if (autoPlay) {
+                this.player.loadVideoById(spec.videoId);
+              } else {
+                this.player.cueVideoById(spec.videoId);
+              }
+            }
+          } catch (e) {
+            if (this.cb.onError) {
+              this.cb.onError('เกิดข้อผิดพลาดขณะสั่งโหลดวิดีโอ/เพลย์ลิสต์ กรุณาลองกด "โหลดเพลง" อีกครั้งครับ', true);
+            }
+          }
+        }
+
+        handleStateChange(ev) {
+          const YTState = window.YT && window.YT.PlayerState ? window.YT.PlayerState : {};
+          const st = ev.data;
+
+          if (st === YTState.PLAYING) {
+            this.isPlaying = true;
+            this.syncAudioSettings();
+            if (this.cb.onError) this.cb.onError('', false);
+            if (this.cb.onPlayState) this.cb.onPlayState(true);
+            this.refreshMetadata();
+          } else if (st === YTState.PAUSED) {
+            this.isPlaying = false;
+            if (this.cb.onPlayState) this.cb.onPlayState(false);
+          } else if (st === YTState.ENDED) {
+            this.isPlaying = false;
+            // Manual loop fallback for single video or end of playlist
+            if (this.isLoop && this.player && this.playerReady) {
+              const list = this.safeGetPlaylist();
+              if (!list || list.length <= 1) {
+                try {
+                  this.player.seekTo(0, true);
+                  this.player.playVideo();
+                  return;
+                } catch (e) {}
+              }
+            }
+            if (this.cb.onPlayState) this.cb.onPlayState(false);
+          } else if (st === YTState.CUED || st === YTState.BUFFERING) {
+            this.refreshMetadata();
+          }
+        }
+
+        handlePlayerError(ev) {
+          const code = ev && ev.data;
+
+          // Smart fallback: if user pasted watch?v=XXX&list=RD... (Mix) and playlist failed, fall back to videoId
+          if (
+            this.currentSpec &&
+            this.currentSpec.videoId &&
+            this.currentSpec.listId &&
+            !this.hasFallbackTried &&
+            (code === 2 || code === 100 || code === 150)
+          ) {
+            this.hasFallbackTried = true;
+            if (this.cb.onError) {
+              this.cb.onError('เพลย์ลิสต์นี้ไม่อนุญาตให้เล่นแบบรวมรายการ ระบบสลับไปเล่นวิดีโอหลักให้โดยอัตโนมัติครับ', false, true);
+            }
+            try {
+              this.player.loadVideoById(this.currentSpec.videoId);
+              return;
+            } catch (e) {}
+          }
+
+          this.isPlaying = false;
+          if (this.cb.onPlayState) this.cb.onPlayState(false);
+
+          const isFileProto = window.location.protocol === 'file:';
+          let msg = `ไม่สามารถเล่นวิดีโอ YouTube ได้ (รหัสข้อผิดพลาด ${code})`;
+
+          if (code === 2) {
+            msg = 'รหัสวิดีโอหรือ Playlist ไม่ถูกต้อง (Error 2) — กรุณาตรวจสอบลิงก์ YouTube อีกครั้งครับ';
+          } else if (code === 5) {
+            msg = 'เบราว์เซอร์ไม่สามารถเล่นวิดีโอนี้ผ่าน HTML5 Player ได้ (Error 5) ลองข้ามไปเพลงถัดไปครับ';
+          } else if (code === 100) {
+            msg = 'ไม่พบวิดีโอหรือเพลย์ลิสต์นี้ (Error 100) — อาจถูกลบหรือตั้งค่าเป็น "ส่วนตัว (Private)" ต้องเป็นสาธารณะ (Public) หรือไม่แสดงรายการ (Unlisted)';
+          } else if (code === 101 || code === 150 || code === 153) {
+            msg = isFileProto
+              ? `ไม่สามารถเล่นฝัง YouTube ได้เมื่อเปิดไฟล์ตรงจากเครื่อง (file:// — Error ${code}) แนะนำให้เปิดผ่าน VS Code Live Server หรือ GitHub Pages (http/https) ครับ`
+              : `เจ้าของวิดีโอปิดการเล่นแบบฝังบนเว็บไซต์อื่น (Error ${code}) — ลองกดปุ่ม ⏭ เพื่อข้ามไปเพลงถัดไป หรือเลือกเพลย์ลิสต์อื่นครับ`;
+          }
+
+          if (this.cb.onError) this.cb.onError(msg, true);
+        }
+
+        safeGetPlaylist() {
+          if (!this.player || !this.playerReady || typeof this.player.getPlaylist !== 'function') return null;
+          try {
+            return this.player.getPlaylist();
+          } catch (e) {
+            return null;
+          }
+        }
+
+        refreshMetadata() {
+          if (!this.player || !this.playerReady) return;
+          try {
+            const vData = typeof this.player.getVideoData === 'function' ? this.player.getVideoData() : null;
+            const list = this.safeGetPlaylist();
+            const idx = typeof this.player.getPlaylistIndex === 'function' ? this.player.getPlaylistIndex() : -1;
+
+            const rawTitle = (vData && vData.title) ? vData.title.trim() : '';
+            const hasList = Array.isArray(list) && list.length > 0;
+
+            let metaLine = 'YouTube Video';
+            let displayTitle = rawTitle || (hasList ? 'กำลังเตรียมรายการเพลง...' : 'YouTube Audio');
+
+            if (hasList && idx >= 0) {
+              metaLine = `เพลงที่ ${idx + 1} / ${list.length}`;
+              displayTitle = rawTitle ? `${metaLine} — ${rawTitle}` : metaLine;
+            } else if (this.currentSpec && this.currentSpec.listId) {
+              metaLine = 'YouTube Playlist';
+            }
+
+            if (displayTitle !== this.lastTitle || metaLine !== this.lastMetaLine) {
+              this.lastTitle = displayTitle;
+              this.lastMetaLine = metaLine;
+              if (this.cb.onMeta) this.cb.onMeta(metaLine, displayTitle, hasList || Boolean(this.currentSpec && this.currentSpec.listId));
+            }
+          } catch (e) {}
+        }
+
+        startMetaPolling() {
+          if (this.metaPollTimer) return;
+          this.metaPollTimer = setInterval(() => {
+            if (this.currentSpec && this.playerReady) {
+              this.refreshMetadata();
+            }
+          }, 1200);
+        }
+
+        syncAudioSettings() {
+          if (!this.player || !this.playerReady) return;
+          try {
+            this.player.setVolume(Math.round(clamp(this.volume, 0, 100)));
+            if (this.isMuted) {
+              this.player.mute();
+            } else {
+              this.player.unMute();
+            }
+          } catch (e) {}
+        }
+
+        setVolume(pct0to100) {
+          this.volume = clamp(pct0to100, 0, 100);
+          this.syncAudioSettings();
+        }
+
+        setMuted(muted) {
+          this.isMuted = Boolean(muted);
+          this.syncAudioSettings();
+        }
+
+        play() {
+          if (this.player && this.playerReady) {
+            try {
+              this.syncAudioSettings();
+              this.player.playVideo();
+            } catch (e) {}
+          } else if (this.currentSpec) {
+            this.pendingSpec = this.currentSpec;
+            this.pendingAutoPlay = true;
+            YouTubeApiLoader.load(() => this.ensurePlayerCreated());
+          }
+        }
+
+        pause() {
+          this.isPlaying = false;
+          if (this.player && this.playerReady) {
+            try { this.player.pauseVideo(); } catch (e) {}
+          }
+        }
+
+        togglePlay() {
+          if (this.isPlaying) {
+            this.pause();
+            return false;
+          }
+          this.play();
+          return true;
+        }
+
+        next() {
+          if (this.player && this.playerReady) {
+            try { this.player.nextVideo(); } catch (e) {}
+          }
+        }
+
+        prev() {
+          if (this.player && this.playerReady) {
+            try { this.player.previousVideo(); } catch (e) {}
+          }
+        }
+
+        toggleShuffle() {
+          this.isShuffle = !this.isShuffle;
+          if (this.player && this.playerReady) {
+            try { this.player.setShuffle(this.isShuffle); } catch (e) {}
+          }
+          return this.isShuffle;
+        }
+
+        toggleLoop() {
+          this.isLoop = !this.isLoop;
+          if (this.player && this.playerReady) {
+            try { this.player.setLoop(this.isLoop); } catch (e) {}
+          }
+          return this.isLoop;
+        }
+
+        clear() {
+          this.pause();
+          this.currentSpec = null;
+          this.pendingSpec = null;
+          this.lastTitle = '';
+          this.lastMetaLine = '';
+          try { localStorage.removeItem(YT_STORAGE_KEY); } catch (e) {}
+        }
+      }
+
+      /* =======================================================================
          2. VINTAGE HOLIDAY MUSIC + HIGH-POWER FIREWORK MASTERING AUDIO ENGINE
             - Music Bus: Built-in 3-song Christmas medley OR custom MP3/WAV
               routed through AnalyserNode (default 45% so fireworks punch clearly)
+            - YouTube Mode: Syncs cleanly with YouTube IFrame Player & drives
+              smooth organic rhythm energy for the 104 Christmas tree LEDs
             - Firework Mastering Bus: Stereo Panning -> Low-Shelf Bass Boost
               (+7dB @ 95Hz) -> Warm Soft Clipper -> DynamicsCompressor Limiter
               -> High-Power Makeup Gain (0-150% Boost, default 100%)
@@ -876,9 +1837,14 @@
           this.sfxLimiter = null;
           this.sfxMakeupGain = null;
 
-          this.mode = 'builtin'; // 'builtin' | 'custom'
+          this.mode = 'builtin'; // 'builtin' | 'custom' | 'youtube'
           this.customTrackName = '';
           this.customObjectUrl = null;
+
+          // Linked YouTube Controller & Organic Rhythm Clock
+          this.ytController = null;
+          this.ytTrackLabel = 'YouTube Playlist';
+          this.ytRhythmClock = 0;
 
           this.isPlaying = false;
           this.isMuted = false;
@@ -1123,14 +2089,52 @@
         }
 
         getCurrentTrackLabel() {
+          if (this.mode === 'youtube') {
+            return this.ytTrackLabel || 'YouTube Playlist';
+          }
           if (this.mode === 'custom' && this.customTrackName) {
             return this.customTrackName;
           }
           return this.songs[this.songIdx].title;
         }
 
+        attachYouTubeController(ytCtrl) {
+          this.ytController = ytCtrl;
+          if (this.ytController) {
+            this.ytController.setVolume(this.musicVolume * 100);
+            this.ytController.setMuted(this.isMuted);
+          }
+        }
+
+        activateYouTubeMode(parsedSpec, autoPlay = false) {
+          this.initContext();
+          this.audioEl.pause();
+          this.mode = 'youtube';
+          this.ytTrackLabel = parsedSpec.listId ? 'YouTube Playlist' : 'YouTube Video';
+
+          if (autoPlay) {
+            this.isPlaying = true;
+          }
+
+          if (this.ytController) {
+            this.ytController.setVolume(this.musicVolume * 100);
+            this.ytController.setMuted(this.isMuted);
+            this.ytController.loadMedia(parsedSpec, autoPlay);
+          }
+
+          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), 'youtube');
+        }
+
+        updateYouTubeTrackLabel(label) {
+          this.ytTrackLabel = label || 'YouTube Playlist';
+          if (this.mode === 'youtube' && this.onTrackChange) {
+            this.onTrackChange(this.ytTrackLabel, 'youtube');
+          }
+        }
+
         loadCustomFile(file, autoPlay = false) {
           if (!file) return;
+          if (this.ytController) this.ytController.pause();
           if (this.customObjectUrl) {
             URL.revokeObjectURL(this.customObjectUrl);
           }
@@ -1143,25 +2147,31 @@
           if (autoPlay || this.isPlaying) {
             this.startPlayback();
           }
-          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), true);
+          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), 'custom');
         }
 
         switchToBuiltIn() {
+          if (this.ytController) this.ytController.pause();
           this.audioEl.pause();
           this.mode = 'builtin';
           if (this.isPlaying) {
             this.initContext();
             this.stepTimer = 0.08;
           }
-          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), false);
+          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), 'builtin');
         }
 
         startPlayback(resetMedley = false) {
           this.initContext();
           this.isPlaying = true;
-          if (this.mode === 'custom') {
+          if (this.mode === 'youtube') {
+            this.audioEl.pause();
+            if (this.ytController) this.ytController.play();
+          } else if (this.mode === 'custom') {
+            if (this.ytController) this.ytController.pause();
             this.audioEl.play().catch(() => {});
           } else {
+            if (this.ytController) this.ytController.pause();
             this.audioEl.pause();
             if (resetMedley) {
               this.songIdx = 0;
@@ -1171,11 +2181,16 @@
               this.stepTimer = 0.08;
             }
           }
-          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), this.mode === 'custom');
+          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), this.mode);
         }
 
         togglePlayPause() {
           this.initContext();
+          if (this.mode === 'youtube' && this.ytController) {
+            const playing = this.ytController.togglePlay();
+            this.isPlaying = playing;
+            return this.isPlaying;
+          }
           if (this.isPlaying) {
             this.isPlaying = false;
             if (this.mode === 'custom') this.audioEl.pause();
@@ -1189,6 +2204,9 @@
           this.musicVolume = clamp(v01, 0, 1);
           if (this.musicGain && this.ctx) {
             this.musicGain.gain.setTargetAtTime(this.musicVolume, this.ctx.currentTime, 0.04);
+          }
+          if (this.ytController) {
+            this.ytController.setVolume(this.musicVolume * 100);
           }
         }
 
@@ -1204,6 +2222,9 @@
           this.isMuted = !this.isMuted;
           if (this.masterGain && this.ctx) {
             this.masterGain.gain.setTargetAtTime(this.isMuted ? 0.0001 : 1.0, this.ctx.currentTime, 0.03);
+          }
+          if (this.ytController) {
+            this.ytController.setMuted(this.isMuted);
           }
           return this.isMuted;
         }
@@ -1545,14 +2566,30 @@
                 this.songIdx = (this.songIdx + 1) % this.songs.length;
                 this.stepTimer += 0.65;
                 if (this.onTrackChange) {
-                  this.onTrackChange(this.getCurrentTrackLabel(), false);
+                  this.onTrackChange(this.getCurrentTrackLabel(), 'builtin');
                 }
               }
             }
           }
 
-          // 2. Real-Time Audio Energy from AnalyserNode for Music-Reactive LEDs
-          if (this.analyser && this.freqData && this.isPlaying && !this.isMuted) {
+          // 2. Real-Time Audio Reactivity for the 104 Tree LEDs
+          //    - YouTube Mode: Smooth organic musical rhythm generator (since cross-origin YouTube cannot feed AnalyserNode)
+          //    - Built-in Medley & Local MP3: Real Web Audio AnalyserNode FFT reactivity
+          if (this.mode === 'youtube' && this.ytController && this.ytController.isPlaying && !this.isMuted) {
+            this.ytRhythmClock += dt;
+            const t = this.ytRhythmClock;
+            // Warm holiday swing pulse (~108 BPM = 1.8 beats/sec) + expressive phrase swell
+            const beatPhase = (t * 1.80) % 1;
+            const kickEnv = Math.exp(-beatPhase * 5.2);
+            const phraseSwell = 0.62 + 0.38 * Math.sin(t * 0.65);
+            const syncopation = Math.pow(0.5 + 0.5 * Math.sin(t * 3.60 * Math.PI + Math.sin(t * 0.9)), 2.2);
+            const volScale = clamp(0.45 + this.musicVolume * 0.65, 0.35, 1.0);
+
+            const targetBass = clamp((0.18 + 0.68 * kickEnv * phraseSwell) * volScale, 0, 0.95);
+            const targetTreb = clamp((0.16 + 0.52 * syncopation + 0.24 * Math.sin(t * 7.4) * Math.sin(t * 1.3)) * volScale, 0, 0.95);
+            this.bassEnergy = lerp(this.bassEnergy, targetBass, clamp(dt * 12, 0, 1));
+            this.trebleEnergy = lerp(this.trebleEnergy, targetTreb, clamp(dt * 14, 0, 1));
+          } else if (this.analyser && this.freqData && this.isPlaying && !this.isMuted && this.mode !== 'youtube') {
             this.analyser.getByteFrequencyData(this.freqData);
             let bassSum = 0;
             for (let i = 1; i <= 8; i++) bassSum += this.freqData[i];
@@ -3782,9 +4819,32 @@
         const startOverlay = document.getElementById('startOverlay');
         const btnStartShow = document.getElementById('btnStartShow');
         const btnStartUpload = document.getElementById('btnStartUpload');
+        const startYtInput = document.getElementById('startYtInput');
+        const btnStartYtLoad = document.getElementById('btnStartYtLoad');
+        const startYtMsg = document.getElementById('startYtMsg');
         const startTrackStatus = document.getElementById('startTrackStatus');
         const startTrackName = document.getElementById('startTrackName');
         const dropOverlay = document.getElementById('dropOverlay');
+
+        const ytPipBox = document.getElementById('ytPipBox');
+        const ytPipTitle = document.getElementById('ytPipTitle');
+        const btnPipToggle = document.getElementById('btnPipToggle');
+
+        const ytDrawer = document.getElementById('ytDrawer');
+        const btnOpenYt = document.getElementById('btnOpenYt');
+        const btnCloseYtDrawer = document.getElementById('btnCloseYtDrawer');
+        const btnDrawerPip = document.getElementById('btnDrawerPip');
+        const ytUrlInput = document.getElementById('ytUrlInput');
+        const btnYtLoad = document.getElementById('btnYtLoad');
+        const btnYtClear = document.getElementById('btnYtClear');
+        const ytPlaylistMeta = document.getElementById('ytPlaylistMeta');
+        const ytNowTitle = document.getElementById('ytNowTitle');
+        const btnYtPrev = document.getElementById('btnYtPrev');
+        const btnYtPlayPause = document.getElementById('btnYtPlayPause');
+        const btnYtNext = document.getElementById('btnYtNext');
+        const btnYtShuffle = document.getElementById('btnYtShuffle');
+        const btnYtLoop = document.getElementById('btnYtLoop');
+        const ytErrorBox = document.getElementById('ytErrorBox');
 
         const badgeColorText = document.getElementById('badgeColorText');
         const badgeResText = document.getElementById('badgeResText');
@@ -3816,19 +4876,69 @@
         const btnHideHud = document.getElementById('btnHideHud');
         const btnShowHud = document.getElementById('btnShowHud');
 
-        const updateTrackUI = (label, isCustom) => {
+        const setYtTransportEnabled = (enabled) => {
+          btnYtPrev.disabled = !enabled;
+          btnYtPlayPause.disabled = !enabled;
+          btnYtNext.disabled = !enabled;
+          btnYtShuffle.disabled = !enabled;
+          btnYtLoop.disabled = !enabled;
+        };
+
+        const syncPipMinimizedUI = (minimized) => {
+          ytPipBox.classList.toggle('minimized', minimized);
+          const txt = minimized ? '📺 แสดงจอ' : '📺 ซ่อนจอ';
+          btnPipToggle.textContent = txt;
+          btnDrawerPip.textContent = txt;
+        };
+
+        const setStartYtMessage = (text, isOk = false) => {
+          if (!text) {
+            startYtMsg.classList.remove('visible', 'ok');
+            startYtMsg.textContent = '';
+            return;
+          }
+          startYtMsg.textContent = text;
+          startYtMsg.classList.add('visible');
+          startYtMsg.classList.toggle('ok', isOk);
+        };
+
+        const setDrawerError = (text, isError = true, isInfo = false) => {
+          if (!text) {
+            ytErrorBox.classList.remove('visible', 'info');
+            ytErrorBox.textContent = '';
+            return;
+          }
+          ytErrorBox.textContent = text;
+          ytErrorBox.classList.add('visible');
+          ytErrorBox.classList.toggle('info', isInfo || !isError);
+        };
+
+        const updateTrackUI = (label, sourceMode) => {
+          const isCustom = sourceMode === 'custom';
+          const isYoutube = sourceMode === 'youtube';
+
           hudTrackName.textContent = label;
           hudTrackName.title = label;
-          startTrackName.textContent = isCustom
-            ? `ไฟล์เพลงของคุณ: ${label}`
-            : `เพลงในตัว: Let It Snow! / White Christmas / Jingle Bells`;
+
+          if (isYoutube) {
+            startTrackName.textContent = `YouTube: ${label}`;
+          } else if (isCustom) {
+            startTrackName.textContent = `ไฟล์เพลงของคุณ: ${label}`;
+          } else {
+            startTrackName.textContent = 'เพลงในตัว: Let It Snow! / White Christmas / Jingle Bells';
+          }
+
           startTrackStatus.classList.toggle('custom', isCustom);
-          btnUseBuiltIn.style.display = isCustom ? 'inline-flex' : 'none';
+          startTrackStatus.classList.toggle('youtube', isYoutube);
+          btnUseBuiltIn.style.display = (isCustom || isYoutube) ? 'inline-flex' : 'none';
+          ytPipBox.classList.toggle('active', isYoutube);
+          btnOpenYt.classList.toggle('active', isYoutube || ytDrawer.classList.contains('open'));
         };
 
         const syncPlayPauseUI = (playing) => {
           playPauseIcon.textContent = playing ? '⏸️' : '▶️';
           btnPlayPause.classList.toggle('active', playing);
+          btnYtPlayPause.textContent = playing ? '⏸' : '▶';
         };
 
         const syncMuteUI = (muted) => {
@@ -3851,8 +4961,83 @@
         const audioEngine = new HolidayAudioEngine(audioEl, updateTrackUI);
         const engine = new WinterMagicVividEngine(canvas, audioEngine, updateStageToast);
 
-        // Start Show Action
+        const ytController = new YouTubeMusicController({
+          onPlayState: (playing) => {
+            if (audioEngine.mode === 'youtube') {
+              audioEngine.isPlaying = playing;
+              syncPlayPauseUI(playing);
+            }
+          },
+          onMeta: (metaLine, displayTitle) => {
+            ytPlaylistMeta.textContent = `สถานะ: ${metaLine}`;
+            ytNowTitle.textContent = displayTitle;
+            ytNowTitle.title = displayTitle;
+            ytPipTitle.textContent = `▶️ ${displayTitle}`;
+            ytPipTitle.title = displayTitle;
+            audioEngine.updateYouTubeTrackLabel(displayTitle);
+          },
+          onError: (msg, isErr, isInfo) => {
+            setDrawerError(msg, isErr, isInfo);
+            if (msg && engine.phase !== 'running') {
+              setStartYtMessage(msg, !isErr);
+            }
+          }
+        });
+        audioEngine.attachYouTubeController(ytController);
+
+        // Restore last used YouTube URL from localStorage for convenience
+        try {
+          const savedYtUrl = localStorage.getItem(YT_STORAGE_KEY);
+          if (savedYtUrl) {
+            startYtInput.value = savedYtUrl;
+            ytUrlInput.value = savedYtUrl;
+          }
+        } catch (e) {}
+
+        // Unified YouTube Link Load Helper (usable from both Start Screen & Drawer)
+        const handleLoadYouTube = (rawUrl, fromStartScreen = false) => {
+          const parsed = parseYouTubeLink(rawUrl);
+          if (!parsed) {
+            const invalidMsg = 'ลิงก์ YouTube ไม่ถูกต้อง — รองรับลิงก์ Playlist (list=PL...), watch?v=..., youtu.be/..., shorts, music.youtube.com หรือรหัส PL... ครับ';
+            if (fromStartScreen) {
+              setStartYtMessage(invalidMsg, false);
+            } else {
+              setDrawerError(invalidMsg, true);
+            }
+            return false;
+          }
+
+          startYtInput.value = parsed.originalUrl;
+          ytUrlInput.value = parsed.originalUrl;
+          setYtTransportEnabled(true);
+          setDrawerError('', false);
+
+          const autoPlay = engine.phase === 'running';
+          audioEngine.activateYouTubeMode(parsed, autoPlay);
+
+          if (fromStartScreen) {
+            const okText = parsed.listId
+              ? '✅ โหลด YouTube Playlist พร้อมแล้ว! กด "▶ เริ่มการแสดง" เพื่อเปิดเพลงพร้อมต้นคริสต์มาสได้เลย'
+              : '✅ โหลดวิดีโอ YouTube พร้อมแล้ว! กด "▶ เริ่มการแสดง" เพื่อเปิดเพลงพร้อมต้นคริสต์มาสได้เลย';
+            setStartYtMessage(okText, true);
+          } else {
+            syncPlayPauseUI(true);
+          }
+          return true;
+        };
+
+        // Start Show Action (auto-loads any pasted YouTube link on start screen if not loaded yet)
         const beginShow = () => {
+          const typedYt = startYtInput.value.trim();
+          if (typedYt && audioEngine.mode !== 'youtube' && audioEngine.mode !== 'custom') {
+            const parsed = parseYouTubeLink(typedYt);
+            if (parsed) {
+              ytUrlInput.value = parsed.originalUrl;
+              setYtTransportEnabled(true);
+              audioEngine.activateYouTubeMode(parsed, false);
+            }
+          }
+
           document.body.classList.remove('pre-start');
           startOverlay.classList.add('hidden');
           engine.startShow();
@@ -3861,6 +5046,80 @@
         };
 
         btnStartShow.addEventListener('click', beginShow);
+
+        // Start Screen YouTube Load Button & Enter Key
+        btnStartYtLoad.addEventListener('click', () => {
+          handleLoadYouTube(startYtInput.value, true);
+        });
+        startYtInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            handleLoadYouTube(startYtInput.value, true);
+          }
+        });
+
+        // Drawer Open / Close / Load / Clear
+        const setYtDrawerOpen = (open) => {
+          ytDrawer.classList.toggle('open', open);
+          btnOpenYt.classList.toggle('active', open || audioEngine.mode === 'youtube');
+          if (open) {
+            setTimeout(() => ytUrlInput.focus(), 120);
+          }
+        };
+
+        btnOpenYt.addEventListener('click', () => {
+          setYtDrawerOpen(!ytDrawer.classList.contains('open'));
+        });
+        btnCloseYtDrawer.addEventListener('click', () => setYtDrawerOpen(false));
+
+        btnYtLoad.addEventListener('click', () => {
+          handleLoadYouTube(ytUrlInput.value, false);
+        });
+        ytUrlInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            handleLoadYouTube(ytUrlInput.value, false);
+          }
+        });
+
+        btnYtClear.addEventListener('click', () => {
+          ytUrlInput.value = '';
+          startYtInput.value = '';
+          setStartYtMessage('');
+          setDrawerError('', false);
+          ytController.clear();
+          setYtTransportEnabled(false);
+          ytPlaylistMeta.textContent = 'สถานะ: ยังไม่ได้โหลดเพลย์ลิสต์ YouTube';
+          ytNowTitle.textContent = '— วางลิงก์ด้านบนแล้วกด "โหลดเพลง" —';
+          ytPipTitle.textContent = '▶️ YouTube Player';
+          if (audioEngine.mode === 'youtube') {
+            audioEngine.switchToBuiltIn();
+            syncPlayPauseUI(audioEngine.isPlaying);
+          }
+        });
+
+        // YouTube Playlist Transport Controls
+        btnYtPrev.addEventListener('click', () => ytController.prev());
+        btnYtPlayPause.addEventListener('click', () => {
+          const playing = audioEngine.togglePlayPause();
+          syncPlayPauseUI(playing);
+        });
+        btnYtNext.addEventListener('click', () => ytController.next());
+        btnYtShuffle.addEventListener('click', () => {
+          const on = ytController.toggleShuffle();
+          btnYtShuffle.classList.toggle('on', on);
+        });
+        btnYtLoop.addEventListener('click', () => {
+          const on = ytController.toggleLoop();
+          btnYtLoop.classList.toggle('on', on);
+        });
+
+        // Mini-PiP Minimize/Restore Toggle (keeps iframe alive so audio never pauses!)
+        const togglePipMinimized = () => {
+          syncPipMinimizedUI(!ytPipBox.classList.contains('minimized'));
+        };
+        btnPipToggle.addEventListener('click', togglePipMinimized);
+        btnDrawerPip.addEventListener('click', togglePipMinimized);
 
         // File Upload Triggers
         const triggerFileSelect = () => {
@@ -3873,9 +5132,16 @@
         fileInput.addEventListener('change', (e) => {
           const file = e.target.files && e.target.files[0];
           if (!file) return;
+          setStartYtMessage('');
           const autoPlay = engine.phase === 'running';
           audioEngine.loadCustomFile(file, autoPlay);
           if (autoPlay) syncPlayPauseUI(true);
+        });
+
+        btnUseBuiltIn.addEventListener('click', () => {
+          setStartYtMessage('');
+          audioEngine.switchToBuiltIn();
+          syncPlayPauseUI(audioEngine.isPlaying);
         });
 
         btnUseBuiltIn.addEventListener('click', () => {
@@ -3990,12 +5256,16 @@
 
         // Keyboard Shortcuts: H = HUD, M = Mute All, R = Replay, Space = Grand Salvo
         window.addEventListener('keydown', (e) => {
-          if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT')) return;
+          if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA')) return;
           if (engine.phase !== 'running') {
             if (e.key === 'Enter' || e.code === 'Space') {
               e.preventDefault();
               beginShow();
             }
+            return;
+          }
+          if (e.key === 'Escape' && ytDrawer.classList.contains('open')) {
+            setYtDrawerOpen(false);
             return;
           }
           if (e.key === 'h' || e.key === 'H') {
