@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>❄️ Winter Magic — รุ่นสีสดคมชัดระดับ Ultra HD และเพลย์ลิสต์ YouTube</title>
+  <title>❄️ Winter Magic — Ultra HD Christmas Edition</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* =========================================================================
-       WINTER MAGIC — ULTRA HD VIVID COLOR EDITION (MULTI-LANGUAGE)
-       Deep Obsidian Canvas (#010308) + High-Contrast Frosted-Glass HUD
+       WINTER MAGIC — ULTRA HD CHRISTMAS EDITION (ENHANCED UI/UX + i18n)
        ========================================================================= */
     :root {
-      --bg-void: #010308;
-      --glass-bg: rgba(5, 10, 22, 0.76);
-      --glass-bg-strong: rgba(6, 13, 28, 0.88);
-      --glass-border: rgba(130, 198, 255, 0.22);
-      --glass-border-hover: rgba(180, 226, 255, 0.48);
-      --text-primary: #f5faff;
-      --text-secondary: rgba(214, 234, 255, 0.82);
-      --text-muted: rgba(170, 200, 236, 0.65);
-      --accent-ice: #00e5ff;
-      --accent-gold: #ffd600;
-      --accent-emerald: #00e676;
-      --accent-magenta: #ff4081;
-      --font-ui: 'Noto Sans Thai', 'Noto Sans SC', 'Noto Sans JP', 'Prompt', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --bg-void: #020308;
+      --glass-bg: rgba(7, 14, 30, 0.68);
+      --glass-bg-strong: rgba(9, 18, 40, 0.86);
+      --glass-border: rgba(162, 212, 255, 0.18);
+      --glass-border-hover: rgba(196, 232, 255, 0.46);
+      --text-primary: #f4f9ff;
+      --text-secondary: rgba(214, 234, 255, 0.80);
+      --text-muted: rgba(175, 204, 238, 0.62);
+      --accent-ice: #67e8f9;
+      --accent-gold: #fcd34d;
+      --accent-emerald: #34d399;
+      --accent-crimson: #fb7185;
+      --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-ui: 'Plus Jakarta Sans', 'Noto Sans Thai', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
     }
 
     * {
@@ -55,13 +55,13 @@
       background: var(--bg-void);
     }
 
-    /* Crisp dark-edge frame without adding milky haze */
+    /* Cinematic vignette */
     #stage::after {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      box-shadow: inset 0 0 85px rgba(0, 1, 6, 0.76);
+      box-shadow: inset 0 0 110px rgba(0, 2, 10, 0.72);
       z-index: 2;
     }
 
@@ -71,32 +71,31 @@
       height: 100%;
       cursor: crosshair;
       touch-action: manipulation;
-      image-rendering: crisp-edges;
     }
 
     /* -------------------------------------------------------------------------
-       TOP-LEFT BADGE & TOP-CENTER STAGE PROGRESS PILL
+       TOP HUD BAR (LEFT BADGE, CENTER STAGE TOAST, RIGHT LANG + AURORA)
        ------------------------------------------------------------------------- */
     .top-badge {
       position: fixed;
       top: 14px;
       left: 14px;
-      z-index: 10;
+      z-index: 14;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 6px 13px;
+      gap: 8px;
+      padding: 6px 14px;
       border-radius: 999px;
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       font-size: 12.5px;
       font-weight: 600;
       letter-spacing: 0.02em;
       color: var(--text-primary);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
       pointer-events: none;
     }
 
@@ -104,55 +103,97 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--accent-emerald);
-      box-shadow: 0 0 10px var(--accent-emerald);
-      animation: pulseDot 2.0s ease-in-out infinite;
+      background: var(--accent-ice);
+      box-shadow: 0 0 10px var(--accent-ice);
+      animation: pulseDot 2.2s ease-in-out infinite;
     }
 
-    .top-badge .pill {
+    .top-badge .res-pill {
       font-size: 10.5px;
       font-weight: 600;
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(0, 229, 255, 0.14);
-      border: 1px solid rgba(0, 229, 255, 0.34);
+      background: rgba(103, 232, 249, 0.14);
+      border: 1px solid rgba(103, 232, 249, 0.32);
       color: var(--accent-ice);
     }
 
-    .top-badge .pill.vivid {
-      background: rgba(255, 64, 129, 0.16);
-      border-color: rgba(255, 64, 129, 0.42);
-      color: #ff80ab;
+    @keyframes pulseDot {
+      0%, 100% { opacity: 0.6; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.25); }
     }
 
-    @keyframes pulseDot {
-      0%, 100% { opacity: 0.65; transform: scale(0.9); }
-      50% { opacity: 1; transform: scale(1.25); }
+    /* Top-Right Language Switcher & Aurora Toggle */
+    .top-right-tools {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 35;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.45s var(--ease-spring), transform 0.45s var(--ease-spring);
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px;
+      border-radius: 999px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.25s var(--ease-spring), box-shadow 0.25s ease;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, rgba(103, 232, 249, 0.28), rgba(52, 211, 153, 0.24));
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(103, 232, 249, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
 
     .stage-toast {
       position: fixed;
       top: 16px;
       left: 50%;
-      transform: translateX(-50%) translateY(-10px);
+      transform: translateX(-50%) translateY(-12px);
       z-index: 12;
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 8px 18px;
       border-radius: 999px;
-      background: rgba(6, 14, 32, 0.84);
-      border: 1px solid rgba(255, 214, 0, 0.38);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(9, 20, 44, 0.80);
+      border: 1px solid rgba(252, 211, 77, 0.32);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       font-size: 13px;
       font-weight: 500;
-      color: #fffde7;
+      color: #fffbeb;
       white-space: nowrap;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.52), 0 0 20px rgba(252, 211, 77, 0.12);
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.55s var(--ease-spring), transform 0.55s var(--ease-spring);
     }
 
     .stage-toast.visible {
@@ -164,7 +205,7 @@
       width: 68px;
       height: 4px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.15);
       overflow: hidden;
     }
 
@@ -172,9 +213,2245 @@
       width: 0%;
       height: 100%;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-gold), var(--accent-magenta));
+      background: linear-gradient(90deg, var(--accent-ice), var(--accent-emerald), var(--accent-gold));
       transition: width 0.2s linear;
     }
 
     /* -------------------------------------------------------------------------
-       START SCREEN OVERLAY CARD (FROSTED DARK GLASS
+       START SCREEN OVERLAY CARD (POLISHED FROSTED GLASS)
+       ------------------------------------------------------------------------- */
+    .start-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: radial-gradient(circle at 50% 42%, rgba(8, 22, 52, 0.35), rgba(2, 3, 8, 0.74));
+      transition: opacity 0.85s var(--ease-spring), visibility 0.85s var(--ease-spring);
+    }
+
+    .start-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .start-card {
+      position: relative;
+      width: 100%;
+      max-width: 470px;
+      padding: 34px 30px 28px;
+      border-radius: 28px;
+      background: linear-gradient(165deg, rgba(11, 22, 48, 0.82), rgba(6, 12, 28, 0.88));
+      border: 1px solid rgba(170, 220, 255, 0.24);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        0 28px 72px rgba(0, 0, 0, 0.72),
+        0 0 48px rgba(56, 189, 248, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      text-align: center;
+      transform: translateY(0) scale(1);
+      transition: transform 0.75s var(--ease-spring), opacity 0.65s ease;
+    }
+
+    .start-overlay.hidden .start-card {
+      transform: translateY(22px) scale(0.94);
+      opacity: 0;
+    }
+
+    .start-emblem {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 68px;
+      height: 68px;
+      margin-bottom: 16px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(52, 211, 153, 0.22), rgba(252, 211, 77, 0.22));
+      border: 1px solid rgba(252, 211, 77, 0.40);
+      font-size: 32px;
+      box-shadow: 0 0 32px rgba(252, 211, 77, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      animation: floatEmblem 3.4s ease-in-out infinite;
+    }
+
+    @keyframes floatEmblem {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(2deg); }
+    }
+
+    .start-title {
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      background: linear-gradient(135deg, #ffffff 8%, #bae6fd 50%, #fde68a 96%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .start-subtitle {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .start-btn-primary {
+      width: 100%;
+      appearance: none;
+      border: 1px solid rgba(254, 240, 138, 0.58);
+      background: linear-gradient(135deg, #0ea5e9 0%, #10b981 52%, #f59e0b 100%);
+      background-size: 180% 180%;
+      color: #ffffff;
+      font-family: var(--font-ui);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 15px 22px;
+      border-radius: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+      box-shadow:
+        0 12px 32px rgba(16, 185, 129, 0.36),
+        0 0 26px rgba(252, 211, 77, 0.24);
+      transition: transform 0.22s var(--ease-spring), box-shadow 0.28s ease, background-position 0.45s ease;
+    }
+
+    .start-btn-primary:hover {
+      background-position: 100% 50%;
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+        0 16px 38px rgba(14, 165, 233, 0.44),
+        0 0 34px rgba(252, 211, 77, 0.38);
+    }
+
+    .start-btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .start-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0 14px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .start-divider::before,
+    .start-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(165, 215, 255, 0.22), transparent);
+    }
+
+    .start-btn-upload {
+      width: 100%;
+      appearance: none;
+      border: 1px dashed rgba(148, 206, 255, 0.38);
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 11px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.18s var(--ease-spring);
+    }
+
+    .start-btn-upload:hover {
+      background: rgba(103, 232, 249, 0.12);
+      border-color: rgba(103, 232, 249, 0.68);
+      transform: translateY(-1px);
+    }
+
+    .start-track-status {
+      margin-top: 12px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(15, 30, 62, 0.56);
+      border: 1px solid rgba(148, 206, 255, 0.14);
+      font-size: 12px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .start-track-status.custom {
+      border-color: rgba(52, 211, 153, 0.44);
+      background: rgba(16, 185, 129, 0.12);
+      color: #a7f3d0;
+    }
+
+    .start-hint-footer {
+      margin-top: 15px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* -------------------------------------------------------------------------
+       DRAG & DROP AUDIO OVERLAY
+       ------------------------------------------------------------------------- */
+    .drop-overlay {
+      position: fixed;
+      inset: 16px;
+      z-index: 50;
+      border-radius: 26px;
+      border: 2px dashed var(--accent-ice);
+      background: rgba(5, 16, 38, 0.86);
+      backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity 0.25s var(--ease-spring), transform 0.25s var(--ease-spring);
+    }
+
+    .drop-overlay.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .drop-overlay .icon { font-size: 48px; }
+    .drop-overlay .label { font-size: 18px; font-weight: 600; color: #e0f2fe; }
+
+    /* -------------------------------------------------------------------------
+       BOTTOM-CENTER COLLAPSIBLE FROSTED-GLASS CONTROL BAR
+       ------------------------------------------------------------------------- */
+    .control-bar {
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      max-width: calc(100vw - 20px);
+      padding: 7px 10px;
+      border-radius: 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      opacity: 0.88;
+      transition: opacity 0.4s var(--ease-spring), transform 0.45s var(--ease-spring), background 0.35s ease;
+    }
+
+    .control-bar:hover,
+    .control-bar:focus-within {
+      opacity: 1;
+      background: var(--glass-bg-strong);
+    }
+
+    .ctrl-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 6px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(160, 210, 255, 0.11);
+    }
+
+    .ctrl-btn {
+      appearance: none;
+      border: 1px solid rgba(160, 210, 255, 0.14);
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 12.5px;
+      font-weight: 500;
+      line-height: 1.2;
+      padding: 7px 11px;
+      border-radius: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.16s var(--ease-spring), box-shadow 0.22s ease;
+    }
+
+    .ctrl-btn:hover {
+      background: rgba(125, 211, 252, 0.16);
+      border-color: var(--glass-border-hover);
+      box-shadow: 0 0 14px rgba(103, 232, 249, 0.20);
+      transform: translateY(-1px);
+    }
+
+    .ctrl-btn:active {
+      transform: scale(0.95);
+    }
+
+    .ctrl-btn.active {
+      background: rgba(103, 232, 249, 0.20);
+      border-color: rgba(103, 232, 249, 0.52);
+      color: #ffffff;
+    }
+
+    .ctrl-btn.gold-accent:hover {
+      background: rgba(252, 211, 77, 0.18);
+      border-color: rgba(252, 211, 77, 0.56);
+      box-shadow: 0 0 16px rgba(252, 211, 77, 0.24);
+    }
+
+    /* Live Mini Audio Visualizer Bars */
+    .viz-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+      padding: 0 3px;
+    }
+
+    .viz-bar {
+      width: 2.5px;
+      height: 3px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--accent-ice), var(--accent-gold));
+      transition: height 0.08s linear;
+    }
+
+    .track-chip {
+      max-width: 138px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--accent-gold);
+      padding: 0 4px;
+    }
+
+    .vol-slider {
+      width: 62px;
+      height: 4px;
+      accent-color: var(--accent-ice);
+      cursor: pointer;
+    }
+
+    .res-select {
+      appearance: none;
+      border: 1px solid rgba(160, 210, 255, 0.18);
+      background: rgba(14, 28, 56, 0.78);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 10px;
+      border-radius: 11px;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .res-select:hover,
+    .res-select:focus {
+      border-color: var(--accent-ice);
+      background: rgba(20, 40, 78, 0.92);
+    }
+
+    /* Hidden HUD or Pre-Start State */
+    body.pre-start .control-bar {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(24px);
+    }
+
+    body.hud-hidden .top-badge,
+    body.hud-hidden .top-right-tools,
+    body.hud-hidden .control-bar {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    body.hud-hidden .control-bar {
+      transform: translateX(-50%) translateY(26px);
+    }
+
+    body.hud-hidden .top-badge,
+    body.hud-hidden .top-right-tools {
+      transform: translateY(-18px);
+    }
+
+    .restore-hud-btn {
+      position: fixed;
+      bottom: 14px;
+      right: 14px;
+      z-index: 18;
+      appearance: none;
+      border: 1px solid rgba(160, 210, 255, 0.26);
+      background: rgba(8, 16, 34, 0.62);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--text-secondary);
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.92);
+      transition: opacity 0.32s var(--ease-spring), transform 0.32s var(--ease-spring), color 0.2s ease, background 0.2s ease;
+    }
+
+    body.hud-hidden .restore-hud-btn {
+      opacity: 0.78;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .restore-hud-btn:hover {
+      opacity: 1 !important;
+      color: #ffffff;
+      background: rgba(16, 34, 68, 0.92);
+    }
+
+    @media (max-width: 760px) {
+      .top-badge { top: 10px; left: 10px; padding: 5px 10px; font-size: 11.5px; }
+      .top-right-tools { top: 10px; right: 10px; }
+      .stage-toast { top: 52px; font-size: 12px; padding: 6px 13px; }
+      .start-card { padding: 26px 20px 22px; }
+      .start-title { font-size: 21px; }
+      .control-bar { bottom: 10px; padding: 6px 7px; gap: 4px; }
+      .ctrl-btn { font-size: 11.5px; padding: 6px 8px; }
+      .track-chip { max-width: 92px; }
+      .vol-slider { width: 46px; }
+    }
+  </style>
+</head>
+<body class="pre-start">
+  <div id="stage">
+    <!-- Full-Viewport High-DPI Colored ASCII + Bloom + Aurora Canvas -->
+    <canvas id="asciiCanvas" aria-label="Winter Magic Ultra HD Colored ASCII Christmas Tree"></canvas>
+
+    <!-- Hidden File Input & Custom Audio Element -->
+    <input type="file" id="audioFileInput" accept="audio/*,.mp3,.wav,.ogg,.m4a" hidden>
+    <audio id="customAudio" loop playsinline crossorigin="anonymous"></audio>
+
+    <!-- Top-Left Window Badge -->
+    <div class="top-badge" id="topBadge">
+      <span class="dot"></span>
+      <span>❄️ Winter Magic</span>
+      <span class="res-pill" id="badgeResText">Ultra HD</span>
+    </div>
+
+    <!-- Top-Right Language Switcher & Aurora Toggle -->
+    <div class="top-right-tools" id="topRightTools">
+      <button type="button" class="ctrl-btn active" id="btnAurora" style="padding:5px 10px;border-radius:999px;font-size:11.5px;">
+        <span>🌌</span>
+        <span data-i18n="auroraLabel">แสงเหนือ</span>
+      </button>
+      <div class="lang-switcher" role="group" aria-label="Language Switcher">
+        <button type="button" class="lang-btn active" data-lang="th">TH</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+    </div>
+
+    <!-- Non-Intrusive Choreographed Build-Stage Toast -->
+    <div class="stage-toast" id="stageToast">
+      <span id="stageText">✨ กำลังเตรียมการแสดง...</span>
+      <div class="stage-progress-track" id="stageProgressTrack">
+        <div class="stage-progress-fill" id="stageProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Start Screen Overlay Card -->
+    <div class="start-overlay" id="startOverlay">
+      <div class="start-card">
+        <div class="start-emblem">🎄</div>
+        <h1 class="start-title" data-i18n="startTitle">✨ Winter Magic Ultra HD</h1>
+        <p class="start-subtitle" data-i18n-html="startSubtitle">
+          ต้นคริสต์มาสแสงสี ASCII ความละเอียดสูงแบบเรียลไทม์<br>
+          พร้อมแสงเหนือ พลุ 5 รูปแบบ และบทเพลงคริสต์มาส
+        </p>
+
+        <button type="button" class="start-btn-primary" id="btnStartShow">
+          <span>▶</span>
+          <span data-i18n="btnStart">เริ่มการแสดง (Start)</span>
+        </button>
+
+        <div class="start-divider" data-i18n="startDivider">เลือกเพลงประกอบ (ไม่บังคับ)</div>
+
+        <button type="button" class="start-btn-upload" id="btnStartUpload">
+          <span>🎵</span>
+          <span data-i18n="btnStartUpload">แนบไฟล์เพลงของคุณ (.mp3 / .wav)</span>
+        </button>
+
+        <div class="start-track-status" id="startTrackStatus">
+          <span>🎼</span>
+          <span id="startTrackName">เพลงในตัว: Let It Snow! / White Christmas / Jingle Bells</span>
+        </div>
+
+        <div class="start-hint-footer" data-i18n="startHint">
+          หรือลากไฟล์เพลงมาวางบนหน้าจอได้เลย • คลิกบนท้องฟ้าเพื่อจุดพลุได้ตลอดเวลา
+        </div>
+      </div>
+    </div>
+
+    <!-- Drag & Drop Audio File Overlay -->
+    <div class="drop-overlay" id="dropOverlay">
+      <div class="icon">🎵</div>
+      <div class="label" data-i18n="dropLabel">วางไฟล์เพลง (.mp3 / .wav) เพื่อเล่นประกอบการแสดง</div>
+    </div>
+
+    <!-- Bottom-Center Collapsible Frosted-Glass Control Bar -->
+    <nav class="control-bar" id="controlBar" aria-label="Control Bar">
+      <button type="button" class="ctrl-btn" id="btnReplay">
+        <span>🔄</span>
+        <span data-i18n="btnReplay">เล่นซ้ำ</span>
+      </button>
+
+      <button type="button" class="ctrl-btn gold-accent" id="btnSalvo">
+        <span>🎆</span>
+        <span data-i18n="btnSalvo">จุดพลุชุดใหญ่</span>
+      </button>
+
+      <!-- Music Playback + Visualizer + Track Name + Volume + Upload -->
+      <div class="ctrl-group">
+        <button type="button" class="ctrl-btn active" id="btnPlayPause">
+          <span id="playPauseIcon">⏸️</span>
+          <span data-i18n="btnMusic">เพลง</span>
+        </button>
+        <div class="viz-bars" id="vizBars" aria-hidden="true">
+          <span class="viz-bar"></span>
+          <span class="viz-bar"></span>
+          <span class="viz-bar"></span>
+          <span class="viz-bar"></span>
+        </div>
+        <span class="track-chip" id="hudTrackName">Let It Snow!</span>
+        <input type="range" class="vol-slider" id="volSlider" min="0" max="100" value="72">
+        <button type="button" class="ctrl-btn" id="btnHudUpload">
+          <span>📂</span>
+          <span data-i18n="btnAddMusic">เพิ่มเพลง</span>
+        </button>
+        <button type="button" class="ctrl-btn" id="btnUseBuiltIn" style="display:none;">
+          <span>🎼</span>
+          <span data-i18n="btnBuiltIn">เพลงในตัว</span>
+        </button>
+      </div>
+
+      <button type="button" class="ctrl-btn active" id="btnSfx">
+        <span id="sfxIcon">💥</span>
+        <span id="sfxLabel">เสียงพลุ: เปิด</span>
+      </button>
+
+      <button type="button" class="ctrl-btn" id="btnSnow">
+        <span>❄️</span>
+        <span id="snowLabel">หิมะ: กลาง</span>
+      </button>
+
+      <select class="res-select" id="resSelect">
+        <option value="ultrahd" selected data-i18n="resUltra">🖥️ ละเอียดมาก (Ultra HD)</option>
+        <option value="4k" data-i18n="res4k">🖥️ คมชัดพิเศษ (4K Dense)</option>
+        <option value="classic" data-i18n="resClassic">🖥️ คลาสสิก (Retro ASCII)</option>
+      </select>
+
+      <button type="button" class="ctrl-btn" id="btnHideHud">
+        <span>👁️</span>
+        <span data-i18n="btnHideHud">ซ่อนเมนู</span>
+      </button>
+    </nav>
+
+    <!-- Corner Restore HUD Button -->
+    <button type="button" class="restore-hud-btn" id="btnShowHud" data-i18n="btnShowHud">
+      แสดงเมนู (H)
+    </button>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      /* =======================================================================
+         0. FULL INTERNATIONALIZATION (i18n) DICTIONARY (TH / EN / JA)
+         ======================================================================= */
+      const I18N = {
+        th: {
+          pageTitle: '❄️ Winter Magic — Ultra HD Christmas Edition',
+          startTitle: '✨ Winter Magic Ultra HD',
+          startSubtitle: 'ต้นคริสต์มาสแสงสี ASCII ความละเอียดสูงแบบเรียลไทม์<br>พร้อมแสงเหนือ พลุ 5 รูปแบบ และบทเพลงคริสต์มาส',
+          btnStart: 'เริ่มการแสดง (Start)',
+          startDivider: 'เลือกเพลงประกอบ (ไม่บังคับ)',
+          btnStartUpload: 'แนบไฟล์เพลงของคุณ (.mp3 / .wav)',
+          defaultTrackStatus: 'เพลงในตัว: Let It Snow! / White Christmas / Jingle Bells',
+          customTrackPrefix: 'เพลงที่เลือก: ',
+          startHint: 'หรือลากไฟล์เพลงมาวางบนหน้าจอได้เลย • คลิกบนท้องฟ้าเพื่อจุดพลุได้ตลอดเวลา',
+          dropLabel: 'วางไฟล์เพลง (.mp3 / .wav) เพื่อเล่นประกอบการแสดง',
+          auroraLabel: 'แสงเหนือ',
+          btnReplay: 'เล่นซ้ำ',
+          btnSalvo: 'จุดพลุชุดใหญ่',
+          btnMusic: 'เพลง',
+          btnAddMusic: 'เพิ่มเพลง',
+          btnBuiltIn: 'เพลงในตัว',
+          sfxOn: 'เสียงพลุ: เปิด',
+          sfxOff: 'เสียงพลุ: ปิด',
+          snowLevels: ['หิมะ: เบา', 'หิมะ: กลาง', 'หิมะ: หนัก'],
+          resUltra: '🖥️ ละเอียดมาก (Ultra HD)',
+          res4k: '🖥️ คมชัดพิเศษ (4K Dense)',
+          resClassic: '🖥️ คลาสสิก (Retro ASCII)',
+          badgeRes: { ultrahd: 'Ultra HD', '4k': '4K Dense', classic: 'Retro' },
+          btnHideHud: 'ซ่อนเมนู',
+          btnShowHud: 'แสดงเมนู (H)',
+          builtInTag: ' (ในตัว)',
+          stages: [
+            '🌌 ค่ำคืนฤดูหนาวและแสงเหนือกำลังเริ่มต้น...',
+            '🌲 กำลังก่อตัวต้นคริสต์มาส 10 ชั้น...',
+            '✨ ประดับสายรุ้งสีทองและลูกบอลคริสต์มาส...',
+            '🌟 เปิดไฟประดับและสวมยอดดาวประกายทอง...',
+            '🎁 วางกล่องของขวัญและจุดพลุเฉลิมฉลอง!'
+          ],
+          tooltips: {
+            btnReplay: 'เริ่มฉากก่อตัวต้นคริสต์มาสใหม่ (R)',
+            btnSalvo: 'จุดพลุชุดใหญ่ประสานเสียง (Space)',
+            btnPlayPause: 'เล่น / หยุดเพลงชั่วคราว',
+            volSlider: 'ปรับระดับเสียงเพลง',
+            btnHudUpload: 'แนบไฟล์เพลงของคุณ (.mp3 / .wav)',
+            btnUseBuiltIn: 'กลับไปใช้เพลงเมดเลย์คริสต์มาสในตัว',
+            btnSfx: 'เปิด / ปิดเสียงพลุ',
+            btnSnow: 'ปรับความหนาแน่นของหิมะ',
+            btnHideHud: 'ซ่อนเมนูเพื่อรับชมเต็มจอ (กด H)',
+            btnAurora: 'เปิด / ปิดแสงเหนือ (Aurora Borealis)'
+          }
+        },
+        en: {
+          pageTitle: '❄️ Winter Magic — Ultra HD Christmas Edition',
+          startTitle: '✨ Winter Magic Ultra HD',
+          startSubtitle: 'Real-time Ultra HD Colored ASCII Christmas Tree<br>with Aurora Borealis, 5 Firework Styles & Holiday Medley',
+          btnStart: 'Start the Show',
+          startDivider: 'Background Music (Optional)',
+          btnStartUpload: 'Attach Your Audio (.mp3 / .wav)',
+          defaultTrackStatus: 'Built-in Medley: Let It Snow! / White Christmas / Jingle Bells',
+          customTrackPrefix: 'Selected Track: ',
+          startHint: 'Or drag & drop an audio file anywhere • Click the sky anytime to launch fireworks',
+          dropLabel: 'Drop your audio file (.mp3 / .wav) to play during the show',
+          auroraLabel: 'Aurora',
+          btnReplay: 'Replay',
+          btnSalvo: 'Grand Salvo',
+          btnMusic: 'Music',
+          btnAddMusic: 'Upload',
+          btnBuiltIn: 'Built-in',
+          sfxOn: 'SFX: On',
+          sfxOff: 'SFX: Off',
+          snowLevels: ['Snow: Light', 'Snow: Medium', 'Snow: Heavy'],
+          resUltra: '🖥️ Ultra HD',
+          res4k: '🖥️ 4K Dense',
+          resClassic: '🖥️ Classic Retro',
+          badgeRes: { ultrahd: 'Ultra HD', '4k': '4K Dense', classic: 'Retro' },
+          btnHideHud: 'Hide UI',
+          btnShowHud: 'Show UI (H)',
+          builtInTag: ' (Built-in)',
+          stages: [
+            '🌌 Winter midnight & northern lights awaken...',
+            '🌲 Sculpting the 10-tier Christmas tree...',
+            '✨ Draping golden garlands & glossy ornaments...',
+            '🌟 Illuminating fairy lights & crowning the star...',
+            '🎁 Placing holiday gifts & launching the grand salvo!'
+          ],
+          tooltips: {
+            btnReplay: 'Replay tree build choreography (R)',
+            btnSalvo: 'Launch synchronized firework salvo (Space)',
+            btnPlayPause: 'Play / Pause music',
+            volSlider: 'Adjust music volume',
+            btnHudUpload: 'Upload custom audio (.mp3 / .wav)',
+            btnUseBuiltIn: 'Switch back to built-in Christmas medley',
+            btnSfx: 'Toggle firework sound effects',
+            btnSnow: 'Cycle snowfall density',
+            btnHideHud: 'Hide interface for full-screen view (H)',
+            btnAurora: 'Toggle Aurora Borealis'
+          }
+        },
+        ja: {
+          pageTitle: '❄️ Winter Magic — ウルトラHD クリスマスエディション',
+          startTitle: '✨ Winter Magic Ultra HD',
+          startSubtitle: 'リアルタイム高精細カラーASCIIクリスマスツリー<br>オーロラ・5種の花火・クリスマス名曲メドレー付き',
+          btnStart: 'ショーを開始 (Start)',
+          startDivider: 'BGMを選択（任意）',
+          btnStartUpload: '音楽ファイルを選択 (.mp3 / .wav)',
+          defaultTrackStatus: '内蔵メドレー: Let It Snow! / White Christmas / Jingle Bells',
+          customTrackPrefix: '選択中の曲: ',
+          startHint: '画面に音楽ファイルをドロップ可能 • 夜空をクリックすると花火が打ち上がります',
+          dropLabel: '音楽ファイル (.mp3 / .wav) をドロップして再生',
+          auroraLabel: 'オーロラ',
+          btnReplay: 'リプレイ',
+          btnSalvo: '大花火',
+          btnMusic: '音楽',
+          btnAddMusic: '曲を追加',
+          btnBuiltIn: '内蔵曲',
+          sfxOn: '花火音: オン',
+          sfxOff: '花火音: オフ',
+          snowLevels: ['雪: 弱', '雪: 中', '雪: 強'],
+          resUltra: '🖥️ 超高精細 (Ultra HD)',
+          res4k: '🖥️ 4K 高密度 (4K Dense)',
+          resClassic: '🖥️ クラシック (Retro)',
+          badgeRes: { ultrahd: 'Ultra HD', '4k': '4K Dense', classic: 'Retro' },
+          btnHideHud: 'UI非表示',
+          btnShowHud: 'UI表示 (H)',
+          builtInTag: ' (内蔵)',
+          stages: [
+            '🌌 冬の夜空とオーロラが目を覚ます...',
+            '🌲 10段のクリスマスツリーを造形中...',
+            '✨ 金のガーランドとオーナメントを飾り付け...',
+            '🌟 イルミネーション点灯＆トップスター冠戴...',
+            '🎁 プレゼント配置＆祝祭の大花火打ち上げ！'
+          ],
+          tooltips: {
+            btnReplay: 'ツリー造形演出をリプレイ (R)',
+            btnSalvo: '一斉花火を打ち上げ (Space)',
+            btnPlayPause: '音楽の再生 / 一時停止',
+            volSlider: '音量を調整',
+            btnHudUpload: 'お好みの音楽ファイルを添付 (.mp3 / .wav)',
+            btnUseBuiltIn: '内蔵クリスマス・メドレーに戻す',
+            btnSfx: '花火の効果音を切り替え',
+            btnSnow: '降雪量を切り替え',
+            btnHideHud: '全画面鑑賞用にUIを隠す (H)',
+            btnAurora: 'オーロラの表示を切り替え'
+          }
+        }
+      };
+
+      let currentLang = localStorage.getItem('winter_magic_lang') || 'th';
+      if (!I18N[currentLang]) currentLang = 'th';
+
+      /* =======================================================================
+         1. MATH, EASING & DETERMINISTIC PRNG
+         ======================================================================= */
+      const clamp = (v, lo, hi) => (v < lo ? lo : v > hi ? hi : v);
+      const lerp = (a, b, t) => a + (b - a) * t;
+      const smoothstep = (e0, e1, x) => {
+        const t = clamp((x - e0) / (e1 - e0), 0, 1);
+        return t * t * (3 - 2 * t);
+      };
+      const easeOutBack = (t) => {
+        const c1 = 1.70158, c3 = c1 + 1, x = clamp(t, 0, 1) - 1;
+        return 1 + c3 * x * x * x + c1 * x * x;
+      };
+      function createRng(seed) {
+        let a = seed >>> 0;
+        return function rand() {
+          a |= 0; a = (a + 0x6D2B79F5) | 0;
+          let t = Math.imul(a ^ (a >>> 15), 1 | a);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+      const midiToHz = (m) => 440 * Math.pow(2, (m - 69) / 12);
+
+      /* =======================================================================
+         2. HOLIDAY AUDIO ENGINE (3-SONG MEDLEY + CUSTOM AUDIO + ANALYSER)
+         ======================================================================= */
+      class HolidayAudioEngine {
+        constructor(audioEl, onTrackChange) {
+          this.audioEl = audioEl;
+          this.onTrackChange = onTrackChange;
+          this.ctx = null;
+          this.musicGain = null;
+          this.sfxGain = null;
+          this.analyser = null;
+          this.delayBus = null;
+          this.mediaSource = null;
+          this.freqData = null;
+
+          this.mode = 'builtin';
+          this.customTrackName = '';
+          this.customObjectUrl = null;
+          this.isPlaying = false;
+          this.sfxEnabled = true;
+          this.volume = 0.72;
+
+          this.bassEnergy = 0;
+          this.trebleEnergy = 0;
+          this.vizLevels = [0.15, 0.25, 0.2, 0.15];
+
+          this.songIdx = 0;
+          this.stepIdx = 0;
+          this.stepTimer = 0;
+          this.beatAccum = 0;
+          this.noiseBuf = null;
+          this.buildMedleySongs();
+        }
+
+        buildMedleySongs() {
+          const letItSnow = {
+            baseTitle: 'Let It Snow!',
+            bpm: 124,
+            sleigh: true,
+            events: [
+              { m: 60, b: 0.5 }, { m: 60, b: 0.5 },
+              { m: 72, b: 0.75, ch: [53, 57, 60, 64], bass: 41 }, { m: 72, b: 0.25 },
+              { m: 70, b: 1.0 }, { m: 69, b: 1.0 }, { m: 67, b: 1.0 },
+              { m: 65, b: 1.5, ch: [55, 58, 60, 64], bass: 48 }, { m: 60, b: 1.5 },
+              { m: 60, b: 0.5 }, { m: 60, b: 0.5 },
+              { m: 70, b: 0.75, ch: [55, 58, 62, 65], bass: 43 }, { m: 70, b: 0.25 },
+              { m: 69, b: 1.0 }, { m: 67, b: 1.0 }, { m: 65, b: 1.0 },
+              { m: 64, b: 2.5, ch: [52, 58, 62, 67], bass: 48 }, { m: 0, b: 0.5 },
+              { m: 62, b: 0.5 }, { m: 64, b: 0.5 },
+              { m: 65, b: 0.75, ch: [55, 58, 62, 65], bass: 43 }, { m: 65, b: 0.25 },
+              { m: 64, b: 1.0 }, { m: 62, b: 1.0 }, { m: 60, b: 1.0, ch: [52, 58, 60, 64], bass: 48 },
+              { m: 69, b: 1.5, ch: [53, 57, 60, 65], bass: 41 }, { m: 67, b: 1.5 },
+              { m: 67, b: 0.5, ch: [55, 58, 62, 65], bass: 43 }, { m: 65, b: 0.5 }, { m: 64, b: 1.0 },
+              { m: 64, b: 0.5, ch: [52, 58, 60, 67], bass: 48 }, { m: 62, b: 0.5 }, { m: 60, b: 1.0 },
+              { m: 60, b: 0.5 }, { m: 62, b: 0.5 }, { m: 65, b: 3.0, ch: [53, 57, 62, 65], bass: 41 },
+              { m: 69, b: 0.5, ch: [55, 58, 62, 65], bass: 43 }, { m: 67, b: 0.5 },
+              { m: 65, b: 0.5, ch: [52, 58, 60, 64], bass: 48 }, { m: 64, b: 0.5 }, { m: 0, b: 1.0 }
+            ]
+          };
+
+          const whiteChristmas = {
+            baseTitle: 'White Christmas',
+            bpm: 94,
+            sleigh: false,
+            events: [
+              { m: 64, b: 2.0, ch: [48, 52, 55, 59], bass: 36 },
+              { m: 65, b: 0.5 }, { m: 64, b: 0.5 }, { m: 63, b: 0.5 }, { m: 64, b: 0.5 },
+              { m: 65, b: 2.0, ch: [50, 53, 57, 60], bass: 38 },
+              { m: 66, b: 0.5 }, { m: 67, b: 1.5, ch: [50, 53, 55, 59], bass: 43 },
+              { m: 69, b: 1.0, ch: [53, 57, 60, 64], bass: 41 },
+              { m: 71, b: 1.0 }, { m: 72, b: 1.0, ch: [50, 55, 59, 62], bass: 43 }, { m: 74, b: 1.0 },
+              { m: 72, b: 1.0, ch: [48, 52, 55, 60], bass: 36 }, { m: 71, b: 1.0 }, { m: 69, b: 1.0 }, { m: 67, b: 1.0 },
+              { m: 60, b: 0.5 }, { m: 62, b: 0.5 },
+              { m: 64, b: 1.5, ch: [53, 57, 60, 64], bass: 41 }, { m: 64, b: 0.5 },
+              { m: 64, b: 1.0 }, { m: 69, b: 1.0, ch: [53, 56, 60, 62], bass: 41 },
+              { m: 67, b: 2.0, ch: [48, 52, 55, 60], bass: 36 }, { m: 0, b: 1.0 },
+              { m: 60, b: 0.5 }, { m: 62, b: 0.5 },
+              { m: 64, b: 1.5, ch: [50, 53, 57, 60], bass: 38 }, { m: 64, b: 0.5 },
+              { m: 64, b: 1.0 }, { m: 69, b: 1.0, ch: [50, 53, 55, 59], bass: 43 },
+              { m: 67, b: 1.5 }, { m: 65, b: 0.5 }, { m: 64, b: 1.0 }, { m: 62, b: 1.0 },
+              { m: 60, b: 3.5, ch: [48, 52, 55, 59, 62], bass: 36 }, { m: 0, b: 0.5 }
+            ]
+          };
+
+          const jingleBells = {
+            baseTitle: 'Jingle Bells',
+            bpm: 140,
+            sleigh: true,
+            events: [
+              { m: 71, b: 1.0, ch: [55, 59, 62, 66], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
+              { m: 71, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
+              { m: 71, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 74, b: 1.0 }, { m: 67, b: 1.5 }, { m: 69, b: 0.5 },
+              { m: 71, b: 3.5, ch: [55, 59, 62, 66], bass: 43 }, { m: 0, b: 0.5 },
+              { m: 72, b: 1.0, ch: [55, 60, 64, 67], bass: 48 }, { m: 72, b: 1.0 }, { m: 72, b: 1.5 }, { m: 72, b: 0.5 },
+              { m: 72, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 1.0 }, { m: 71, b: 0.5 }, { m: 71, b: 0.5 },
+              { m: 71, b: 1.0, ch: [55, 57, 61, 64], bass: 45 }, { m: 69, b: 1.0 }, { m: 69, b: 1.0 }, { m: 71, b: 1.0 },
+              { m: 69, b: 2.0, ch: [54, 57, 60, 62], bass: 38 }, { m: 74, b: 2.0 },
+              { m: 71, b: 1.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
+              { m: 71, b: 1.0 }, { m: 71, b: 1.0 }, { m: 71, b: 2.0 },
+              { m: 71, b: 1.0, ch: [55, 60, 64, 67], bass: 48 }, { m: 74, b: 1.0 }, { m: 67, b: 1.5 }, { m: 69, b: 0.5 },
+              { m: 71, b: 2.0, ch: [55, 59, 62, 67], bass: 43 }, { m: 0, b: 0.5 },
+              { m: 72, b: 0.5 }, { m: 72, b: 1.0, ch: [55, 60, 64, 67], bass: 48 }, { m: 72, b: 1.0 }, { m: 72, b: 1.0 },
+              { m: 74, b: 1.0, ch: [54, 57, 60, 62], bass: 38 }, { m: 74, b: 1.0 }, { m: 72, b: 1.0 }, { m: 69, b: 1.0 },
+              { m: 67, b: 3.5, ch: [55, 59, 62, 67], bass: 43 }, { m: 0, b: 0.5 }
+            ]
+          };
+
+          this.songs = [letItSnow, whiteChristmas, jingleBells];
+        }
+
+        initContext() {
+          if (this.ctx) {
+            if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+            return true;
+          }
+          try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return false;
+            this.ctx = new AudioCtx();
+            this.analyser = this.ctx.createAnalyser();
+            this.analyser.fftSize = 256;
+            this.analyser.smoothingTimeConstant = 0.80;
+            this.freqData = new Uint8Array(this.analyser.frequencyBinCount);
+
+            this.musicGain = this.ctx.createGain();
+            this.musicGain.gain.value = this.volume;
+
+            this.sfxGain = this.ctx.createGain();
+            this.sfxGain.gain.value = this.sfxEnabled ? 0.65 : 0.0001;
+
+            this.delayBus = this.ctx.createDelay(1.0);
+            this.delayBus.delayTime.value = 0.28;
+            const fb = this.ctx.createGain();
+            fb.gain.value = 0.30;
+            const lpf = this.ctx.createBiquadFilter();
+            lpf.type = 'lowpass';
+            lpf.frequency.value = 2400;
+
+            this.delayBus.connect(lpf);
+            lpf.connect(fb);
+            fb.connect(this.delayBus);
+            lpf.connect(this.musicGain);
+
+            this.musicGain.connect(this.analyser);
+            this.analyser.connect(this.ctx.destination);
+            this.sfxGain.connect(this.ctx.destination);
+
+            if (!this.mediaSource && this.audioEl) {
+              try {
+                this.mediaSource = this.ctx.createMediaElementSource(this.audioEl);
+                this.mediaSource.connect(this.musicGain);
+              } catch (e) {}
+            }
+
+            const len = Math.floor(this.ctx.sampleRate * 1.0);
+            this.noiseBuf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
+            const data = this.noiseBuf.getChannelData(0);
+            for (let i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        getCurrentTrackLabel() {
+          if (this.mode === 'custom' && this.customTrackName) return this.customTrackName;
+          return this.songs[this.songIdx].baseTitle + I18N[currentLang].builtInTag;
+        }
+
+        loadCustomFile(file, autoPlay = false) {
+          if (!file) return;
+          if (this.customObjectUrl) URL.revokeObjectURL(this.customObjectUrl);
+          this.customObjectUrl = URL.createObjectURL(file);
+          this.customTrackName = file.name.replace(/\.[^/.]+$/, '');
+          this.audioEl.src = this.customObjectUrl;
+          this.audioEl.load();
+          this.mode = 'custom';
+          if (autoPlay || this.isPlaying) this.startPlayback();
+          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), true);
+        }
+
+        switchToBuiltIn() {
+          this.audioEl.pause();
+          this.mode = 'builtin';
+          if (this.isPlaying) {
+            this.initContext();
+            this.stepTimer = 0.08;
+          }
+          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), false);
+        }
+
+        startPlayback(resetMedley = false) {
+          this.initContext();
+          this.isPlaying = true;
+          if (this.mode === 'custom') {
+            this.audioEl.play().catch(() => {});
+          } else {
+            this.audioEl.pause();
+            if (resetMedley) {
+              this.songIdx = 0;
+              this.stepIdx = 0;
+              this.stepTimer = 0.12;
+            } else if (this.stepTimer <= 0) {
+              this.stepTimer = 0.08;
+            }
+          }
+          if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), this.mode === 'custom');
+        }
+
+        togglePlayPause() {
+          this.initContext();
+          if (this.isPlaying) {
+            this.isPlaying = false;
+            if (this.mode === 'custom') this.audioEl.pause();
+          } else {
+            this.startPlayback(false);
+          }
+          return this.isPlaying;
+        }
+
+        setVolume(v01) {
+          this.volume = clamp(v01, 0, 1);
+          if (this.musicGain && this.ctx) {
+            this.musicGain.gain.setTargetAtTime(this.volume, this.ctx.currentTime, 0.04);
+          }
+        }
+
+        toggleSfx() {
+          this.sfxEnabled = !this.sfxEnabled;
+          if (this.sfxGain && this.ctx) {
+            this.sfxGain.gain.setTargetAtTime(this.sfxEnabled ? 0.65 : 0.0001, this.ctx.currentTime, 0.04);
+          }
+          return this.sfxEnabled;
+        }
+
+        playCelestaLead(freq, durSec) {
+          if (!this.ctx || !this.musicGain) return;
+          const now = this.ctx.currentTime;
+          const o1 = this.ctx.createOscillator(), o2 = this.ctx.createOscillator();
+          const g1 = this.ctx.createGain(), g2 = this.ctx.createGain();
+          o1.type = 'sine'; o1.frequency.setValueAtTime(freq, now);
+          o2.type = 'triangle'; o2.frequency.setValueAtTime(freq * 2.0, now);
+          const decay = Math.min(2.2, Math.max(0.55, durSec * 1.45));
+          g1.gain.setValueAtTime(0.0001, now);
+          g1.gain.linearRampToValueAtTime(0.16, now + 0.012);
+          g1.gain.exponentialRampToValueAtTime(0.0005, now + decay);
+          g2.gain.setValueAtTime(0.0001, now);
+          g2.gain.linearRampToValueAtTime(0.045, now + 0.008);
+          g2.gain.exponentialRampToValueAtTime(0.0002, now + decay * 0.42);
+          o1.connect(g1); o2.connect(g2);
+          g1.connect(this.musicGain); g1.connect(this.delayBus); g2.connect(this.musicGain);
+          o1.start(now); o2.start(now);
+          o1.stop(now + decay + 0.05); o2.stop(now + decay * 0.48 + 0.04);
+        }
+
+        playRhodesChord(midiNotes, durSec) {
+          if (!this.ctx || !this.musicGain) return;
+          const now = this.ctx.currentTime;
+          const hold = Math.min(2.6, Math.max(0.75, durSec));
+          const filter = this.ctx.createBiquadFilter();
+          filter.type = 'lowpass'; filter.frequency.setValueAtTime(1450, now);
+          filter.connect(this.musicGain); filter.connect(this.delayBus);
+          midiNotes.forEach((m, idx) => {
+            const f = midiToHz(m);
+            const osc = this.ctx.createOscillator(), pad = this.ctx.createOscillator(), g = this.ctx.createGain();
+            osc.type = 'sine'; osc.frequency.setValueAtTime(f, now);
+            pad.type = 'triangle'; pad.frequency.setValueAtTime(f * (idx % 2 === 0 ? 1.003 : 0.997), now);
+            const peak = 0.046 / Math.sqrt(midiNotes.length / 3);
+            g.gain.setValueAtTime(0.0001, now + idx * 0.014);
+            g.gain.linearRampToValueAtTime(peak, now + idx * 0.014 + 0.045);
+            g.gain.exponentialRampToValueAtTime(0.0006, now + hold);
+            osc.connect(g); pad.connect(g); g.connect(filter);
+            osc.start(now + idx * 0.014); pad.start(now + idx * 0.014);
+            osc.stop(now + hold + 0.08); pad.stop(now + hold + 0.08);
+          });
+        }
+
+        playUprightBass(midiNote, durSec) {
+          if (!this.ctx || !this.musicGain) return;
+          const now = this.ctx.currentTime;
+          const osc = this.ctx.createOscillator(), filter = this.ctx.createBiquadFilter(), g = this.ctx.createGain();
+          osc.type = 'triangle'; osc.frequency.setValueAtTime(midiToHz(midiNote), now);
+          filter.type = 'lowpass'; filter.frequency.setValueAtTime(340, now);
+          const len = Math.min(1.5, Math.max(0.35, durSec));
+          g.gain.setValueAtTime(0.0001, now);
+          g.gain.linearRampToValueAtTime(0.18, now + 0.018);
+          g.gain.exponentialRampToValueAtTime(0.0008, now + len);
+          osc.connect(filter); filter.connect(g); g.connect(this.musicGain);
+          osc.start(now); osc.stop(now + len + 0.05);
+        }
+
+        playSleighBell(accent = 1.0) {
+          if (!this.ctx || !this.noiseBuf || !this.musicGain) return;
+          const now = this.ctx.currentTime;
+          const src = this.ctx.createBufferSource(); src.buffer = this.noiseBuf;
+          const bp = this.ctx.createBiquadFilter();
+          bp.type = 'bandpass'; bp.frequency.setValueAtTime(6400 + Math.random() * 1400, now); bp.Q.value = 5.5;
+          const g = this.ctx.createGain();
+          g.gain.setValueAtTime(0.0001, now);
+          g.gain.linearRampToValueAtTime(0.026 * accent, now + 0.006);
+          g.gain.exponentialRampToValueAtTime(0.0002, now + 0.11);
+          src.connect(bp); bp.connect(g); g.connect(this.musicGain);
+          src.start(now); src.stop(now + 0.13);
+        }
+
+        playFireworkLaunch() {
+          if (!this.sfxEnabled || !this.ctx || !this.noiseBuf || !this.sfxGain) return;
+          const now = this.ctx.currentTime;
+          const src = this.ctx.createBufferSource(); src.buffer = this.noiseBuf;
+          const bp = this.ctx.createBiquadFilter();
+          bp.type = 'bandpass'; bp.frequency.setValueAtTime(600, now); bp.frequency.exponentialRampToValueAtTime(2200, now + 0.35); bp.Q.value = 3.2;
+          const g = this.ctx.createGain();
+          g.gain.setValueAtTime(0.0001, now); g.gain.linearRampToValueAtTime(0.032, now + 0.08); g.gain.exponentialRampToValueAtTime(0.0003, now + 0.38);
+          src.connect(bp); bp.connect(g); g.connect(this.sfxGain);
+          src.start(now); src.stop(now + 0.42);
+        }
+
+        playFireworkBoom(intensity = 1.0, crackle = false) {
+          if (!this.sfxEnabled || !this.ctx || !this.noiseBuf || !this.sfxGain) return;
+          const now = this.ctx.currentTime;
+          const thump = this.ctx.createOscillator(), thumpG = this.ctx.createGain();
+          thump.type = 'sine'; thump.frequency.setValueAtTime(115 + Math.random() * 25, now); thump.frequency.exponentialRampToValueAtTime(34, now + 0.28);
+          thumpG.gain.setValueAtTime(0.001, now); thumpG.gain.linearRampToValueAtTime(0.18 * intensity, now + 0.012); thumpG.gain.exponentialRampToValueAtTime(0.0004, now + 0.36);
+          thump.connect(thumpG); thumpG.connect(this.sfxGain); thump.start(now); thump.stop(now + 0.40);
+
+          const src = this.ctx.createBufferSource(); src.buffer = this.noiseBuf;
+          const lp = this.ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.setValueAtTime(950 + Math.random() * 450, now); lp.frequency.exponentialRampToValueAtTime(180, now + 0.45);
+          const ng = this.ctx.createGain(); ng.gain.setValueAtTime(0.001, now); ng.gain.linearRampToValueAtTime(0.14 * intensity, now + 0.015); ng.gain.exponentialRampToValueAtTime(0.0004, now + 0.48);
+          src.connect(lp); lp.connect(ng); ng.connect(this.sfxGain); src.start(now); src.stop(now + 0.52);
+
+          if (crackle) {
+            const count = 4 + Math.floor(Math.random() * 4);
+            for (let i = 0; i < count; i++) {
+              const t0 = now + 0.12 + Math.random() * 0.42;
+              const cSrc = this.ctx.createBufferSource(); cSrc.buffer = this.noiseBuf;
+              const hp = this.ctx.createBiquadFilter(); hp.type = 'bandpass'; hp.frequency.setValueAtTime(3800 + Math.random() * 2800, t0); hp.Q.value = 3.0;
+              const cg = this.ctx.createGain(); cg.gain.setValueAtTime(0.0001, t0); cg.gain.linearRampToValueAtTime(0.045 * intensity, t0 + 0.005); cg.gain.exponentialRampToValueAtTime(0.0002, t0 + 0.055);
+              cSrc.connect(hp); hp.connect(cg); cg.connect(this.sfxGain); cSrc.start(t0); cSrc.stop(t0 + 0.065);
+            }
+          }
+        }
+
+        update(dt) {
+          if (this.isPlaying && this.mode === 'builtin' && this.ctx) {
+            const song = this.songs[this.songIdx];
+            const secPerBeat = 60 / song.bpm;
+            if (song.sleigh) {
+              this.beatAccum += dt;
+              if (this.beatAccum >= secPerBeat) {
+                this.beatAccum -= secPerBeat;
+                this.playSleighBell(0.75 + Math.random() * 0.4);
+              }
+            }
+            this.stepTimer -= dt;
+            if (this.stepTimer <= 0) {
+              const ev = song.events[this.stepIdx];
+              const durSec = ev.b * secPerBeat;
+              if (ev.m > 0) this.playCelestaLead(midiToHz(ev.m), durSec);
+              if (ev.ch) this.playRhodesChord(ev.ch, durSec * 2.1);
+              if (ev.bass) this.playUprightBass(ev.bass, durSec * 1.6);
+              this.stepTimer = durSec;
+              this.stepIdx++;
+              if (this.stepIdx >= song.events.length) {
+                this.stepIdx = 0;
+                this.songIdx = (this.songIdx + 1) % this.songs.length;
+                this.stepTimer += 0.65;
+                if (this.onTrackChange) this.onTrackChange(this.getCurrentTrackLabel(), false);
+              }
+            }
+          }
+
+          if (this.analyser && this.freqData && this.isPlaying) {
+            this.analyser.getByteFrequencyData(this.freqData);
+            let bassSum = 0; for (let i = 1; i <= 8; i++) bassSum += this.freqData[i];
+            let trebSum = 0; for (let i = 14; i <= 54; i++) trebSum += this.freqData[i];
+            this.bassEnergy = lerp(this.bassEnergy, clamp((bassSum / (8 * 255)) * 1.45, 0, 1), clamp(dt * 12, 0, 1));
+            this.trebleEnergy = lerp(this.trebleEnergy, clamp((trebSum / (41 * 255)) * 1.85, 0, 1), clamp(dt * 14, 0, 1));
+            this.vizLevels[0] = clamp(this.freqData[2] / 255, 0.12, 1);
+            this.vizLevels[1] = clamp(this.freqData[7] / 255, 0.12, 1);
+            this.vizLevels[2] = clamp(this.freqData[18] / 255, 0.12, 1);
+            this.vizLevels[3] = clamp(this.freqData[36] / 255, 0.12, 1);
+          } else {
+            this.bassEnergy = lerp(this.bassEnergy, 0, clamp(dt * 5, 0, 1));
+            this.trebleEnergy = lerp(this.trebleEnergy, 0, clamp(dt * 5, 0, 1));
+            for (let i = 0; i < 4; i++) this.vizLevels[i] = lerp(this.vizLevels[i], 0.16, clamp(dt * 6, 0, 1));
+          }
+        }
+      }
+
+      /* =======================================================================
+         3. ULTRA-HD SOFTWARE-RASTERIZED ASCII + BLOOM + AURORA + SPECULAR ENGINE
+         ======================================================================= */
+      const RAMP_CHARS = ' .,:;-~=+*#%@';
+      const SPECIAL_CHARS = ['^', '/', '\\', '|', 'o', 'O', '✦', '·', 'x', 'X'];
+      const ALL_GLYPHS = RAMP_CHARS.split('').concat(SPECIAL_CHARS);
+      const RAMP_LEN = RAMP_CHARS.length;
+      const GLYPH_IDX = {};
+      ALL_GLYPHS.forEach((ch, idx) => { GLYPH_IDX[ch] = idx; });
+
+      const FIREWORK_PALETTES = [
+        { c0: [1.00, 0.96, 0.72], c1: [1.00, 0.74, 0.18], c2: [1.00, 0.28, 0.12], glow: [1.00, 0.62, 0.14] },
+        { c0: [0.96, 1.00, 1.00], c1: [0.24, 0.90, 1.00], c2: [0.22, 0.42, 1.00], glow: [0.20, 0.72, 1.00] },
+        { c0: [1.00, 0.92, 0.96], c1: [1.00, 0.32, 0.68], c2: [0.68, 0.22, 1.00], glow: [1.00, 0.30, 0.64] },
+        { c0: [0.96, 1.00, 0.86], c1: [0.28, 0.98, 0.56], c2: [0.12, 0.72, 0.88], glow: [0.22, 0.88, 0.52] },
+        { c0: [1.00, 0.88, 0.84], c1: [1.00, 0.22, 0.26], c2: [1.00, 0.68, 0.22], glow: [1.00, 0.24, 0.24] },
+        { c0: [1.00, 1.00, 1.00], c1: [0.78, 0.88, 1.00], c2: [0.44, 0.64, 1.00], glow: [0.66, 0.82, 1.00] }
+      ];
+
+      const BG_U32 = (255 << 24) | (8 << 16) | (3 << 8) | 2;
+
+      class WinterMagicUltraEngine {
+        constructor(canvas, audioEngine, onStageUpdate) {
+          this.canvas = canvas;
+          this.ctx = canvas.getContext('2d', { alpha: false });
+          this.audio = audioEngine;
+          this.onStageUpdate = onStageUpdate;
+
+          this.resMode = 'ultrahd';
+          this.snowLevel = 1;
+          this.auroraEnabled = true;
+
+          this.vw = 1280; this.vh = 720;
+          this.cols = 230; this.rows = 115;
+          this.pxW = 7; this.pxH = 10;
+          this.bufW = 1610; this.bufH = 1150;
+          this.aspect = 1.77;
+
+          this.asciiBufferCanvas = document.createElement('canvas');
+          this.asciiBufferCtx = this.asciiBufferCanvas.getContext('2d', { alpha: false });
+          this.bloomSrcCanvas = document.createElement('canvas');
+          this.bloomSrcCtx = this.bloomSrcCanvas.getContext('2d', { alpha: false });
+          this.bloomHalfCanvas = document.createElement('canvas');
+          this.bloomHalfCtx = this.bloomHalfCanvas.getContext('2d', { alpha: false });
+          this.bloomQuarterCanvas = document.createElement('canvas');
+          this.bloomQuarterCtx = this.bloomQuarterCanvas.getContext('2d', { alpha: false });
+
+          this.glyphAtlas = [];
+          this.rgb = new Float32Array(0);
+          this.glyphOverride = new Uint8Array(0);
+
+          this.stars = [];
+          this.gifts = [];
+          this.giftsByDepth = [];
+          this.garlands = [];
+          this.ornaments = [];
+          this.fairyLights = [];
+          this.snowflakes = [];
+          this.fireworks = [];
+          this.cursorSparks = [];
+
+          this.phase = 'idle';
+          this.ambientTime = 0;
+          this.showTime = 0;
+          this.nextAutoFirework = 11.4;
+          this.lastReportedStage = -1;
+
+          this.treeMetrics = { cx: 0.50, topY: 0.145, botY: 0.835, halfW: 0.175 };
+
+          this.resize();
+          this.initSnowflakes();
+        }
+
+        buildGlyphAtlas() {
+          const w = this.pxW, h = this.pxH;
+          const c = document.createElement('canvas'); c.width = w; c.height = h;
+          const gctx = c.getContext('2d', { willReadFrequently: true });
+          const fontSize = Math.max(6, Math.min(h * 1.04, w * 1.66));
+          const fontSpec = `700 ${fontSize.toFixed(2)}px 'Consolas', 'Cascadia Code', 'Courier New', monospace`;
+
+          this.glyphAtlas = ALL_GLYPHS.map((ch) => {
+            if (ch === ' ') return { len: 0, dx: new Uint8Array(0), dy: new Uint8Array(0), alpha: new Float32Array(0) };
+            gctx.fillStyle = '#000000'; gctx.fillRect(0, 0, w, h);
+            gctx.fillStyle = '#ffffff'; gctx.font = fontSpec;
+            gctx.textAlign = 'center'; gctx.textBaseline = 'middle';
+            const yOff = (ch === '·' || ch === '.') ? h * 0.54 : h * 0.52;
+            gctx.fillText(ch, w * 0.5, yOff);
+            const data = gctx.getImageData(0, 0, w, h).data;
+            const dxList = [], dyList = [], aList = [];
+            for (let py = 0; py < h; py++) {
+              for (let px = 0; px < w; px++) {
+                const v = data[(py * w + px) * 4];
+                if (v > 22) {
+                  dxList.push(px); dyList.push(py);
+                  aList.push(Math.min(1, Math.pow(v / 255, 0.78) * 1.15));
+                }
+              }
+            }
+            return { len: dxList.length, dx: new Uint8Array(dxList), dy: new Uint8Array(dyList), alpha: new Float32Array(aList) };
+          });
+        }
+
+        setResolutionMode(mode) {
+          if (this.resMode === mode) return;
+          this.resMode = mode;
+          this.resize();
+        }
+
+        resize() {
+          this.vw = Math.max(320, window.innerWidth);
+          this.vh = Math.max(240, window.innerHeight);
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          this.aspect = this.vw / this.vh;
+
+          let targetCols;
+          if (this.resMode === '4k') targetCols = this.vw >= 1200 ? 280 : (this.vw >= 800 ? 226 : 158);
+          else if (this.resMode === 'classic') targetCols = this.vw >= 1100 ? 140 : (this.vw >= 700 ? 116 : 86);
+          else targetCols = this.vw >= 1200 ? 226 : (this.vw >= 800 ? 186 : 130);
+
+          const physW = Math.min(2048, Math.round(this.vw * dpr));
+          const physH = Math.min(1280, Math.round(this.vh * dpr));
+
+          this.cols = targetCols;
+          this.pxW = Math.max(4, Math.round(physW / this.cols));
+          this.rows = clamp(Math.round(physH / (this.pxW * 1.52)), 56, 150);
+          this.pxH = Math.max(6, Math.round(physH / this.rows));
+          this.bufW = this.cols * this.pxW;
+          this.bufH = this.rows * this.pxH;
+
+          this.canvas.width = this.bufW;
+          this.canvas.height = this.bufH;
+          this.asciiBufferCanvas.width = this.bufW;
+          this.asciiBufferCanvas.height = this.bufH;
+          this.asciiImgData = this.asciiBufferCtx.createImageData(this.bufW, this.bufH);
+          this.asciiPixels32 = new Uint32Array(this.asciiImgData.data.buffer);
+
+          this.bloomSrcCanvas.width = this.cols;
+          this.bloomSrcCanvas.height = this.rows;
+          this.bloomImgData = this.bloomSrcCtx.createImageData(this.cols, this.rows);
+          this.bloomPixels32 = new Uint32Array(this.bloomImgData.data.buffer);
+
+          this.bloomHalfCanvas.width = Math.max(32, Math.floor(this.cols * 0.45));
+          this.bloomHalfCanvas.height = Math.max(20, Math.floor(this.rows * 0.45));
+          this.bloomQuarterCanvas.width = Math.max(18, Math.floor(this.cols * 0.20));
+          this.bloomQuarterCanvas.height = Math.max(12, Math.floor(this.rows * 0.20));
+
+          this.buildGlyphAtlas();
+
+          const totalCells = this.cols * this.rows;
+          this.rgb = new Float32Array(totalCells * 3);
+          this.glyphOverride = new Uint8Array(totalCells);
+
+          const treeHalfW = Math.min(0.305 / this.aspect, 0.315);
+          this.treeMetrics = { cx: 0.50, topY: 0.145, botY: 0.835, halfW: treeHalfW };
+
+          this.buildStaticLayers();
+          this.buildStars();
+          this.buildTreeDecorations();
+        }
+
+        buildStaticLayers() {
+          const cols = this.cols, rows = this.rows, N = cols * rows;
+          this.skyRgb = new Float32Array(N * 3);
+          this.forestRgb = new Float32Array(N * 3);
+          this.forestMask = new Float32Array(N);
+          this.groundRgb = new Float32Array(N * 3);
+          this.groundMask = new Float32Array(N);
+          this.groundGlyph = new Uint8Array(N);
+
+          this.treeRgb = new Float32Array(N * 3);
+          this.treeMask = new Float32Array(N);
+          this.treeHeightNorm = new Float32Array(N);
+          this.treeGlyph = new Uint8Array(N);
+
+          // 1. Midnight Sky Gradient
+          for (let y = 0; y < rows; y++) {
+            const ny = y / (rows - 1);
+            const hFactor = Math.pow(clamp(ny / 0.80, 0, 1), 1.75);
+            const r = lerp(0.008, 0.032, hFactor);
+            const g = lerp(0.014, 0.098, hFactor);
+            const b = lerp(0.034, 0.225, hFactor);
+            for (let x = 0; x < cols; x++) {
+              const i3 = (y * cols + x) * 3;
+              this.skyRgb[i3] = r; this.skyRgb[i3 + 1] = g; this.skyRgb[i3 + 2] = b;
+            }
+          }
+
+          // 2. Three Pine Forest Ridges
+          const buildForestLayer = (seed, count, baseY, minH, maxH, baseW, cDark, cMid, cFrost) => {
+            const rng = createRng(seed);
+            const trees = [];
+            for (let i = 0; i < count; i++) {
+              const tx = (i + 0.1 + rng() * 0.8) / count;
+              const centerDip = Math.exp(-Math.pow((tx - 0.5) / 0.20, 2)) * 0.042;
+              const h = lerp(minH, maxH, rng()) - centerDip;
+              const w = baseW * lerp(0.75, 1.38, rng()) / Math.max(0.78, this.aspect * 0.62);
+              trees.push({ tx, topY: baseY - h, baseY: baseY + 0.07, h, w, tiers: 5 + Math.floor(rng() * 4) });
+            }
+            for (let y = 0; y < rows; y++) {
+              const ny = y / (rows - 1);
+              if (ny < 0.36 || ny > 0.85) continue;
+              for (let x = 0; x < cols; x++) {
+                const nx = x / (cols - 1);
+                let bestA = 0, bestShade = 0, bestFrost = 0;
+                for (let k = 0; k < trees.length; k++) {
+                  const tr = trees[k];
+                  const dx = Math.abs(nx - tr.tx);
+                  if (dx > tr.w * 1.15 || ny < tr.topY || ny > tr.baseY) continue;
+                  const t = clamp((ny - tr.topY) / tr.h, 0, 1);
+                  const tierWave = (t * tr.tiers) % 1;
+                  const halfW = tr.w * (0.05 + 0.95 * Math.pow(t, 0.92)) * (0.54 + 0.46 * Math.pow(tierWave, 0.70));
+                  if (dx <= halfW) {
+                    const edge = 1 - dx / Math.max(0.0001, halfW);
+                    const alpha = smoothstep(0, 0.22, edge);
+                    if (alpha > bestA) {
+                      bestA = alpha;
+                      const ridge = 1 - tierWave;
+                      bestShade = clamp(0.24 + 0.56 * edge + 0.25 * (1 - t), 0, 1);
+                      bestFrost = clamp((ridge > 0.64 ? (ridge - 0.64) * 2.4 : 0) * (1 - t * 0.42) * (0.35 + 0.65 * edge), 0, 1);
+                    }
+                  }
+                }
+                if (bestA > 0.05) {
+                  const idx = y * cols + x, i3 = idx * 3;
+                  let r = lerp(cDark[0], cMid[0], bestShade), g = lerp(cDark[1], cMid[1], bestShade), b = lerp(cDark[2], cMid[2], bestShade);
+                  if (bestFrost > 0.01) {
+                    r = lerp(r, cFrost[0], bestFrost * 0.72); g = lerp(g, cFrost[1], bestFrost * 0.72); b = lerp(b, cFrost[2], bestFrost * 0.72);
+                  }
+                  const prev = this.forestMask[idx];
+                  this.forestRgb[i3] = lerp(this.forestRgb[i3], r, bestA);
+                  this.forestRgb[i3 + 1] = lerp(this.forestRgb[i3 + 1], g, bestA);
+                  this.forestRgb[i3 + 2] = lerp(this.forestRgb[i3 + 2], b, bestA);
+                  this.forestMask[idx] = clamp(prev + bestA * (1 - prev), 0, 1);
+                }
+              }
+            }
+          };
+
+          buildForestLayer(101, 44, 0.745, 0.16, 0.28, 0.044, [0.032, 0.075, 0.175], [0.082, 0.185, 0.365], [0.28, 0.48, 0.74]);
+          buildForestLayer(202, 34, 0.775, 0.13, 0.23, 0.048, [0.048, 0.135, 0.285], [0.135, 0.325, 0.565], [0.44, 0.70, 0.90]);
+          buildForestLayer(303, 24, 0.800, 0.09, 0.18, 0.052, [0.062, 0.185, 0.365], [0.185, 0.435, 0.695], [0.58, 0.84, 0.99]);
+
+          // 3. Undulating Moonlit Snowbank
+          const tildeGlyph = GLYPH_IDX['~'] + 1, dashGlyph = GLYPH_IDX['-'] + 1;
+          for (let x = 0; x < cols; x++) {
+            const nx = x / (cols - 1);
+            const hillY = 0.772 + 0.017 * Math.sin(nx * 5.6 + 0.65) + 0.009 * Math.sin(nx * 14.2 - 1.0) + 0.004 * Math.cos(nx * 26.0 + 0.3);
+            for (let y = 0; y < rows; y++) {
+              const ny = y / (rows - 1);
+              if (ny < hillY - 0.01) continue;
+              const depth = clamp((ny - hillY) / (1 - hillY), 0, 1);
+              const edgeFade = smoothstep(hillY - 0.006, hillY + 0.012, ny);
+              const idx = y * cols + x, i3 = idx * 3;
+              const drift1 = Math.sin(nx * 12.0 + depth * 10.5 + 0.5) * 0.5 + 0.5;
+              const drift2 = Math.sin(nx * 27.0 - depth * 16.0 + 2.1) * 0.5 + 0.5;
+              const moonLit = Math.exp(-Math.pow((nx - 0.18) / 0.40, 2)) * 0.22;
+              const crestHighlight = Math.exp(-depth * 8.0) * 0.38;
+              const lum = clamp(0.26 + 0.33 * drift1 + 0.14 * drift2 + moonLit + crestHighlight - depth * 0.11, 0.16, 0.98);
+              this.groundRgb[i3] = lerp(0.14, 0.86, Math.pow(lum, 1.32));
+              this.groundRgb[i3 + 1] = lerp(0.32, 0.94, Math.pow(lum, 1.10));
+              this.groundRgb[i3 + 2] = lerp(0.60, 1.00, Math.pow(lum, 0.88));
+              this.groundMask[idx] = edgeFade;
+              if (crestHighlight > 0.16 && drift2 > 0.74) this.groundGlyph[idx] = tildeGlyph;
+              else if (drift1 > 0.84 && ((x + y) % 3 === 0)) this.groundGlyph[idx] = dashGlyph;
+            }
+          }
+
+          // 4. 10-Tier Sculpted Christmas Tree
+          const { cx, topY, botY, halfW } = this.treeMetrics;
+          const treeH = botY - topY;
+          const trunkTopY = botY - 0.020, trunkBotY = botY + 0.044, trunkHalfW = halfW * 0.145;
+          const gCaret = GLYPH_IDX['^'] + 1, gSlash = GLYPH_IDX['/'] + 1, gBack = GLYPH_IDX['\\'] + 1, gPipe = GLYPH_IDX['|'] + 1;
+
+          for (let y = 0; y < rows; y++) {
+            const ny = y / (rows - 1);
+            if (ny < topY - 0.01 || ny > trunkBotY + 0.01) continue;
+            for (let x = 0; x < cols; x++) {
+              const nx = x / (cols - 1);
+              const idx = y * cols + x, i3 = idx * 3;
+              const dx = nx - cx, adx = Math.abs(dx);
+
+              if (ny >= trunkTopY && ny <= trunkBotY && adx <= trunkHalfW) {
+                const u = dx / trunkHalfW;
+                const cyl = (0.50 + 0.50 * Math.sqrt(Math.max(0, 1 - u * u))) * (0.86 + 0.14 * Math.sin(u * 18.0 + ny * 45.0));
+                this.treeRgb[i3] = 0.42 * cyl; this.treeRgb[i3 + 1] = 0.23 * cyl; this.treeRgb[i3 + 2] = 0.11 * cyl;
+                this.treeMask[idx] = 1.0; this.treeHeightNorm[idx] = 0.0;
+                this.treeGlyph[idx] = Math.abs(u) < 0.7 ? gPipe : 0;
+              }
+              if (ny < topY || ny > botY) continue;
+
+              const t = clamp((ny - topY) / treeH, 0, 1);
+              const tierPos = t * 10.0, tierIdx = Math.floor(tierPos), tierFrac = tierPos - tierIdx;
+              const scallopFlare = 0.56 + 0.46 * Math.pow(tierFrac, 0.68);
+              const needleSerration = 0.052 * Math.sin(t * 78.0 + dx * 64.0) + 0.032 * Math.cos(tierPos * 11.5 - dx * 42.0);
+              const contourW = halfW * (0.032 + 0.968 * Math.pow(t, 0.91)) * scallopFlare * (1 + needleSerration);
+              const uEst = clamp(adx / Math.max(0.0005, contourW), 0, 1);
+              const droopY = botY - 0.022 * Math.pow(uEst, 1.55) + 0.008 * Math.sin(uEst * Math.PI * 3.0);
+
+              if (adx <= contourW && ny <= droopY) {
+                const u = dx / Math.max(0.0001, contourW), radial = Math.abs(u);
+                const edgeSoft = smoothstep(1.0, 0.85, radial);
+                const cylinder = Math.sqrt(Math.max(0, 1 - radial * radial * 0.84));
+                const moonDir = clamp(0.72 - 0.24 * u, 0.36, 0.98);
+                const creviceShadow = smoothstep(0.0, 0.36, tierFrac);
+                const boughRidge = smoothstep(0.50, 0.98, tierFrac);
+                const frondA = 0.5 + 0.5 * Math.sin(u * 19.0 + tierIdx * 2.4 + t * 34.0);
+                const frond = frondA * 0.62 + (0.5 + 0.5 * Math.cos(u * 31.0 - tierFrac * 9.0)) * 0.38;
+                const innerWarmth = Math.pow(Math.max(0, 1 - radial * 1.1), 2.2) * 0.22;
+                const lum = clamp(0.14 + 0.44 * cylinder * moonDir + 0.25 * creviceShadow + 0.17 * frond, 0.09, 1.0);
+
+                let r = lerp(0.018, 0.235, Math.pow(lum, 1.85)) + innerWarmth * 0.22;
+                let g = lerp(0.145, 0.960, Math.pow(lum, 0.90)) + innerWarmth * 0.30;
+                let b = lerp(0.078, 0.365, Math.pow(lum, 1.30)) + innerWarmth * 0.08;
+
+                const frost = clamp(
+                  clamp((radial > 0.68 ? (radial - 0.68) / 0.32 : 0) * boughRidge, 0, 1) * 0.85 +
+                  clamp((radial > 0.82 ? (radial - 0.82) / 0.18 : 0) * (0.4 + 0.6 * frondA), 0, 1) * 0.65,
+                  0, 1
+                );
+                if (frost > 0.04) {
+                  r = lerp(r, 0.78, frost * 0.66); g = lerp(g, 0.99, frost * 0.66); b = lerp(b, 0.95, frost * 0.66);
+                }
+
+                this.treeRgb[i3] = r; this.treeRgb[i3 + 1] = g; this.treeRgb[i3 + 2] = b;
+                this.treeMask[idx] = edgeSoft;
+                this.treeHeightNorm[idx] = 1 - t;
+                if (radial > 0.78 && tierFrac > 0.30) this.treeGlyph[idx] = u < 0 ? gSlash : gBack;
+                else if ((t < 0.08 && radial < 0.45) || (frond > 0.86 && radial > 0.45)) this.treeGlyph[idx] = gCaret;
+                else this.treeGlyph[idx] = 0;
+              }
+            }
+          }
+
+          this.buildGifts();
+        }
+
+        buildGifts() {
+          const cols = this.cols, rows = this.rows;
+          const { cx, botY, halfW } = this.treeMetrics;
+          const gPlus = GLYPH_IDX['+'] + 1, gStar = GLYPH_IDX['*'] + 1, gLoop = GLYPH_IDX['o'] + 1;
+
+          const giftSpecs = [
+            { ox: -1.16, oy: 0.032, w: 0.30, h: 0.072, z: 1, paper: [0.58, 0.16, 0.82], ribbon: [1.00, 0.84, 0.24] },
+            { ox: -0.90, oy: 0.015, w: 0.34, h: 0.112, z: 0, paper: [0.94, 0.14, 0.18], ribbon: [1.00, 0.90, 0.38] },
+            { ox: -0.58, oy: 0.048, w: 0.38, h: 0.088, z: 2, paper: [0.98, 0.22, 0.14], ribbon: [1.00, 0.92, 0.56] },
+            { ox: -0.24, oy: 0.060, w: 0.27, h: 0.066, z: 3, paper: [0.96, 0.58, 0.12], ribbon: [0.95, 0.98, 1.00] },
+            { ox:  0.38, oy: 0.052, w: 0.38, h: 0.086, z: 2, paper: [0.16, 0.44, 0.96], ribbon: [0.94, 0.98, 1.00] },
+            { ox:  0.76, oy: 0.020, w: 0.35, h: 0.106, z: 0, paper: [0.12, 0.72, 0.36], ribbon: [1.00, 0.22, 0.24] },
+            { ox:  1.08, oy: 0.038, w: 0.32, h: 0.076, z: 1, paper: [0.94, 0.18, 0.38], ribbon: [1.00, 0.86, 0.26] }
+          ];
+
+          this.gifts = giftSpecs.map((spec, orderIdx) => {
+            const centerX = cx + spec.ox * halfW, boxHalfW = spec.w * halfW * 0.52;
+            const bottomY = botY + spec.oy, topY = bottomY - spec.h;
+            const x0 = Math.max(0, Math.floor((centerX - boxHalfW - 0.015) * cols));
+            const x1 = Math.min(cols - 1, Math.ceil((centerX + boxHalfW + 0.015) * cols));
+            const y0 = Math.max(0, Math.floor((topY - 0.036) * rows));
+            const y1 = Math.min(rows - 1, Math.ceil((bottomY + 0.006) * rows));
+            const pixels = [];
+            for (let y = y0; y <= y1; y++) {
+              const ny = y / (rows - 1);
+              for (let x = x0; x <= x1; x++) {
+                const nx = x / (cols - 1);
+                const ux = (nx - centerX) / Math.max(0.0001, boxHalfW);
+                const uy = (ny - topY) / Math.max(0.0001, spec.h);
+                if (Math.abs(ux) <= 1.0 && uy >= 0.0 && uy <= 1.0) {
+                  const isVertRib = Math.abs(ux) < 0.16, isHorizRib = Math.abs(uy - 0.45) < 0.11, isLid = uy < 0.18;
+                  let shade = 0.74 + 0.26 * (1 - Math.abs(ux + 0.20) * 0.72);
+                  if (ux > 0.58) shade *= 0.64;
+                  if (isLid) shade *= 1.20;
+                  if (Math.abs(uy - 0.18) < 0.045) shade *= 0.72;
+                  if (isVertRib || isHorizRib) {
+                    const rs = clamp(shade * 1.16, 0.58, 1.28);
+                    pixels.push({ x, y, r: spec.ribbon[0] * rs, g: spec.ribbon[1] * rs, b: spec.ribbon[2] * rs, gOv: (isVertRib && isHorizRib) ? gPlus : 0 });
+                  } else {
+                    pixels.push({ x, y, r: spec.paper[0] * shade, g: spec.paper[1] * shade, b: spec.paper[2] * shade, gOv: 0 });
+                  }
+                } else if (uy < 0.0 && uy > -0.35 && Math.abs(ux) < 0.58) {
+                  const bowY = (uy + 0.16) / 0.16;
+                  const leftLoop = Math.hypot((ux + 0.25) / 0.26, bowY / 0.90);
+                  const rightLoop = Math.hypot((ux - 0.25) / 0.26, bowY / 0.90);
+                  const knot = Math.hypot(ux / 0.13, (uy + 0.08) / 0.12);
+                  if (knot < 1.0 || (leftLoop < 1.0 && leftLoop > 0.30) || (rightLoop < 1.0 && rightLoop > 0.30)) {
+                    const br = knot < 1.0 ? 1.24 : 1.05;
+                    pixels.push({ x, y, r: spec.ribbon[0] * br, g: spec.ribbon[1] * br, b: spec.ribbon[2] * br, gOv: knot < 1.0 ? gStar : gLoop });
+                  }
+                }
+              }
+            }
+            return { orderIdx, z: spec.z, pixels };
+          });
+          this.giftsByDepth = [...this.gifts].sort((a, b) => a.z - b.z);
+        }
+
+        buildStars() {
+          const rng = createRng(909);
+          this.stars = [];
+          for (let i = 0; i < 215; i++) {
+            const tint = rng();
+            this.stars.push({
+              nx: rng(),
+              ny: 0.012 + Math.pow(rng(), 1.15) * 0.64,
+              r: lerp(0.70, 1.00, tint), g: lerp(0.86, 0.98, tint), b: 1.00,
+              bright: 0.38 + rng() * 0.62, speed: 1.1 + rng() * 3.4, phase: rng() * Math.PI * 2,
+              tier: rng() > 0.87 ? 2 : (rng() > 0.55 ? 1 : 0)
+            });
+          }
+        }
+
+        buildTreeDecorations() {
+          const rng = createRng(20261225);
+          const { cx, topY, botY, halfW } = this.treeMetrics;
+          const treeH = botY - topY;
+          const getTreeHalfW = (t) => {
+            const tierPos = t * 10.0, tierFrac = tierPos - Math.floor(tierPos);
+            return halfW * (0.032 + 0.968 * Math.pow(t, 0.91)) * (0.56 + 0.46 * Math.pow(tierFrac, 0.68));
+          };
+
+          this.garlands = [];
+          for (let s = 0; s < 7; s++) {
+            const tStart = 0.11 + s * 0.118, tEnd = Math.min(0.955, tStart + 0.105);
+            const steps = 40 + s * 10;
+            for (let j = 0; j <= steps; j++) {
+              const p = j / steps;
+              const t = lerp(tStart, tEnd, p) + Math.sin(p * Math.PI) * 0.024;
+              if (t > 0.96) continue;
+              const hw = getTreeHalfW(t) * 0.89;
+              const angle = (p - 0.5) * Math.PI;
+              this.garlands.push({ nx: cx + Math.sin(angle) * hw, ny: topY + t * treeH, hNorm: 1 - t, phase: p * 10.0 + s * 1.3, depthShade: 0.68 + 0.32 * Math.cos(angle) });
+            }
+          }
+
+          const baubleColors = [
+            [1.00, 0.15, 0.22], [1.00, 0.84, 0.16], [0.16, 0.68, 1.00], [1.00, 0.28, 0.72], [0.42, 0.96, 1.00]
+          ];
+          this.ornaments = [];
+          for (let i = 0; i < 44; i++) {
+            const t = 0.11 + Math.pow((i + 0.5) / 44, 0.72) * 0.84;
+            const hw = getTreeHalfW(t) * 0.82;
+            const u = (rng() * 2 - 1);
+            this.ornaments.push({
+              nx: cx + u * hw, ny: topY + t * treeH,
+              hNorm: 1 - t, color: baubleColors[i % baubleColors.length], phase: rng() * Math.PI * 2
+            });
+          }
+
+          const lightColors = [
+            [1.00, 0.90, 0.42], [0.42, 0.92, 1.00], [1.00, 0.40, 0.56], [0.46, 1.00, 0.66], [1.00, 0.72, 0.28]
+          ];
+          this.fairyLights = [];
+          for (let i = 0; i < 96; i++) {
+            const t = 0.06 + Math.pow(rng(), 0.78) * 0.90;
+            const hw = getTreeHalfW(t) * 0.92;
+            this.fairyLights.push({
+              nx: cx + (rng() * 2 - 1) * hw, ny: topY + t * treeH,
+              hNorm: 1 - t, color: lightColors[i % lightColors.length],
+              speed: 1.8 + rng() * 3.8, phase: rng() * Math.PI * 2
+            });
+          }
+        }
+
+        initSnowflakes() {
+          this.snowflakes = [];
+          for (let i = 0; i < 240; i++) {
+            this.snowflakes.push({
+              nx: Math.random(), ny: Math.random(),
+              vy: 0.035 + Math.random() * 0.075,
+              vx: (Math.random() - 0.5) * 0.015,
+              swayAmp: 0.008 + Math.random() * 0.018,
+              swayFreq: 0.8 + Math.random() * 1.8,
+              phase: Math.random() * Math.PI * 2,
+              bright: 0.55 + Math.random() * 0.45,
+              big: Math.random() > 0.82
+            });
+          }
+        }
+
+        startShow() {
+          this.phase = 'running';
+          this.showTime = 0;
+          this.nextAutoFirework = 11.4;
+          this.lastReportedStage = -1;
+          this.fireworks = [];
+        }
+
+        launchFirework(targetNx, targetNy, forcedStyle = -1) {
+          const palette = FIREWORK_PALETTES[Math.floor(Math.random() * FIREWORK_PALETTES.length)];
+          const style = forcedStyle >= 0 ? forcedStyle : Math.floor(Math.random() * 5); // 0: Chrysanthemum, 1: Willow, 2: Ring, 3: Double, 4: Crackle
+          const startNx = clamp(targetNx + (Math.random() - 0.5) * 0.08, 0.08, 0.92);
+          this.fireworks.push({
+            state: 'rocket',
+            nx: startNx, ny: 0.82,
+            tx: clamp(targetNx, 0.08, 0.92), ty: clamp(targetNy, 0.10, 0.56),
+            vx: (targetNx - startNx) * 1.45, vy: -0.95 - Math.random() * 0.25,
+            palette, style, age: 0, particles: [], flash: 0
+          });
+          this.audio.playFireworkLaunch();
+        }
+
+        launchGrandSalvo() {
+          const targets = [
+            [0.18, 0.24, 0], [0.82, 0.24, 1], [0.30, 0.17, 2], [0.70, 0.17, 3], [0.50, 0.12, 4]
+          ];
+          targets.forEach((t, i) => {
+            setTimeout(() => this.launchFirework(t[0], t[1], t[2]), i * 180);
+          });
+        }
+
+        addCursorSpark(nx, ny) {
+          if (this.cursorSparks.length > 60) return;
+          this.cursorSparks.push({
+            nx, ny,
+            vx: (Math.random() - 0.5) * 0.04,
+            vy: -0.02 - Math.random() * 0.03,
+            life: 0.45 + Math.random() * 0.35,
+            maxLife: 0.8,
+            hue: Math.random() > 0.5 ? '#67e8f9' : '#fde68a'
+          });
+        }
+
+        addCellLight(x, y, r, g, b, gOv = 0) {
+          if (x < 0 || x >= this.cols || y < 0 || y >= this.rows) return;
+          const idx = y * this.cols + x, i3 = idx * 3;
+          this.rgb[i3] += r; this.rgb[i3 + 1] += g; this.rgb[i3 + 2] += b;
+          if (gOv > 0) this.glyphOverride[idx] = gOv;
+        }
+
+        update(dt) {
+          this.ambientTime += dt;
+          if (this.phase === 'running') {
+            this.showTime += dt;
+
+            // Choreography stage reporting (0..4)
+            let stageIdx = 0, prog = 0;
+            if (this.showTime < 1.8) { stageIdx = 0; prog = this.showTime / 1.8; }
+            else if (this.showTime < 5.2) { stageIdx = 1; prog = (this.showTime - 1.8) / 3.4; }
+            else if (this.showTime < 7.8) { stageIdx = 2; prog = (this.showTime - 5.2) / 2.6; }
+            else if (this.showTime < 10.2) { stageIdx = 3; prog = (this.showTime - 7.8) / 2.4; }
+            else if (this.showTime < 13.5) { stageIdx = 4; prog = (this.showTime - 10.2) / 3.3; }
+            else { stageIdx = 5; prog = 1; }
+
+            if (this.onStageUpdate) this.onStageUpdate(stageIdx, clamp(prog, 0, 1));
+
+            // Grand intro salvo at 10.6s
+            if (stageIdx === 4 && this.lastReportedStage < 4) {
+              this.launchGrandSalvo();
+            }
+            this.lastReportedStage = stageIdx;
+
+            // Periodic ambient fireworks
+            if (this.showTime > this.nextAutoFirework) {
+              const side = Math.random() > 0.5 ? 1 : -1;
+              const fx = side > 0 ? lerp(0.68, 0.90, Math.random()) : lerp(0.10, 0.32, Math.random());
+              const fy = lerp(0.12, 0.38, Math.random());
+              this.launchFirework(fx, fy);
+              this.nextAutoFirework = this.showTime + 2.4 + Math.random() * 2.8;
+            }
+          }
+
+          // Update Snowflakes
+          const activeSnow = this.snowLevel === 0 ? 85 : (this.snowLevel === 1 ? 165 : 240);
+          const wind = Math.sin(this.ambientTime * 0.4) * 0.012;
+          for (let i = 0; i < activeSnow; i++) {
+            const s = this.snowflakes[i];
+            s.ny += s.vy * dt;
+            s.nx += (s.vx + wind + Math.sin(this.ambientTime * s.swayFreq + s.phase) * s.swayAmp) * dt;
+            if (s.ny > 1.02) { s.ny = -0.02; s.nx = Math.random(); }
+            if (s.nx < -0.02) s.nx = 1.02;
+            if (s.nx > 1.02) s.nx = -0.02;
+          }
+
+          // Update Fireworks
+          for (let i = this.fireworks.length - 1; i >= 0; i--) {
+            const fw = this.fireworks[i];
+            fw.age += dt;
+            if (fw.state === 'rocket') {
+              fw.nx += fw.vx * dt;
+              fw.ny += fw.vy * dt;
+              fw.vy += 0.45 * dt;
+              if (fw.ny <= fw.ty || fw.vy >= -0.05) {
+                fw.state = 'burst';
+                fw.flash = 1.0;
+                this.audio.playFireworkBoom(0.95, fw.style === 4);
+                const count = fw.style === 2 ? 48 : (fw.style === 1 ? 64 : 74);
+                for (let p = 0; p < count; p++) {
+                  const ang = (p / count) * Math.PI * 2 + (Math.random() - 0.5) * 0.08;
+                  let spd = fw.style === 2 ? 0.24 : (0.08 + Math.random() * 0.24);
+                  if (fw.style === 3 && p % 2 === 0) spd *= 0.55;
+                  fw.particles.push({
+                    nx: fw.nx, ny: fw.ny,
+                    vx: Math.cos(ang) * spd / this.aspect,
+                    vy: Math.sin(ang) * spd,
+                    life: 1.05 + Math.random() * 0.75,
+                    maxLife: 1.8,
+                    drag: fw.style === 1 ? 0.965 : 0.945
+                  });
+                }
+              }
+            } else {
+              fw.flash = Math.max(0, fw.flash - dt * 3.8);
+              let alive = 0;
+              for (let p = 0; p < fw.particles.length; p++) {
+                const pt = fw.particles[p];
+                pt.life -= dt;
+                if (pt.life <= 0) continue;
+                alive++;
+                pt.vx *= Math.pow(pt.drag, dt * 60);
+                pt.vy = pt.vy * Math.pow(pt.drag, dt * 60) + (fw.style === 1 ? 0.19 : 0.13) * dt;
+                pt.nx += pt.vx * dt;
+                pt.ny += pt.vy * dt;
+              }
+              if (alive === 0 && fw.flash <= 0) this.fireworks.splice(i, 1);
+            }
+          }
+
+          // Update Cursor Sparks
+          for (let i = this.cursorSparks.length - 1; i >= 0; i--) {
+            const sp = this.cursorSparks[i];
+            sp.life -= dt;
+            sp.nx += sp.vx * dt;
+            sp.ny += sp.vy * dt;
+            if (sp.life <= 0) this.cursorSparks.splice(i, 1);
+          }
+        }
+
+        render() {
+          const cols = this.cols, rows = this.rows, N = cols * rows;
+          const t = this.ambientTime;
+          const st = this.phase === 'running' ? this.showTime : 0;
+          const bass = this.audio.bassEnergy;
+          const treb = this.audio.trebleEnergy;
+
+          // 1. Copy Sky + Forest + Ground into RGB Framebuffer
+          this.glyphOverride.fill(0);
+          for (let i = 0; i < N; i++) {
+            const i3 = i * 3;
+            let r = this.skyRgb[i3], g = this.skyRgb[i3 + 1], b = this.skyRgb[i3 + 2];
+
+            // Subtle Aurora Borealis ribbons in the upper sky
+            if (this.auroraEnabled) {
+              const y = (i / cols) | 0;
+              const ny = y / (rows - 1);
+              if (ny < 0.62) {
+                const x = i - y * cols;
+                const nx = x / (cols - 1);
+                const wave = Math.sin(nx * 6.5 + t * 0.35) * 0.08 + Math.cos(nx * 11.0 - t * 0.22) * 0.04;
+                const band = Math.exp(-Math.pow((ny - (0.20 + wave)) / 0.11, 2));
+                const shimmer = 0.65 + 0.35 * Math.sin(nx * 18.0 + t * 0.9);
+                const aur = band * shimmer * (0.22 + bass * 0.14);
+                r += aur * 0.14;
+                g += aur * 0.92;
+                b += aur * 0.68;
+              }
+            }
+
+            const fm = this.forestMask[i];
+            if (fm > 0) {
+              r = lerp(r, this.forestRgb[i3], fm);
+              g = lerp(g, this.forestRgb[i3 + 1], fm);
+              b = lerp(b, this.forestRgb[i3 + 2], fm);
+            }
+
+            const gm = this.groundMask[i];
+            if (gm > 0) {
+              r = lerp(r, this.groundRgb[i3], gm);
+              g = lerp(g, this.groundRgb[i3 + 1], gm);
+              b = lerp(b, this.groundRgb[i3 + 2], gm);
+              if (this.groundGlyph[i]) this.glyphOverride[i] = this.groundGlyph[i];
+            }
+
+            this.rgb[i3] = r; this.rgb[i3 + 1] = g; this.rgb[i3 + 2] = b;
+          }
+
+          // 2. Twinkling Starfield
+          const gDot = GLYPH_IDX['·'] + 1, gStar = GLYPH_IDX['✦'] + 1;
+          for (let i = 0; i < this.stars.length; i++) {
+            const s = this.stars[i];
+            const x = Math.round(s.nx * (cols - 1)), y = Math.round(s.ny * (rows - 1));
+            const idx = y * cols + x;
+            if (this.forestMask[idx] > 0.35) continue;
+            const tw = 0.45 + 0.55 * Math.sin(t * s.speed + s.phase);
+            const br = s.bright * tw;
+            this.addCellLight(x, y, s.r * br, s.g * br, s.b * br, s.tier === 2 && tw > 0.8 ? gStar : gDot);
+          }
+
+          // 3. Choreographed Christmas Tree Build (bottom-to-top emerald sweep)
+          const treeBuild = this.phase === 'running' ? smoothstep(1.6, 5.2, st) : 0;
+          if (treeBuild > 0) {
+            for (let i = 0; i < N; i++) {
+              const tm = this.treeMask[i];
+              if (tm <= 0) continue;
+              const hN = this.treeHeightNorm[i];
+              if (hN > treeBuild) continue;
+              const edgeGlow = Math.exp(-Math.pow((treeBuild - hN) * 18, 2)) * (treeBuild < 0.99 ? 1.1 : 0);
+              const i3 = i * 3;
+              this.rgb[i3] = lerp(this.rgb[i3], this.treeRgb[i3], tm) + edgeGlow * 0.45;
+              this.rgb[i3 + 1] = lerp(this.rgb[i3 + 1], this.treeRgb[i3 + 1], tm) + edgeGlow * 0.95;
+              this.rgb[i3 + 2] = lerp(this.rgb[i3 + 2], this.treeRgb[i3 + 2], tm) + edgeGlow * 0.85;
+              if (this.treeGlyph[i]) this.glyphOverride[i] = this.treeGlyph[i];
+            }
+          }
+
+          // 4. Helical Gold Garlands & 44 Ornaments
+          const decorBuild = this.phase === 'running' ? smoothstep(5.0, 7.6, st) : 0;
+          if (decorBuild > 0) {
+            const gTilde = GLYPH_IDX['~'] + 1, gBall = GLYPH_IDX['O'] + 1;
+            for (let i = 0; i < this.garlands.length; i++) {
+              const g = this.garlands[i];
+              if (g.hNorm > decorBuild) continue;
+              const x = Math.round(g.nx * (cols - 1)), y = Math.round(g.ny * (rows - 1));
+              const sh = (0.72 + 0.28 * Math.sin(t * 2.8 + g.phase)) * g.depthShade;
+              this.addCellLight(x, y, 0.98 * sh, 0.78 * sh, 0.24 * sh, gTilde);
+            }
+            for (let i = 0; i < this.ornaments.length; i++) {
+              const o = this.ornaments[i];
+              if (o.hNorm > decorBuild) continue;
+              const x = Math.round(o.nx * (cols - 1)), y = Math.round(o.ny * (rows - 1));
+              const gl = 0.85 + 0.25 * Math.sin(t * 2.2 + o.phase) + bass * 0.35;
+              this.addCellLight(x, y, o.color[0] * gl, o.color[1] * gl, o.color[2] * gl, gBall);
+            }
+          }
+
+          // 5. 96 Music-Reactive Fairy Lights & Golden Star Topper
+          const lightBuild = this.phase === 'running' ? smoothstep(7.6, 9.8, st) : 0;
+          if (lightBuild > 0) {
+            const gSpark = GLYPH_IDX['*'] + 1;
+            for (let i = 0; i < this.fairyLights.length; i++) {
+              const fl = this.fairyLights[i];
+              if (fl.hNorm > lightBuild) continue;
+              const x = Math.round(fl.nx * (cols - 1)), y = Math.round(fl.ny * (rows - 1));
+              const tw = 0.45 + 0.55 * Math.sin(t * fl.speed + fl.phase) + treb * 0.65;
+              this.addCellLight(x, y, fl.color[0] * tw, fl.color[1] * tw, fl.color[2] * tw, gSpark);
+            }
+
+            // Star Topper at Tree Apex
+            if (st > 8.8) {
+              const starScale = easeOutBack(clamp((st - 8.8) / 0.9, 0, 1));
+              const sx = Math.round(this.treeMetrics.cx * (cols - 1));
+              const sy = Math.round((this.treeMetrics.topY - 0.014) * (rows - 1));
+              const pulse = (1.1 + 0.28 * Math.sin(t * 4.5) + bass * 0.65) * starScale;
+              this.addCellLight(sx, sy, 1.8 * pulse, 1.55 * pulse, 0.65 * pulse, gStar);
+              this.addCellLight(sx - 1, sy, 0.9 * pulse, 0.72 * pulse, 0.22 * pulse);
+              this.addCellLight(sx + 1, sy, 0.9 * pulse, 0.72 * pulse, 0.22 * pulse);
+              this.addCellLight(sx, sy - 1, 0.9 * pulse, 0.72 * pulse, 0.22 * pulse);
+              this.addCellLight(sx, sy + 1, 0.9 * pulse, 0.72 * pulse, 0.22 * pulse);
+            }
+          }
+
+          // 6. 7 Wrapped Gifts
+          if (st > 9.8) {
+            const giftProg = clamp((st - 9.8) / 1.4, 0, 1);
+            const shownGifts = Math.ceil(giftProg * this.giftsByDepth.length);
+            for (let g = 0; g < shownGifts; g++) {
+              const gift = this.giftsByDepth[g];
+              for (let p = 0; p < gift.pixels.length; p++) {
+                const px = gift.pixels[p];
+                const idx = px.y * cols + px.x, i3 = idx * 3;
+                this.rgb[i3] = px.r; this.rgb[i3 + 1] = px.g; this.rgb[i3 + 2] = px.b;
+                if (px.gOv) this.glyphOverride[idx] = px.gOv;
+              }
+            }
+          }
+
+          // 7. Fireworks
+          for (let f = 0; f < this.fireworks.length; f++) {
+            const fw = this.fireworks[f];
+            if (fw.state === 'rocket') {
+              const x = Math.round(fw.nx * (cols - 1)), y = Math.round(fw.ny * (rows - 1));
+              this.addCellLight(x, y, 1.3, 1.1, 0.7, GLYPH_IDX['|'] + 1);
+            } else {
+              for (let p = 0; p < fw.particles.length; p++) {
+                const pt = fw.particles[p];
+                if (pt.life <= 0) continue;
+                const lifeNorm = clamp(pt.life / pt.maxLife, 0, 1);
+                const x = Math.round(pt.nx * (cols - 1)), y = Math.round(pt.ny * (rows - 1));
+                const c = lifeNorm > 0.6 ? fw.palette.c0 : (lifeNorm > 0.28 ? fw.palette.c1 : fw.palette.c2);
+                const br = Math.pow(lifeNorm, 0.75) * 1.45;
+                this.addCellLight(x, y, c[0] * br, c[1] * br, c[2] * br, lifeNorm > 0.5 ? gStar : gDot);
+              }
+            }
+          }
+
+          // 8. Snowflakes
+          const activeSnow = this.snowLevel === 0 ? 85 : (this.snowLevel === 1 ? 165 : 240);
+          const gSnow = GLYPH_IDX['*'] + 1;
+          for (let i = 0; i < activeSnow; i++) {
+            const s = this.snowflakes[i];
+            const x = Math.round(s.nx * (cols - 1)), y = Math.round(s.ny * (rows - 1));
+            this.addCellLight(x, y, 0.75 * s.bright, 0.88 * s.bright, 1.0 * s.bright, s.big ? gSnow : gDot);
+          }
+
+          // 9. Software Rasterize ASCII Buffer + Bloom Source
+          const pixels32 = this.asciiPixels32;
+          const bloom32 = this.bloomPixels32;
+          pixels32.fill(BG_U32);
+
+          const pxW = this.pxW, pxH = this.pxH, bufW = this.bufW;
+          for (let y = 0; y < rows; y++) {
+            const rowBaseY = y * pxH;
+            for (let x = 0; x < cols; x++) {
+              const idx = y * cols + x, i3 = idx * 3;
+              const r = this.rgb[i3], g = this.rgb[i3 + 1], b = this.rgb[i3 + 2];
+              const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+
+              // Bloom threshold extraction
+              if (lum > 0.42) {
+                const br = clamp((r - 0.25) * 255, 0, 255) | 0;
+                const bg = clamp((g - 0.25) * 255, 0, 255) | 0;
+                const bb = clamp((b - 0.25) * 255, 0, 255) | 0;
+                bloom32[idx] = (255 << 24) | (bb << 16) | (bg << 8) | br;
+              } else {
+                bloom32[idx] = BG_U32;
+              }
+
+              let glyphIdx = this.glyphOverride[idx] > 0
+                ? this.glyphOverride[idx] - 1
+                : clamp((Math.pow(clamp(lum, 0, 1.15), 0.78) * (RAMP_LEN - 1)) | 0, 0, RAMP_LEN - 1);
+
+              const glyph = this.glyphAtlas[glyphIdx];
+              if (!glyph || glyph.len === 0) continue;
+
+              const cr = clamp(r * 255, 0, 255);
+              const cg = clamp(g * 255, 0, 255);
+              const cb = clamp(b * 255, 0, 255);
+              const baseX = x * pxW;
+
+              for (let k = 0; k < glyph.len; k++) {
+                const a = glyph.alpha[k];
+                const pr = (2 + cr * a) | 0;
+                const pg = (3 + cg * a) | 0;
+                const pb = (8 + cb * a) | 0;
+                pixels32[(rowBaseY + glyph.dy[k]) * bufW + (baseX + glyph.dx[k])] =
+                  (255 << 24) | ((pb > 255 ? 255 : pb) << 16) | ((pg > 255 ? 255 : pg) << 8) | (pr > 255 ? 255 : pr);
+              }
+            }
+          }
+
+          // 10. Composite Final Frame + Dual-Pass Bloom + High-Res Specular Overlay
+          this.asciiBufferCtx.putImageData(this.asciiImgData, 0, 0);
+          this.ctx.globalCompositeOperation = 'source-over';
+          this.ctx.drawImage(this.asciiBufferCanvas, 0, 0);
+
+          this.bloomSrcCtx.putImageData(this.bloomImgData, 0, 0);
+          this.bloomHalfCtx.drawImage(this.bloomSrcCanvas, 0, 0, this.bloomHalfCanvas.width, this.bloomHalfCanvas.height);
+          this.bloomQuarterCtx.drawImage(this.bloomHalfCanvas, 0, 0, this.bloomQuarterCanvas.width, this.bloomQuarterCanvas.height);
+
+          this.ctx.save();
+          this.ctx.globalCompositeOperation = 'screen';
+          this.ctx.globalAlpha = 0.42;
+          this.ctx.drawImage(this.bloomHalfCanvas, 0, 0, this.bufW, this.bufH);
+          this.ctx.globalAlpha = 0.56;
+          this.ctx.drawImage(this.bloomQuarterCanvas, 0, 0, this.bufW, this.bufH);
+
+          // High-Res Crescent Moon Glow (Upper-Left Sky)
+          const moonX = this.bufW * 0.14, moonY = this.bufH * 0.16;
+          const moonR = Math.min(this.bufW, this.bufH) * 0.032;
+          const halo = this.ctx.createRadialGradient(moonX, moonY, moonR * 0.2, moonX, moonY, moonR * 4.2);
+          halo.addColorStop(0, 'rgba(224, 242, 254, 0.34)');
+          halo.addColorStop(0.35, 'rgba(125, 211, 252, 0.12)');
+          halo.addColorStop(1, 'rgba(2, 3, 8, 0)');
+          this.ctx.globalAlpha = 1;
+          this.ctx.fillStyle = halo;
+          this.ctx.beginPath();
+          this.ctx.arc(moonX, moonY, moonR * 4.2, 0, Math.PI * 2);
+          this.ctx.fill();
+
+          // Interactive Cursor Stardust Sparks
+          for (let i = 0; i < this.cursorSparks.length; i++) {
+            const sp = this.cursorSparks[i];
+            const alpha = clamp(sp.life / sp.maxLife, 0, 1);
+            this.ctx.globalAlpha = alpha;
+            this.ctx.fillStyle = sp.hue;
+            this.ctx.beginPath();
+            this.ctx.arc(sp.nx * this.bufW, sp.ny * this.bufH, 2.2 * alpha + 0.8, 0, Math.PI * 2);
+            this.ctx.fill();
+          }
+          this.ctx.restore();
+        }
+      }
+
+      /* =======================================================================
+         4. UI WIRING, LOCALIZATION ENGINE & MAIN LOOP
+         ======================================================================= */
+      const canvas = document.getElementById('asciiCanvas');
+      const audioEl = document.getElementById('customAudio');
+      const fileInput = document.getElementById('audioFileInput');
+      const startOverlay = document.getElementById('startOverlay');
+      const dropOverlay = document.getElementById('dropOverlay');
+      const stageToast = document.getElementById('stageToast');
+      const stageText = document.getElementById('stageText');
+      const stageProgressFill = document.getElementById('stageProgressFill');
+      const hudTrackName = document.getElementById('hudTrackName');
+      const startTrackStatus = document.getElementById('startTrackStatus');
+      const startTrackName = document.getElementById('startTrackName');
+      const btnUseBuiltIn = document.getElementById('btnUseBuiltIn');
+      const playPauseIcon = document.getElementById('playPauseIcon');
+      const btnPlayPause = document.getElementById('btnPlayPause');
+      const btnSfx = document.getElementById('btnSfx');
+      const sfxLabel = document.getElementById('sfxLabel');
+      const snowLabel = document.getElementById('snowLabel');
+      const resSelect = document.getElementById('resSelect');
+      const badgeResText = document.getElementById('badgeResText');
+      const btnAurora = document.getElementById('btnAurora');
+      const vizBars = Array.from(document.querySelectorAll('#vizBars .viz-bar'));
+
+      let lastStageIdx = -1;
+
+      const audio = new HolidayAudioEngine(audioEl, (label, isCustom) => {
+        hudTrackName.textContent = label;
+        hudTrackName.title = label;
+        btnUseBuiltIn.style.display = isCustom ? 'inline-flex' : 'none';
+        if (isCustom) {
+          startTrackStatus.classList.add('custom');
+          startTrackName.textContent = I18N[currentLang].customTrackPrefix + label;
+        } else {
+          startTrackStatus.classList.remove('custom');
+          startTrackName.textContent = I18N[currentLang].defaultTrackStatus;
+        }
+      });
+
+      const engine = new WinterMagicUltraEngine(canvas, audio, (stageIdx, prog) => {
+        lastStageIdx = stageIdx;
+        if (stageIdx < 5) {
+          stageToast.classList.add('visible');
+          stageText.textContent = I18N[currentLang].stages[stageIdx];
+          stageProgressFill.style.width = `${Math.round(prog * 100)}%`;
+        } else {
+          stageToast.classList.remove('visible');
+        }
+      });
+
+      function applyLanguage(lang) {
+        if (!I18N[lang]) return;
+        currentLang = lang;
+        localStorage.setItem('winter_magic_lang', lang);
+        document.documentElement.lang = lang;
+        const dict = I18N[lang];
+        document.title = dict.pageTitle;
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) el.textContent = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-html');
+          if (dict[key]) el.innerHTML = dict[key];
+        });
+
+        // Update dynamic state labels
+        sfxLabel.textContent = audio.sfxEnabled ? dict.sfxOn : dict.sfxOff;
+        snowLabel.textContent = dict.snowLevels[engine.snowLevel];
+        badgeResText.textContent = dict.badgeRes[engine.resMode];
+        hudTrackName.textContent = audio.getCurrentTrackLabel();
+        if (audio.mode === 'custom') {
+          startTrackName.textContent = dict.customTrackPrefix + audio.customTrackName;
+        } else {
+          startTrackName.textContent = dict.defaultTrackStatus;
+        }
+        if (lastStageIdx >= 0 && lastStageIdx < 5) {
+          stageText.textContent = dict.stages[lastStageIdx];
+        }
+
+        // Update tooltips
+        Object.entries(dict.tooltips).forEach(([id, tip]) => {
+          const el = document.getElementById(id);
+          if (el) el.title = tip;
+        });
+
+        // Update language switcher active pill
+        document.querySelectorAll('.lang-btn').forEach((btn) => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+      }
+
+      // Language Switcher Events
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+      });
+
+      // Start Show
+      document.getElementById('btnStartShow').addEventListener('click', () => {
+        document.body.classList.remove('pre-start');
+        startOverlay.classList.add('hidden');
+        audio.startPlayback(true);
+        engine.startShow();
+      });
+
+      // Controls
+      document.getElementById('btnReplay').addEventListener('click', () => engine.startShow());
+      document.getElementById('btnSalvo').addEventListener('click', () => engine.launchGrandSalvo());
+
+      btnPlayPause.addEventListener('click', () => {
+        const playing = audio.togglePlayPause();
+        playPauseIcon.textContent = playing ? '⏸️' : '▶️';
+        btnPlayPause.classList.toggle('active', playing);
+      });
+
+      document.getElementById('volSlider').addEventListener('input', (e) => {
+        audio.setVolume(Number(e.target.value) / 100);
+      });
+
+      const triggerUpload = () => fileInput.click();
+      document.getElementById('btnStartUpload').addEventListener('click', triggerUpload);
+      document.getElementById('btnHudUpload').addEventListener('click', triggerUpload);
+      btnUseBuiltIn.addEventListener('click', () => audio.switchToBuiltIn());
+
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (file) audio.loadCustomFile(file, !document.body.classList.contains('pre-start'));
+        fileInput.value = '';
+      });
+
+      btnSfx.addEventListener('click', () => {
+        const on = audio.toggleSfx();
+        btnSfx.classList.toggle('active', on);
+        sfxLabel.textContent = on ? I18N[currentLang].sfxOn : I18N[currentLang].sfxOff;
+      });
+
+      document.getElementById('btnSnow').addEventListener('click', () => {
+        engine.snowLevel = (engine.snowLevel + 1) % 3;
+        snowLabel.textContent = I18N[currentLang].snowLevels[engine.snowLevel];
+      });
+
+      btnAurora.addEventListener('click', () => {
+        engine.auroraEnabled = !engine.auroraEnabled;
+        btnAurora.classList.toggle('active', engine.auroraEnabled);
+      });
+
+      resSelect.addEventListener('change', (e) => {
+        engine.setResolutionMode(e.target.value);
+        badgeResText.textContent = I18N[currentLang].badgeRes[engine.resMode];
+      });
+
+      const toggleHud = (hide) => document.body.classList.toggle('hud-hidden', hide);
+      document.getElementById('btnHideHud').addEventListener('click', () => toggleHud(true));
+      document.getElementById('btnShowHud').addEventListener('click', () => toggleHud(false));
+
+      // Interactive Canvas: Click to Launch Fireworks + Pointer Stardust
+      canvas.addEventListener('pointerdown', (e) => {
+        if (document.body.classList.contains('pre-start')) return;
+        const rect = canvas.getBoundingClientRect();
+        const nx = (e.clientX - rect.left) / rect.width;
+        const ny = (e.clientY - rect.top) / rect.height;
+        engine.launchFirework(nx, ny);
+      });
+
+      canvas.addEventListener('pointermove', (e) => {
+        if (Math.random() > 0.45) return;
+        const rect = canvas.getBoundingClientRect();
+        engine.addCursorSpark((e.clientX - rect.left) / rect.width, (e.clientY - rect.top) / rect.height);
+      });
+
+      // Drag & Drop Audio Support
+      let dragDepth = 0;
+      window.addEventListener('dragenter', (e) => { e.preventDefault(); dragDepth++; dropOverlay.classList.add('active'); });
+      window.addEventListener('dragover', (e) => e.preventDefault());
+      window.addEventListener('dragleave', () => { dragDepth = Math.max(0, dragDepth - 1); if (dragDepth === 0) dropOverlay.classList.remove('active'); });
+      window.addEventListener('drop', (e) => {
+        e.preventDefault(); dragDepth = 0; dropOverlay.classList.remove('active');
+        const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (file && file.type.startsWith('audio')) {
+          audio.loadCustomFile(file, !document.body.classList.contains('pre-start'));
+        }
+      });
+
+      // Keyboard Shortcuts
+      window.addEventListener('keydown', (e) => {
+        if (document.body.classList.contains('pre-start')) return;
+        if (e.code === 'Space') { e.preventDefault(); engine.launchGrandSalvo(); }
+        else if (e.key === 'r' || e.key === 'R') engine.startShow();
+        else if (e.key === 'h' || e.key === 'H') document.body.classList.toggle('hud-hidden');
+      });
+
+      window.addEventListener('resize', () => engine.resize());
+
+      // Initialize Localization & Animation Loop
+      applyLanguage(currentLang);
+
+      let lastTime = performance.now();
+      function frame(now) {
+        const dt = Math.min(0.05, (now - lastTime) / 1000);
+        lastTime = now;
+
+        audio.update(dt);
+        engine.update(dt);
+        engine.render();
+
+        // Update mini audio visualizer bars
+        for (let i = 0; i < vizBars.length; i++) {
+          vizBars[i].style.height = `${Math.round(3 + audio.vizLevels[i] * 11)}px`;
+        }
+
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
+  </script>
+</body>
+</html>
